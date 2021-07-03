@@ -185,4 +185,14 @@ class AudioController extends Controller
         return redirect()->to('/admin/audio');
     }
 
+    public function updateAudioStatus($id)
+    {
+        $audio_id = $id;
+        $audio = Audio::where('id', $id)->first();
+        $status = $audio->status ? 0 : 1;
+
+        $audio->status = $status;
+        $audio->save();
+        return redirect()->to('/admin/audio');
+    }
 }

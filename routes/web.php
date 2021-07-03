@@ -64,6 +64,7 @@ Route::group([
     Route::post('/addAudio', 'Admin\AudioController@save')->name('addAudio');
     Route::get('/editAudio/{id}', 'Admin\AudioController@edit')->name('editAudio');
     Route::post('/updateAudio', 'Admin\AudioController@update')->name('updateAudio');
+    Route::get('/updateAudioStatus/{id}', 'Admin\AudioController@updateAudioStatus')->name('updateAudioStatus');
 
     Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
     Route::get('/addCategory', 'Admin\CategoriesController@create')->name('addCategory');

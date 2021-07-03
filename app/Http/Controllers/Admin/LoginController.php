@@ -22,7 +22,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
     	$this->validate($request, [
-            'login' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 

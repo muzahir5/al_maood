@@ -72,6 +72,9 @@ Route::group([
     Route::get('/editCategory/{id}', 'Admin\CategoriesController@edit')->name('editCategory');
     Route::post('/updateCategory', 'Admin\CategoriesController@update')->name('updateCategory');
 
+    Route::get('/users', 'Admin\UserController@index')->name('users');
+    Route::get('/updateUserStatus/{id}/{status}', 'Admin\UserController@updateUserStatus')->name('updateUserStatus');
+
 
 });
 

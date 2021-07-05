@@ -12,7 +12,8 @@
 
           <a href="{{ url('/admin/product')}}">Products</a>
           <a href="{{ url('/admin/audio')}}">Audio</a>
-          <a href="{{ url('admin/categories') }}">Categories</a>  
+          <a href="{{ url('admin/categories') }}">Categories</a>
+          <a href="{{ url('admin/users') }}">Users</a>
 
           <a href="{{ url('admin/logout') }}">Logout</a>
 

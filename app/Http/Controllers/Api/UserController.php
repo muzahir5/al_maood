@@ -79,7 +79,7 @@ class UserController extends Controller
             if($user->status == 0){
                 return response()->json([ 'status' => "fail", 'message' => 'please activate your Account' ]);
             }elseif($user->status == 3){
-                return response()->json([ 'status' => 'fail', 'message' => "You Have been Terminated" ]);
+                return response()->json([ 'status' => 'fail', 'message' => "You Have been Block" ]);
             }
             elseif(Hash::check($request->password, $user->password))
             {                
@@ -432,7 +432,7 @@ class UserController extends Controller
     {
         // $user_id = $request->user_id ? $request->user_id : NULL;
 
-        $post_tracking = new PostTracking();        
+        $post_tracking = new PostTracking();
         $post_tracking->post_id = $request->post_id;
         $post_tracking->user_id = $request->user_id;
         $post_tracking->language = $request->language ;
@@ -724,6 +724,7 @@ class UserController extends Controller
         return response()->json([ 'status' => "success", 'amount' => $show_wallet ]);
     }
 
+    //statue = 2 is by default , 1 for pending && 0 for clear
     public function withDrawRequest(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -746,18 +747,27 @@ class UserController extends Controller
         if($request_amount > $current_amount)
         {
          return response()->json( [ 'status' => 'fail', 'message' => 'withDraw Amount Must be less than Current Amount' ]);   
+        }        
+        $old_with_draw_amount = 0;
+        $with_draw = $with_draw_check = WithDraw::where(['user_id' => $user_id , 'status' => '2'])->first();        
+        
+        if(empty($with_draw_check)){
+           $old_with_draw_amount = 0;
+            $with_draw = new WithDraw();
+        }else{
+            $old_with_draw_amount = $with_draw->with_draw_amount;
         }
-
-        $with_draw = new WithDraw();
+        // echo $old_with_draw_amount;
+        // exit;
         $with_draw->user_id = $user_id;
-        $with_draw->with_draw_amount = $request->request_amount;
+        $with_draw->with_draw_amount = $request->request_amount + $old_with_draw_amount;
         $with_draw->with_draw_by = $request->withDrawBy;
 
         //update userEarning
         $show_wallet->current_amount = $current_amount - $request->request_amount;
         $show_wallet->previous_amount = $current_amount;                
         $show_wallet->current_transaction = '-' . $request_amount;
-        $show_wallet->last_transaction = $current_amount;
+        $show_wallet->last_transaction = $show_wallet->current_transaction;
         $show_wallet->save();
 
         $with_draw->save();

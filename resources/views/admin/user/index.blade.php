@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h2>Audio
+    <h2>Users
     	<!-- <span style="float: right;"><a href="{{ url('admin/addAudio') }}">Add Audio</a>  </span> -->
     </h2>
             <table id="data_tbl" class="display" style="width:100%">
@@ -27,13 +27,15 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->mobile_number}}</td>
                         <td>
-                            <!-- @if($user->status == 3)
-                              <a href="#" title="User is Block" > Block | </a>
-                            @endif -->
+                            @if($user->status == 3)
+                              <a href="#" title="User is Block" > Block , </a>
+                            @elseif($user->status == 0)
+                              <a href="#" title="User is UnActive" > UnActive , </a>
+                            @endif
                             @if($user->status == 0 || $user->status == 3)
-                              <a href="{{url('admin/updateUserStatus' , [ $user->id , 1 ])}}" title="Click to Activite User" > Active </a>
+                              <a href="{{url('admin/updateUserStatus' , [ $user->id , 1 ])}}" title="Click to Activite User" > Activite </a>
                             @else
-                              <a href="{{url('admin/updateUserStatus' ,[ $user->id , 3 ])}}" title="Click to Block User" > Block </a>
+                              <a href="{{url('admin/updateUserStatus' ,[ $user->id , 3 ])}}" title="Click to Block User"> Block </a>
                             @endif
                         </td>                
                         <td><a href="{{url('admin/editUser' ,$user->id )}} ">Edit</a> |Delete</td>

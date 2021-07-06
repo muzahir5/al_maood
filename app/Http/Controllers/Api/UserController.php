@@ -47,7 +47,7 @@ class UserController extends Controller
         if($user){
             $user->mobile_number = $request->mobile_number;
             $user->update();
-            event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'u_registered_'.$user->id);
+            event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_registered_'.$user->id, $device_type = 'app');
 
             return response()->json([            
                 'status' => "success",
@@ -63,7 +63,6 @@ class UserController extends Controller
 
     public function userLogin(Request $request)
     {
-        echo 5;exit;
         $validator = Validator::make($request->all(), [
                         'email' => 'required|email',
                         'password' => 'required|string'
@@ -88,7 +87,7 @@ class UserController extends Controller
                 $user->logged_token = bin2hex(random_bytes(36));
                 $user->update();                
 
-                event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'u_login');
+                event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_login_'.$user->id, $device_type = 'app');
 
                 return response()->json([
                     'status' => 'success',
@@ -97,6 +96,10 @@ class UserController extends Controller
                     'full_name' => $user->name,
                     'mobile_number' => $user->mobile_number,
                     'logged_token' => $user->logged_token,
+                    'country' => $user->country,
+                    'city' => $user->city,
+                    'village' => $user->village,
+                    'mobile_network' => $user->mobile_network,
                 ]);
             }
             else
@@ -114,7 +117,6 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required|integer',
-            // 'email' => 'required|email',
         ]);
         if ($validator->fails()) {
             return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
@@ -126,7 +128,7 @@ class UserController extends Controller
             $user->is_loged_in = 0;
             $user->logged_token = NULL;
             $user->update();
-            event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'u_logout');
+            event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_logout_'.$request->id, $device_type = 'app');
             $status = 'success'; $message = 'successfully logout';
         }
         return response()->json([ 'status' => $status, 'message' => $message ]);
@@ -134,6 +136,13 @@ class UserController extends Controller
 
     public function userUpdate(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|integer',
+        ]);
+        if ($validator->fails()) {
+            return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
+        }
+
         $user = User::where('id', $request->id)->first();
         if(!$user)
         {
@@ -161,7 +170,7 @@ class UserController extends Controller
         $user->mobile_number = $request->mobile_number;
         $user->mobile_network = $request->mobile_network;        
         $user->update();
-        event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'u_updated');
+        event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_updated_'.$request->id, $device_type = 'app');
         // print_r($user);exit;
 
         return response()->json([            
@@ -190,25 +199,73 @@ class UserController extends Controller
             $id = $user->id;
             $code = $id.date("is");
             $name = $user->name;
+            $user->remember_token = $code;
+            $user->update();
 
             // $user = User::where('email',$email)->update( ['pass_forgot_code'=>$code] );
 
             // Mail::to($email)->send(new RiderForgotPasswordCode($code,$name));
 
+             // the message
+                $msg = "Hi $user->name,'<br>'Your Secret Code is $code . ";
+
+                // use wordwrap() if lines are longer than 70 characters
+                $msg = wordwrap($msg,70);
+
+                // send email
+                mail("muzahir.hussain@earthfactor.net","Forgot Password Secret Code",$msg);
+
             return response()->json([
-                    'status' => "success",
-                    'data' => $code
-                ]);
+                        'status' => "success",
+                        'data' => $code
+                    ]);            
         }else{
             return response()->json([
-                    'error' => 'user no exist',
-                    'status' => 'error'
+                    'success' => 'false',
+                    'error' => 'user no exist'
                 ]);
         }
     }
 
-    public function getUserById(Request $request){
-        
+    public function update_password(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+                        'code' => 'required',
+                        'password' => 'required|string'                        
+                    ]);
+        if ($validator->fails()) {
+            return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
+        }
+        $password = bcrypt($request->password);
+
+        $user = User::where('remember_token', $request->code)->first(); //->where('status', "1")
+        if($user)
+        {
+            $user->password = $password;
+            $user->update();
+
+            return response()->json([
+                        'status' => "success",
+                        'message' => 'Password Set successfully'
+            ]);
+        }else{
+            return response()->json([
+                    'success' => 'false',
+                    'error' => 'user no exist'
+                ]);
+        }
+    }
+
+    public function getUserById(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|integer',
+            // 'email' => 'required|email',
+        ]);
+        if ($validator->fails()) {
+            return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
+        }
+
         $status = 'fail';
         $user = User::where('id', $request->user_id)->first(); //->where('status', "1")
         if($user)
@@ -221,7 +278,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function getUserBySearch(Request $request){
+    public function userSearch(Request $request){
         
         $status = 'fail';
         $user = User::select('id','name','email','mobile_number')->where('name', 'LIKE', "%$request->search%")->orWhere('email', 'like', '%' . $request->search . '%')
@@ -237,256 +294,6 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
-
-    // other controller fx below
-
-    public function getProducts(){
-    	$products = DB::table('products as prod')->select('prod.id','prod.name','prod.price','prod.sale_price','prod_imgs.image_url')
-                        ->join('product_images as prod_imgs', 'prod.id','prod_imgs.product_id')->get();
-
-        // echo "<pre>".print_r($products);
-
-        return response()->json([            
-            'status' => "success",
-            'data' => $products
-        ]);
-    }
-
-    public function listAudio(Request $request){
-        $searchInAll = $request->searchInAll ? $request->searchInAll : '';
-        $searchInCat = $request->searchInCat ? $request->searchInCat : '';
-
-        $categories = Categories::all();
-        $query = Audio::where('status',1);
-        if($searchInAll != ''){
-            //general search
-            $query->where(function ($query) use ($searchInAll) {
-                        $query->orWhere('title', 'like', "%{$searchInAll}%");
-                        $query->orWhere('category', 'like', "%{$searchInAll}%");
-                        $query->orWhere('poet', 'like', "%{$searchInAll}%");
-                        
-                });
-        }elseif($searchInCat != ''){
-            //search in Category
-            $query->where(function ($query) use ($searchInCat) {
-                        $query->orWhere('category', 'like', "%{$searchInCat}%");
-                        
-                });
-        }
-        $audios = $query->get();        
-
-        return response()->json([            
-            'status' => "success",
-            'audios' => $audios
-        ]);
-    }
-
-    public function listAudioBYUser(Request $request)
-    {
-        $user_id = $request->user_id;
-        $audios = Audio::where('upload_by_id',$user_id)->where('status','!=',3)->get();
-
-        return response()->json([            
-            'status' => "success",
-            'audios' => $audios
-        ]);
-
-    }
-
-    public function showAudio(Request $request)
-    {        
-        $status = 'fail';
-        $relavent_audio = null;
-
-        $id = $request->id;
-        $categories = Categories::all();
-        $audio = Audio::where( [ 'id'=> $id, 'status'=> 1 ])->first();
-                
-        if($audio){
-            event_track_from_fx_hlpr($post_id = $id, $user_id = null, $event_type = 'show_audio');
-            $status = 'success';
-            $relavent_audio = Audio::where(['category'=> $audio->category, 'show_to'=>$audio->show_to])->where('id','!=',$audio->id)->get();
-        }
-        // if (!$relavent_audio) { $relavent_audio = null; }       
-
-        // echo $audio->show_to;exit;
-        // echo print_r($relavent_audio);exit;
-
-        return response()->json([            
-            'status' => $status,
-            'audio' => $audio,
-            'base_path' => base_path().'/',
-            'relavent_audio' => $relavent_audio,            
-        ]);
-    }
-
-    public function addAudio(Request $request)
-    {
-        // echo 33;exit;
-        $validator = Validator::make($request->all(), [
-                        'user_id' => 'required|integer',
-                        'title' => 'required | string | max:255',
-                        'category' => 'required|integer',
-                        'show_to' => 'nullable',
-                        'mp3_file' =>'required ',//|mimes:audio/mpeg,mpga,mp3,wav,aac',
-                        'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
-                        'pdf_upload_text_link' =>'nullable|mimes:pdf',
-
-                        'poet' => 'nullable| string | max:255',
-                        'narrator' => 'nullable | string | max:255',
-                        'duration' => 'nullable | string | max:255',
-                        'released_at' => 'nullable | string | max:255'
-                    ]);
-        if ($validator->fails()) {
-            return response()->json(
-                [
-                    'status' => 'error',
-                    'error' => $validator->errors()
-                ], 200);
-        }
-
-        $user_id = $request->user_id;
-        $user = User::where('id', $request->user_id)->first();
-        
-        $audio = new Audio();
-        $audio->title = $request->title ;
-        $audio->category = $request->category;
-        $audio->show_to = $request->show_to;
-
-        $audio->poet = $request->poet;
-        $audio->narrator = $request->narrator;
-        $audio->duration = $request->duration;
-        $audio->released_at = $request->released_at;
-        $audio->album = $request->album;
-
-        $audio->upload_by = $user->name ;
-        $audio->upload_by_id = $user_id;
-        
-/*            
-        if($request->hasFile('mp3_file')){          
-           $music_file = $request->file('mp3_file');
-           $uniqueid= uniqid();
-           $categ_showto = $request->category.'_'.$request->show_to.'__';
-           $filename = $categ_showto.Carbon::now()->format('Ymd').'_'.$request->title.'_'.$music_file->getClientOriginalExtension();
-           $location = public_path('audio/mp3/');
-           $music_file->move($location,$filename);
-
-           $audio_url = 'public/audio/mp3/'.$filename;
-           $audio->audio_url = $audio_url;
-        }
-
-        if($request->hasFile('img_upload_text_link')){
-
-            $originalImage= $request->file('img_upload_text_link');
-            $thumbnailImage = Image::make($originalImage);            
-            $originalPath = public_path().'/audio/images/';
-            $categ_showto = $request->category.'_'.$request->show_to.'__';
-            $thumbnailImage->save($originalPath.$categ_showto.$request->title);
-
-            $audio->img_upload_text_link = 'audio/images/'.$categ_showto.$request->title;
-        }
-
-        if($request->hasFile('pdf_upload_text_link')){
-
-            $originalImage= $request->file('pdf_upload_text_link');
-            $thumbnailImage = Image::make($originalImage);            
-            $originalPath = public_path().'/audio/pdf/';
-            $categ_showto = $request->category.'_'.$request->show_to.'__';
-            $thumbnailImage->save($originalPath.$categ_showto.$request->title);
-
-            $audio->pdf_upload_text_link = 'audio/pdf/'.$categ_showto.$request->title;
-        }*/
-
-        $audio->audio_url = 'test';
-        // echo '<pre>';print_r($audio);exit;
-
-        $audio->save();
-        return response()->json(
-            [ 'status' => 'success', 'message' => "Audio has been Added successfully, After Activation Audio will be showing in app" ]
-        );
-    }
-
-    public function updateAudioStatus(Request $request)
-    {        
-        $user_id = $request->user_id;        
-
-        $audio_id = $request->id;
-        $status = $request->status;
-        $audio = Audio::where('id', $audio_id)->first();
-        // $status = $audio->status ? 0 : 1;
-        $msg = $status == 3 ? 'deleted' : 'updated';
-        event_track_from_fx_hlpr($post_id = $audio_id,$user_id = $user_id,$event_type = 'audio_status_'.$status);
-        $audio->status = $status;
-        $audio->save();
-        $audios = Audio::where('upload_by_id',$user_id)->where('status','!=',3)->get();
-        return response()->json(
-            [ 
-                'status' => 'success',
-                'message'=> "Audio has been $msg successfully",
-                'audios' => $audios
-            ]
-        );
-    }
-
-    public function postTracking(Request $request)
-    {
-        // $user_id = $request->user_id ? $request->user_id : NULL;
-
-        $post_tracking = new PostTracking();
-        $post_tracking->post_id = $request->post_id;
-        $post_tracking->user_id = $request->user_id;
-        $post_tracking->language = $request->language ;
-        $post_tracking->device_type = $request->device_type ;
-        $post_tracking->event_type = $request->event_type ;     //list,view/play,download,gift,add/rm fav 
-        // print_r($post_tracking);
-        
-        $post_tracking->save();
-        
-        return response()->json([ 'status' => 'success', 'message' => "$request->event_type tracked successfully" ]);
-    }
-
-    public function addFavourite(Request $request){
-
-        $status = 'fail';
-        $user = User::where('id', $request->user_id)->first();
-        if(!$user)
-        { 
-            return response()->json([ 'status' => 'fail', 'message' => 'Invalid User Id' ]);
-        }
-
-        $fav = new Fav();
-        $fav->user_id = $request->user_id;
-        $fav->user_type = $request->user_type;
-        $fav->post_id = $request->post_id;
-        $fav->post_type = $request->post_type;
-        // print_r($fav);
-        $fav_added = $fav->save();
-        if($fav_added){
-            event_track_from_fx_hlpr($post_id = $fav->id, $user_id = $request->user_id, $event_type = 'added_fav');
-            $status = 'success';
-        }
-
-        return response()->json([ 'status' => $status, 'message' => 'successfully added in favourite' ]);
-    }
-
-    public function removeFavourite(Request $request)
-    {
-        $status = 'fail';
-        $message = null;        
-
-        $remove_fav = DB::table('favourite_lists')->where([ 'id' => $request->id, 'user_id' => $request->user_id])->delete();
-        if($remove_fav){
-            event_track_from_fx_hlpr($post_id = $request->id,$user_id = $request->user_id,$event_type = 'remove_fav');
-            $status = 'success';
-            $message = 'successfully removed';
-        }
-
-        return response()->json([            
-            'status' => $status,
-            'message' => $message
-        ]);
-    }
-
     public function addFriend(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -583,13 +390,86 @@ class UserController extends Controller
         $count = count($friends);        
         if($count < 1)
         {
-            return response()->json([ 'status' => "fail", 'message' => 'no record found' ]);
+            return response()->json([ 'success' => "false", 'message' => 'no record found' ]);
         }else{
             event_track_from_fx_hlpr($post_id = $request->user_id, $user_id = $request->user_id, $event_type = 'listFriends_for_'.$request->user_id);
 
             return response()->json([ 'status' => "success", 'data' => $friends ]);
         }
+    }    
+
+    // other controller fx below
+
+    public function getProducts(){
+    	$products = DB::table('products as prod')->select('prod.id','prod.name','prod.price','prod.sale_price','prod_imgs.image_url')
+                        ->join('product_images as prod_imgs', 'prod.id','prod_imgs.product_id')->get();
+
+        // echo "<pre>".print_r($products);
+
+        return response()->json([            
+            'status' => "success",
+            'data' => $products
+        ]);
+    }    
+
+    public function postTracking(Request $request)
+    {
+        // $user_id = $request->user_id ? $request->user_id : NULL;
+
+        $post_tracking = new PostTracking();
+        $post_tracking->post_id = $request->post_id;
+        $post_tracking->user_id = $request->user_id;
+        $post_tracking->language = $request->language ;
+        $post_tracking->device_type = $request->device_type ;
+        $post_tracking->event_type = $request->event_type ;     //list,view/play,download,gift,add/rm fav 
+        // print_r($post_tracking);
+        
+        $post_tracking->save();
+        
+        return response()->json([ 'status' => 'success', 'message' => "$request->event_type tracked successfully" ]);
     }
+
+    public function addFavourite(Request $request)
+    {
+        $status = 'fail';
+        $user = User::where('id', $request->user_id)->first();
+        if(!$user)
+        { 
+            return response()->json([ 'status' => 'fail', 'message' => 'Invalid User Id' ]);
+        }
+
+        $fav = new Fav();
+        $fav->user_id = $request->user_id;
+        $fav->user_type = $request->user_type;
+        $fav->post_id = $request->post_id;
+        $fav->post_type = $request->post_type;
+        // print_r($fav);
+        $fav_added = $fav->save();
+        if($fav_added){
+            event_track_from_fx_hlpr($post_id = $fav->id, $user_id = $request->user_id, $event_type = 'added_fav');
+            $status = 'success';
+        }
+
+        return response()->json([ 'status' => $status, 'message' => 'successfully added in favourite' ]);
+    }
+
+    public function removeFavourite(Request $request)
+    {
+        $status = 'fail';
+        $message = null;        
+
+        $remove_fav = DB::table('favourite_lists')->where([ 'id' => $request->id, 'user_id' => $request->user_id])->delete();
+        if($remove_fav){
+            event_track_from_fx_hlpr($post_id = $request->id,$user_id = $request->user_id,$event_type = 'remove_fav');
+            $status = 'success';
+            $message = 'successfully removed';
+        }
+
+        return response()->json([            
+            'status' => $status,
+            'message' => $message
+        ]);
+    }    
 
     public function sendSms(Request $request)
     {

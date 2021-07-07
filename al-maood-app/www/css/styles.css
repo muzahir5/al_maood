@@ -31,6 +31,12 @@
   height: auto;  
 }
 
+@media screen and (max-width: 321px) {
+  #rcorners2 {
+    padding: 12px;
+  }
+}
+
 .row.no-gap .col img {
   border-radius: 30%;
 }

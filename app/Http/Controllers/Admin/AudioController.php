@@ -47,10 +47,10 @@ class AudioController extends Controller
             'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
             'pdf_upload_text_link' =>'nullable|mimes:pdf',
 
-            'poet' => 'nullable|required | string | max:255',
-            'narrator' => 'nullable|required | string | max:255',
-            'duration' => 'nullable|required | string | max:255',
-            'released_at' => 'nullable|required | string | max:255'
+            'poet' => 'nullable| string | max:255',
+            'narrator' => 'nullable | string | max:255',
+            'duration' => 'nullable | string | max:255',
+            'released_at' => 'nullable | string | max:255'
         ]);
         
         $admin_id = Auth::user()->id;

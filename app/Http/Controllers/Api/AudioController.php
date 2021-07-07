@@ -24,7 +24,6 @@ use App\Model\User\WithDraw;
 
 class AudioController extends Controller
 {
-
 	public function listAudio(Request $request){
         $searchInAll = $request->searchInAll ? $request->searchInAll : '';
         $searchInCat = $request->searchInCat ? $request->searchInCat : '';
@@ -48,6 +47,17 @@ class AudioController extends Controller
                 });
         }
         $audios = $query->get();        
+
+        return response()->json([            
+            'status' => "success",
+            'audios' => $audios
+        ]);
+    }
+
+    public function listAudioByCatagory($cat_id)
+    {
+        $categories = Categories::all();
+        $audios = Audio::where('status',1)->Where('category', 'like', "%{$cat_id}%")->get();        
 
         return response()->json([            
             'status' => "success",
@@ -208,4 +218,5 @@ class AudioController extends Controller
             ]
         );
     }
-}
+    
+} //End Controller

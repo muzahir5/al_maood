@@ -1,7 +1,7 @@
 var home = {    
     audio_list: function(searchInCat,cat_name){    	
     	var param = [];
-        var url = 'user/listAudio/'+searchInCat;
+        var url = 'user/listAudioByCatagory/'+searchInCat;
         mainView.router.loadPage('templates/audio_list.html');
         // core.log('Error: ' + url);
         core.getRequest(url,param, function (response, status) {

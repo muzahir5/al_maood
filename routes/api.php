@@ -30,11 +30,11 @@ Route::group([
     Route::get('/user/getUserById/', 'UserController@getUserById')->name('api.user.getUserById');
     Route::get('/user/userSearch/', 'UserController@userSearch')->name('api.user.userSearch');
 
-
 // Other Controller nnn
     Route::get('/user/getProducts/', 'UserController@getProducts')->name('api.user.getProducts');
 
     Route::get('/user/listAudio/', 'AudioController@listAudio')->name('api.user.listAudio');
+    Route::get('/user/listAudioByCatagory/{id}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');
     Route::get('/user/listAudioBYUser/', 'AudioController@listAudioBYUser')->name('api.user.listAudioBYUser');
     Route::get('/user/showAudio/', 'AudioController@showAudio')->name('api.user.showAudio');
     Route::post('/user/addAudio/', 'AudioController@addAudio')->name('api.user.addAudio');
@@ -55,6 +55,4 @@ Route::group([
     Route::post('/user/userEarning/', 'UserController@userEarning')->name('api.user.userEarning');
     Route::get('/user/showWallet/{user_id}', 'UserController@showWallet')->name('api.user.showWallet');
     Route::post('/user/withDrawRequest/', 'UserController@withDrawRequest')->name('api.user.withDrawRequest');
-
-
 });

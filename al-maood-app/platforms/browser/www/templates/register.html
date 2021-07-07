@@ -9,7 +9,7 @@
                 <span>Back</span>
             </a>
         </div>
-        <div class="center sliding">Audio List</div>
+        <div class="center sliding">Create Account</div>
         <div class="right">
             <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
         </div>
@@ -18,14 +18,14 @@
 <div class="pages">
     <div data-page="list_audio" class="page">
         <div class="page-content">
-            <form class="list" id="my-form">
+            <form class="list" id="reg_form">
                 <ul>
                   <li>
                     <div class="item-content item-input">
                       <div class="item-inner">
                         <div class="item-title item-label">Name</div>
                         <div class="item-input-wrap">
-                          <input type="text" name="name" placeholder="Your name" />
+                          <input type="text" class="name" name="name" placeholder="Your name" />
                         </div>
                       </div>
                     </div>
@@ -35,34 +35,29 @@
                       <div class="item-inner">
                         <div class="item-title item-label">E-mail</div>
                         <div class="item-input-wrap">
-                          <input type="email" name="email" placeholder="E-mail" />
+                          <input type="email" class="email" name="email" placeholder="E-mail" />
                         </div>
                       </div>
                     </div>
                   </li>
+                  
                   <li>
                     <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-title item-label">Gender</div>
+                        <div class="item-title item-label">Password</div>
                         <div class="item-input-wrap">
-                          <select name="gender">
-                            <option value="male" selected="selected">Male</option>
-                            <option value="female">Female</option>
-                          </select>
+                          <input type="password" class="password" name="password" placeholder="Password" />
                         </div>
                       </div>
                     </div>
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-title">Toggle</div>
-                        <div class="item-after">
-                          <label class="toggle toggle-init">
-                            <input type="checkbox" name="toggle" value="yes" /><i class="toggle-icon"></i>
-                          </label>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <a onclick="login.register();"><input type="submit" text="Submit" ></a>
+                            </div>
                         </div>
-                      </div>
                     </div>
                   </li>
                 </ul>

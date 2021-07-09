@@ -38,12 +38,14 @@ class AudioController extends Controller
     public function save(Request $request){
 
         // echo '<pre>'; print_r($request->album);exit;
-                // 
+                //         
         $this->validate($request, [
             'title' => 'required | string | max:255',
             'category' => 'required',
+            'audio_type' => 'required | string',
             'show_to' => 'required',
-            'mp3_file' =>'nullable|mimes:audio/mpeg,mpga,mp3,wav,aac',
+            'language' => 'required | string',
+            'mp3_file' =>'required|mimes:audio/mpeg,mpga,mp3,wav,aac',
             'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
             'pdf_upload_text_link' =>'nullable|mimes:pdf',
 
@@ -58,8 +60,9 @@ class AudioController extends Controller
         $audio = new Audio();
         $audio->title = $request->title ;
         $audio->category = $request->category;
+        $audio->type = $request->audio_type;
         $audio->show_to = $request->show_to;
-
+        $audio->language = $request->language;
         $audio->poet = $request->poet;
         $audio->narrator = $request->narrator;
         $audio->duration = $request->duration;
@@ -71,10 +74,9 @@ class AudioController extends Controller
         
             
         if($request->hasFile('mp3_file')){          
-           $music_file = $request->file('mp3_file');
-           $uniqueid= uniqid();
-           $categ_showto = $request->category.'_'.$request->show_to.'__';
-           $filename = $categ_showto.Carbon::now()->format('Ymd').'_'.$request->title.'_'.$music_file->getClientOriginalExtension();
+           $music_file = $request->file('mp3_file');           
+           $categ_showto = '_'.date('Y_m_d_h_i_s');
+           $filename = $request->title.'.'.$music_file->getClientOriginalExtension().$categ_showto;
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
@@ -87,10 +89,12 @@ class AudioController extends Controller
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';
-            $categ_showto = $request->category.'_'.$request->show_to.'__';
-            $thumbnailImage->save($originalPath.$categ_showto.$request->title);
+            $categ_showto = '_'.date('Y_m_d_h_i_s');
+            $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
-            $audio->img_upload_text_link = 'audio/images/'.$categ_showto.$request->title;
+            $audio->audio_img = 'audio/images/'.$request->title.$categ_showto;
+
+            $audio->audio_img;
         }
 
         if($request->hasFile('pdf_upload_text_link')){
@@ -122,20 +126,24 @@ class AudioController extends Controller
         $this->validate($request, [
             'title' => 'required | string | max:255',
             'category' => 'required',
+            'audio_type' => 'required | string',
+            'language' => 'required | string',
             'show_to' => 'required',
             'mp3_file' =>'nullable|mimes:audio/mpeg,mpga,mp3,wav,aac',
             'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
             'pdf_upload_text_link' =>'nullable|mimes:pdf',
 
-            'poet' => 'nullable|required | string | max:255',
-            'narrator' => 'nullable|required | string | max:255',
-            'duration' => 'nullable|required | string | max:255',
-            'released_at' => 'nullable|required | string | max:255'
+            'poet' => 'nullable | string | max:255',
+            'narrator' => 'nullable | string | max:255',
+            'duration' => 'nullable | string | max:255',
+            'released_at' => 'nullable | string | max:255'
         ]);
         $audio = Audio::find($request->id);
 
         $audio->title = $request->title ;
         $audio->category = $request->category;
+        $audio->type = $request->audio_type;
+        $audio->language = $request->language;
         $audio->show_to = $request->show_to;
 
         $audio->poet = $request->poet;
@@ -148,16 +156,16 @@ class AudioController extends Controller
         if($request->hasFile('img_upload_text_link')){
 
             $img_upload_text_link = DB::table('audio')->where('id',$request->id)->first();
-            $img_upload_text_link = $img_upload_text_link->img_upload_text_link;
+            $img_upload_text_link = $img_upload_text_link->audio_img;
             @unlink(public_path().'/'.$img_upload_text_link);
 
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
-            $originalPath = public_path().'/audio/images/';
-            $categ_showto = $request->category.'_'.$request->show_to.'__';
-            $thumbnailImage->save($originalPath.$categ_showto.$request->title);
+            $originalPath = public_path().'/audio/images/';            
+            $categ_showto = '_'.date('Y_m_d_h_i_s');
+            $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
-            $audio->img_upload_text_link = 'audio/images/'.$categ_showto.$request->title;            
+            $audio->audio_img = 'audio/images/'.$request->title.$categ_showto;            
         }
         
         if($request->hasFile('mp3_file')){   
@@ -170,9 +178,8 @@ class AudioController extends Controller
            @unlink(public_path().'/'.$audio_url);
         
            $music_file = $request->file('mp3_file');
-
-           $categ_showto = $request->category.'_'.$request->show_to.'__';
-           $filename = $categ_showto.Carbon::now()->format('Ymd').'_'.$request->title.'_'.$music_file->getClientOriginalExtension();
+           $categ_showto = '_'.date('Y_m_d_h_i_s');
+           $filename = $request->title.'.'.$music_file->getClientOriginalExtension().$categ_showto;
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 

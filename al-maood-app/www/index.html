@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -85,21 +86,21 @@
                             <div id="rcorners2">
                                 <div class="row no-gap">                                
                               <div class="col">
-                            <a onclick="home.audio_list(2,'Song')" href="#"><img src="img/default-user.png" alt="Avatar">
-                                <p>Song</p></a>
+                            <a onclick="home.audio_list(2,'Song')" class="elevation-demo" href="#"><img src="img/default-user.png" alt="Avatar">
+                                <p>Song <i class="pe-7s-music"></i></p></a>
                               </div>
                               <div class="col">
-                            <a href="#" onclick="home.audio_list(1,'Quran')"><img src="img/default-user.png" alt="Avatar">
-                                <p>Quran</p></a>
+                            <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo"><img src="img/default-user.png" alt="Avatar">
+                                <p>ISL</p></a>
                               </div>
                               </div>
                               <div class="row no-gap">                                
                               <div class="col">
-                                <a href="#" onclick="home.audio_list(1,'Quran')"><img src="img/default-user.png" alt="Avatar">
+                                <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo"><img src="img/default-user.png" alt="Avatar">
                                 <p>Music</p></a>
                               </div>
                               <div class="col">
-                                <a href="home.audio_list(3)"><img src="img/default-user.png" alt="Avatar">
+                                <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo"><img src="img/default-user.png" alt="Avatar">
                                 <p>Qawali</p></a>
                               </div>
                               </div>
@@ -107,10 +108,10 @@
                         </div>    
                             <!-- Link to another page -->                            
                             <a href="about.html">About apps</a>
-                        </div>
-                        <!-- <audio controls="" style="vertical-align: middle" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload"> -->
+                        </div>                        
                             <hr>
-
+                            <audio controls="" style="vertical-align: middle" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload">
+                                
                             <marquee width="60%" direction="up" height="100px">
                                 This is a sample scrolling text that has scrolls in the upper direction.
                             </marquee>
@@ -139,6 +140,11 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    
+    <script type="text/javascript">
+        // alert(786);
+    </script>
+
 </body>
 
 </html>

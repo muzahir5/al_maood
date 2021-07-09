@@ -24,6 +24,7 @@ use App\Model\User\WithDraw;
 
 class AudioController extends Controller
 {
+    //can apply on General search  || search in category
 	public function listAudio(Request $request){
         $searchInAll = $request->searchInAll ? $request->searchInAll : '';
         $searchInCat = $request->searchInCat ? $request->searchInCat : '';
@@ -174,7 +175,7 @@ class AudioController extends Controller
             $categ_showto = $request->category.'_'.$request->show_to.'__';
             $thumbnailImage->save($originalPath.$categ_showto.$request->title);
 
-            $audio->img_upload_text_link = 'audio/images/'.$categ_showto.$request->title;
+            $audio->audio_img = 'audio/images/'.$categ_showto.$request->title;
         }
 
         if($request->hasFile('pdf_upload_text_link')){
@@ -215,6 +216,23 @@ class AudioController extends Controller
                 'status' => 'success',
                 'message'=> "Audio has been $msg successfully",
                 'audios' => $audios
+            ]
+        );
+    }
+
+    public function updateAudioPlayeCount(Request $request)
+    {        
+        $audio_id = $request->audio_id;
+        $user_id = $request->user_id ? $request->user_id : 0;
+        // exit($audio_id);
+        $audio = Audio::where('id', $audio_id)->first();
+        $audio->view_by = $audio->view_by + 1;        
+        event_track_from_fx_hlpr($post_id = $audio_id,$user_id = $user_id,$event_type = 'audio_played_'.date('Y_m_d_h_i_s'), $device_type = 'app');
+        $audio->save();        
+        return response()->json(
+            [ 
+                'status' => 'success',
+                'message'=> "Audio has been played successfully"
             ]
         );
     }

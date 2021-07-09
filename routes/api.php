@@ -39,6 +39,7 @@ Route::group([
     Route::get('/user/showAudio/', 'AudioController@showAudio')->name('api.user.showAudio');
     Route::post('/user/addAudio/', 'AudioController@addAudio')->name('api.user.addAudio');
     Route::post('/user/updateAudioStatus/', 'AudioController@updateAudioStatus')->name('api.user.updateAudioStatus');
+    Route::post('/user/updateAudioPlayeCount/', 'AudioController@updateAudioPlayeCount')->name('api.user.updateAudioPlayeCount');
 
     Route::get('/user/postTracking/', 'UserController@postTracking')->name('api.user.postTracking');
     Route::post('/user/addFavourite/', 'UserController@addFavourite')->name('api.user.addFavourite');

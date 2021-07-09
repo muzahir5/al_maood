@@ -15,7 +15,7 @@ var home = {
                     // core.log(result.audios);
                     var html = '<li style="border: 1px dashed orange;list-style: none; border-radius: 7px;">'+
                             '<a href="templates/audio_show.html?id='+value.id+'" id='+value.title+' onclick="audio.play_audio('+value.id+');" class="item-link item-content">'+
-                                '<div class="item-media"><img src="http://localhost/al-maood/public/'+value.img_upload_text_link+'" style="border: 1px dotted orange;" width="80" /></div>'+
+                                '<div class="item-media"><img src="http://localhost/al-maood/public/'+value.audio_img+'" style="border: 1px dotted orange;" width="80" /></div>'+
                                     '<div class="item-inner" style="">'+
                                     '<div class="item-title-row">'+
                                         '<div class="item-title">'+value.title+'</div>'+

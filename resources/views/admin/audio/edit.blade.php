@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Add Audio</h2>
+    <h2>Update Audio</h2>
 
     <form method="POST" action="{{ url('/admin/updateAudio')}} " enctype="multipart/form-data">        
         {{ csrf_field() }}
@@ -32,28 +32,40 @@
         </div>
 
         <div class="row">
-        <div class="form-group col-6">
-            <label for="category">Select Category:</label>
-            <select class="form-select form-control" name="category" id="category" multiple aria-label="multiple select example">
-            <option value="">Select Category</option>
-            @foreach($categories as $category)
-                <?php $selected = ''; if ($category->id == $audio->category) { $selected = 'selected="selected"'; } ?>                
-                  <option value="{{$category->id}} " <?= $selected; ?> > {{$category->name}} </option>                              
-            @endforeach            
-        </select>
-        {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
+            <div class="form-group col-6">
+                <label for="category">Select Category:</label>
+                <select class="form-select form-control" name="category" id="category" multiple aria-label="multiple select example">
+                <option value="">Select Category</option>
+                @foreach($categories as $category)
+                    <?php $selected = ''; if ($category->id == $audio->category) { $selected = 'selected="selected"'; } ?>                
+                    <option value="{{$category->id}} " <?= $selected; ?> > {{$category->name}} </option>                              
+                @endforeach            
+            </select>
+            {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
+            </div>
+            <div class="form-group col-6">
+                <label for="show_to">Show To:</label>
+                <select class="form-select form-control" name="show_to" id="show_to" multiple aria-label="">
+                <option value="">Select please</option>
+                    <option value="0" <?php if ($audio->show_to == 0) { echo "selected"; } ?> > All </option>
+                    <option value="1" <?php if ($audio->show_to == 1) { echo "selected"; } ?> > Science </option>
+                    <option value="3" <?php if ($audio->show_to == 3) { echo "selected"; } ?> > Art </option>
+            </select>
+            {!! $errors->first('show_to', '<p class="text-danger">:message</p>') !!}
+            </div>
         </div>
-        <div class="form-group col-6">
-            <label for="show_to">Show To:</label>
-            <select class="form-select form-control" name="show_to" id="show_to" multiple aria-label="">
-            <option value="">Select please</option>
-                  <option value="0" <?php if ($audio->show_to == 0) { echo "selected"; } ?> > All </option>
-                  <option value="1" <?php if ($audio->show_to == 1) { echo "selected"; } ?> > Science </option>
-                  <option value="3" <?php if ($audio->show_to == 3) { echo "selected"; } ?> > Art </option>
-        </select>
-        {!! $errors->first('show_to', '<p class="text-danger">:message</p>') !!}
+
+        <div class="form-group">
+            <label for="audio_type">Type:</label>
+            <input type="text" class="form-control" id="audio_type" name="audio_type" value="{{ (old('audio_type'))? old('audio_type') : $audio->type}}">
+             {!! $errors->first('audio_type', '<p class="text-danger">:message</p>') !!}
         </div>
-        </div>
+
+        <div class="form-group">
+            <label for="language">Language:</label>
+            <input type="text" class="form-control" id="language" name="language" value="{{ (old('language'))? old('language') : $audio->language}}">
+             {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
+        </div>        
 
         <div class="form-group">
             <label for="duration">Duration:</label>
@@ -79,10 +91,15 @@
              {!! $errors->first('mp3_file', '<p class="text-danger">:message</p>') !!}
         </div>
 
-        <div class="form-group">
-            <label for="img_upload_text_link">img_upload_text_link:</label>
-            <input type="file" class="form-control" id="img_upload_text_link" name="img_upload_text_link" value="{{ old('img_upload_text_link')}}">
-             {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
+        <div class="row" style="border: 1px dotted orange;padding: 5px;border-radius: 23px;">
+            <div class="form-group col-6">
+                <label for="img_upload_text_link">Image:</label>
+                <input type="file" class="form-control" id="img_upload_text_link" name="img_upload_text_link" value="{{ old('img_upload_text_link')}}">
+                {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
+            </div>
+            <div class="form-group col-6">            
+            <img src="{{ asset('public/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
+            </div>
         </div>
 
         <div class="form-group">

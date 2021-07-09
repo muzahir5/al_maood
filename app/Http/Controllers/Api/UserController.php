@@ -237,13 +237,10 @@ class UserController extends Controller
             return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
         }
         $password = bcrypt($request->password);
-
-        $user = User::where('remember_token', $request->code)->first(); //->where('status', "1")
-        if($user)
+        
+        $password_changed = User::where('remember_token',$request->code)->update( [ 'password' => $password ]);
+        if($password_changed)
         {
-            $user->password = $password;
-            $user->update();
-
             return response()->json([
                         'status' => "success",
                         'message' => 'Password Set successfully'

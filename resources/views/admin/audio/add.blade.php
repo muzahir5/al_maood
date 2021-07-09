@@ -28,33 +28,42 @@
             <label for="narrator">Narrator:</label>
             <input type="text" class="form-control" id="narrator" name="narrator" value="{{ old('narrator')}}">
              {!! $errors->first('narrator', '<p class="text-danger">:message</p>') !!}
+        </div>        
+
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="category">Select Category:</label>
+                <select class="form-select form-control" name="category" id="category" multiple aria-label="multiple select example">
+                <option value="">Select Category</option>
+                @foreach($categories as $category)                  
+                    <option value="{{$category->id}} "> {{$category->name}} </option>                              
+                @endforeach            
+            </select>
+            {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
+            </div>
+
+            <div class="form-group col-6">
+                <label for="show_to">Show To:</label>
+                <select class="form-select form-control" name="show_to" id="show_to" multiple aria-label="">
+                <option value="">Select please</option>
+                    <option value="0"> All </option>
+                    <option value="1"> Science </option>
+                    <option value="3"> Art </option>
+            </select>
+            {!! $errors->first('show_to', '<p class="text-danger">:message</p>') !!}
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="audio_type">Type:</label>
+            <input type="audio_type" class="form-control" id="audio_type" name="audio_type" value="{{ old('audio_type')}}" Placeholder="hmd , nat">
+             {!! $errors->first('audio_type', '<p class="text-danger">:message</p>') !!}
         </div>
 
         <div class="form-group">
-            <label for="category">Select Category:</label>
-            <select class="form-select" name="category" id="category" multiple aria-label="multiple select example">
-            <option value="">Select Category</option>
-            @foreach($categories as $category)                  
-                  <option value="{{$category->id}} "> {{$category->name}} </option>                              
-            @endforeach            
-        </select>
-        {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
-        </div>
-        <div class="form-group">
-            <label for="show_to">Show To:</label>
-            <select class="form-select" name="show_to" id="show_to" multiple aria-label="">
-            <option value="">Select please</option>
-                  <option value="0"> All </option>
-                  <option value="1"> Science </option>
-                  <option value="3"> Art </option>
-        </select>
-        {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
-        </div>
-
-        <div class="form-group">
-            <label for="duration">Duration:</label>
-            <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration')}}">
-             {!! $errors->first('duration', '<p class="text-danger">:message</p>') !!}
+            <label for="language">Language:</label>
+            <input type="language" class="form-control" id="language" name="language" value="{{ old('language')}}" Placeholder="english">
+             {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
         </div>
 
         <div class="form-group">
@@ -76,7 +85,7 @@
         </div>
 
         <div class="form-group">
-            <label for="img_upload_text_link">img_upload_text_link:</label>
+            <label for="img_upload_text_link">Image:</label>
             <input type="file" class="form-control" id="img_upload_text_link" name="img_upload_text_link" value="{{ old('img_upload_text_link')}}">
              {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
         </div>

@@ -76,7 +76,7 @@ class AudioController extends Controller
         if($request->hasFile('mp3_file')){          
            $music_file = $request->file('mp3_file');           
            $categ_showto = '_'.date('Y_m_d_h_i_s');
-           $filename = $request->title.'.'.$music_file->getClientOriginalExtension().$categ_showto;
+           $filename = $request->title.''.$categ_showto.'.'.$music_file->getClientOriginalExtension();
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 

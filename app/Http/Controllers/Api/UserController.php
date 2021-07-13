@@ -27,7 +27,7 @@ class UserController extends Controller
 {
 
 	public function userRegister(Request $request){
-		// echo $request->name;
+		echo $request->name;exit;
 
 		$validator = Validator::make($request->all(), [
                         'email' => 'required|email|unique:users',

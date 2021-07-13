@@ -30,5 +30,9 @@ var home = {
                 }
             }
         });
-	}
+	},
+    render_page: function(page_name){
+        // alert(page_name);
+        mainView.router.loadPage('templates/'+page_name);
+    }
 }

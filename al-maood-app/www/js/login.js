@@ -7,7 +7,7 @@ login = {
             var email = $$('.reg_form .email').val();
             var password = $$('.reg_form .password').val();
             var conf_pass = $$('.reg_form .conf_pass').val();
-            core.log('we is '+name+' eM is '+email);
+            
             if (name === '') {
                 core.alert('Error', 'Name required', 'OK', function () {
                     return;
@@ -38,19 +38,28 @@ login = {
             core.log(register_data);
             var url = "user/userRegister";
             core.postRequest(url, register_data, function (response, status) {
-                if (status === 'success') {
-                    var result = JSON.parse(response);
-                    if (result.status === 'success') {
+                // if (status === 'success') {            
+                core.log(response);
+                var result = JSON.parse(response);
+                    if (result.status === 'success') {                        
                         $$('.login_form .email').val('');
                         $$('.login_form .password').val('');
+                        $$('.reg_form .password').val('');
+                        $$('.reg_form .conf_pass').val('');
                         // localStorage.setItem('isStarted', true);
                         // myApp.closeModal('.login-screen')
                         // app.setSession(result);
+                    core.alert('Success', 'Please Check Your E-mail to Activite Your Account', 'OK', function () {
+                    return;
+                });
                     } else {
-                        core.alert('Error', result.error, 'OK');
+                        $.each(result.error,function(key,msg){
+                            core.alert('Error', msg, 'OK');
+                        });
+                        
                     }
 
-                }
+                // }
             });
         // }
     }

@@ -27,13 +27,13 @@ class UserController extends Controller
 {
 
 	public function userRegister(Request $request){
-		echo $request->name;exit;
+		// echo $request->name;exit;
 
 		$validator = Validator::make($request->all(), [
                         'email' => 'required|email|unique:users',
                         'password' => 'required|string',
                         'name' => 'required|string',
-                        'mobile_number' => ['required','numeric']
+                        // 'mobile_number' => ['required','numeric']
                     ]);
         if ($validator->fails()) {
             return response()->json(
@@ -42,7 +42,6 @@ class UserController extends Controller
                     'error' => $validator->errors()
                 ], 200);
         }
-
         $user = User::create(request(['name', 'email', 'password']));
         if($user){
             $user->mobile_number = $request->mobile_number;

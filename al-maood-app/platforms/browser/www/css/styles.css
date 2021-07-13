@@ -10,6 +10,10 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+.pages {
+  background: none;
+}*/
+
 .statusbar-overlay {
     background: #000000;
 }
@@ -42,5 +46,10 @@
 }
 .row.no-gap .col {
     text-align: center;
+}
+
+a.elevation-demo {
+  background: #fff;
+  font-size: 18px;
 }
 

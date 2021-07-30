@@ -15,14 +15,14 @@ var home = {
                     // core.log(result.audios);
                     var html = '<li style="border: 1px dashed orange;list-style: none; border-radius: 7px;">'+
                             '<a href="templates/audio_show.html?id='+value.id+'" id='+value.title+' onclick="audio.play_audio('+value.id+');" class="item-link item-content">'+
-                                '<div class="item-media"><img src="http://localhost/al-maood/public/'+value.img_upload_text_link+'" style="border: 1px dotted orange;" width="80" /></div>'+
+                                '<div class="item-media"><img src="http://localhost/al-maood/public/'+value.audio_img+'" style="border: 1px dotted orange;" width="80" /></div>'+
                                     '<div class="item-inner" style="">'+
                                     '<div class="item-title-row">'+
                                         '<div class="item-title">'+value.title+'</div>'+
                                         '<div class="item-after">'+value.upload_by+'</div>'+
                                     '</div>'+
                            '<div class="item-subtitle">'+value.narrator +
-                           '<audio controls="" style="height: 23px; width: 100px; float: right;" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload"> </div>'+
+                           '<audio controls="" style="height: 23px; width: 100px; float: right;" src="http://localhost/al-maood/'+value.audio_url+'" type="audio/mp3" controlslist="nodownload"> </div>'+
                         '<div class="item-text">'+value.description+'</div>'+
                     '</div></a></li>';
                     $('.audios').append(html);
@@ -30,5 +30,9 @@ var home = {
                 }
             }
         });
-	}
+	},
+    render_page: function(page_name){
+        // alert(page_name);
+        mainView.router.loadPage('templates/'+page_name);
+    }
 }

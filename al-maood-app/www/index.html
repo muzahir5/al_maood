@@ -29,10 +29,10 @@
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-
+    <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             <div class="menu_item">
 
                 <div class="a_nav">
-                    <a href="templates/register.html" class="close-panel row">
+                    <a onclick="home.render_page('register.html')" href="#" class="close-panel row">
                         <div class="col-33"><img src="img/home.png" style="margin-left: .2em;width: 20px;height: 20px;margin-top: .7em;"></div>
                         <div class="col-66">   Home           </div>
                     </a>
@@ -90,18 +90,18 @@
                                 <p>Song <i class="pe-7s-music"></i></p></a>
                               </div>
                               <div class="col">
-                            <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
+                            <a href="#" onclick="home.audio_list(1,'Islamic')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
                                 <p>ISL</p></a>
                               </div>
                               </div>
                               <div class="row no-gap">                                
                               <div class="col">
-                                <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
-                                <p>Music</p></a>
+                                <a href="#" onclick="home.audio_list(1,'test1')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
+                                <p>test</p></a>
                               </div>
                               <div class="col">
-                                <a href="#" onclick="home.audio_list(1,'Quran')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
-                                <p>Qawali</p></a>
+                                <a href="#" onclick="home.audio_list(3,'test2')" class="elevation-demo  elevation-12"><img src="img/default-user.png" alt="Avatar">
+                                <p>Qawa</p></a>
                               </div>
                               </div>
                             </div>
@@ -131,7 +131,10 @@
             </div>
         </div>
     </div>
-
+    
+    <script type="text/javascript">
+        prompt = function() { return false; }
+    </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>

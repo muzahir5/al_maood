@@ -58,7 +58,7 @@ class AudioController extends Controller
     public function listAudioByCatagory($cat_id)
     {
         $categories = Categories::all();
-        $audios = Audio::select('id','title','category','audio_url','audio_img','view_by','show_to')->where('status',1)->Where('category', 'like', "%{$cat_id}%")->get();        
+        $audios = Audio::select('id','title','description','narrator','upload_by','category','audio_url','audio_img','view_by','show_to')->where('status',1)->Where('category', 'like', "%{$cat_id}%")->get();        
 
         return response()->json([            
             'status' => "success",

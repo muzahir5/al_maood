@@ -12,9 +12,10 @@ var home = {
                 var audios = result.audios;
                 $('.block-title').append(cat_name);
                 $.each(audios,function(key,value){
-                    core.log(result.audios);
-                    var html = '<li style="border: 1px dashed orange;list-style: none; border-radius: 7px;">'+
-                            // '<a href="templates/audio_show.html?id='+value.id+'" id='+value.title+' onclick="audio.play_audio('+value.id+');" class="item-link item-content">'+
+                    // core.log(result.base_path);
+                    var id = value.id; var audio_url = "'http://localhost/al-maood/"+ value.audio_url+"'";
+                    // core.log(audio_url);
+                    var html = '<li style="border: 1px dashed orange;list-style: none; border-radius: 7px;">'+                            
                             '<a href="#" id='+value.title+' oncjclick="audio.play_audio('+value.id+');" class="item-link item-content">'+
                                 '<div class="item-media"><img src="http://localhost/al-maood/public/'+value.audio_img+'" style="border: 1px dotted orange;" width="80" /></div>'+
                                     '<div class="item-inner" style="">'+
@@ -23,10 +24,7 @@ var home = {
                                         '<div class="item-after">'+value.upload_by+'</div>'+
                                     '</div>'+
                            '<div class="item-subtitle">'+value.narrator +
-                           // '<audio controls="" style="height: 23px; width: 100px; float: right;" src="http://localhost/al-maood/'+value.audio_url+'" type="audio/mp3" controlslist="nodownload"> </div>'+
-// '<i class="fas fa-play" id="audio_'+value.id+'" onclick="home.load_audio_play('value.id,value.audio_url')" 
-//     style="height: 23px; width: 100px; float: right;" ></i> </div>'+
-'<i class="fas fa-play" id="audio_'+value.id+'" onclick="home.load_audio_play('+value.id+');"></i> </div>'+
+                            '<i class="fas fa-play" id="audio_'+value.id+'" onclick="home.load_audio_play('+id+','+audio_url+');"></i> </div>'+
                         '<div class="item-text">'+value.description+'</div>'+
                     '</div></a></li>';
                     $('.audios').append(html);
@@ -39,9 +37,12 @@ var home = {
         // alert(page_name);
         mainView.router.loadPage('templates/'+page_name);
     },
-    load_audio_play: function(id){
-        core.log('id is '+id);
+    load_audio_play: function(id,audio_url){
         // core.log('id is '+audio_url);
+        // core.log('id is '+audio_url);
+        $("#audio").attr("src",audio_url);
+        $('#music-container').css('display','flex')
+        playSong();
 
     }
 }

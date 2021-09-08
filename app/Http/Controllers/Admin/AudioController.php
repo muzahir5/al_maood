@@ -24,7 +24,7 @@ class AudioController extends Controller
         $categories = Categories::all();
         $audios = Audio::all();
 
-        // echo '<pre>';print_r($audios);exit;
+        // echo '<pre>';print_r($audios);exit;        
 
     	return view('admin.audio.index', compact('audios','categories'));
     }
@@ -75,12 +75,12 @@ class AudioController extends Controller
             
         if($request->hasFile('mp3_file')){          
            $music_file = $request->file('mp3_file');           
-           $categ_showto = '_'.date('Y_m_d_h_i_s');
+           $categ_showto = '_'.date('d_m_Y_h_i_s');
            $filename = $request->title.''.$categ_showto.'.'.$music_file->getClientOriginalExtension();
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
-           $audio_url = 'public/audio/mp3/'.$filename;
+           $audio_url = $filename;
            $audio->audio_url = $audio_url;
         }
 
@@ -89,10 +89,10 @@ class AudioController extends Controller
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';
-            $categ_showto = '_'.date('Y_m_d_h_i_s');
+            $categ_showto = '_'.date('d_m_Y_h_i_s');
             $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
-            $audio->audio_img = 'audio/images/'.$request->title.$categ_showto;
+            $audio->audio_img = $request->title.$categ_showto;
 
             $audio->audio_img;
         }
@@ -156,34 +156,34 @@ class AudioController extends Controller
         if($request->hasFile('img_upload_text_link')){
 
             $img_upload_text_link = DB::table('audio')->where('id',$request->id)->first();
-            $img_upload_text_link = $img_upload_text_link->audio_img;
+            $img_upload_text_link = '/audio/images/'.$img_upload_text_link->audio_img;
             @unlink(public_path().'/'.$img_upload_text_link);
 
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';            
-            $categ_showto = '_'.date('Y_m_d_h_i_s');
+            $categ_showto = '_'.date('d_m_Y_h_i_s');
             $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
-            $audio->audio_img = 'audio/images/'.$request->title.$categ_showto;            
+            $audio->audio_img = $request->title.$categ_showto;            
         }
         
         if($request->hasFile('mp3_file')){   
            
            $audio_url = DB::table('audio')->where('id',$request->id)->first();
            $audio_url = $audio_url->audio_url;
-           $audio_url = substr($audio_url, strrpos($audio_url, '/') + 1); // get text after last slash
-           $audio_url = public_path().'/audio/mp3/'.$audio_url;
+           //$audio_url = substr($audio_url, strrpos($audio_url, '/') + 1); // get text after last slash
+           $audio_url = '/audio/mp3/'.$audio_url;
           
            @unlink(public_path().'/'.$audio_url);
         
            $music_file = $request->file('mp3_file');
-           $categ_showto = '_'.date('Y_m_d_h_i_s');
-           $filename = $request->title.'.'.$music_file->getClientOriginalExtension().$categ_showto;
+           $categ_showto = '_'.date('d_m_Y_h_i_s');
+           $filename = $request->title.''.$categ_showto.'.'.$music_file->getClientOriginalExtension();
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
-            $audio_url = 'public/audio/mp3/'.$filename;
+            $audio_url = $filename;
            $audio->audio_url = $audio_url;
         }
 

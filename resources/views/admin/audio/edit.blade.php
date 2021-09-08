@@ -98,7 +98,7 @@
                 {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
             </div>
             <div class="form-group col-6">            
-            <img src="{{ asset('public/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
+            <img src="{{ asset('public/audio/images/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
             </div>
         </div>
 

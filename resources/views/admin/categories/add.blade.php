@@ -16,7 +16,13 @@
             <label for="status">Status:</label>            
             Active<input type="radio" class="form-control" name="status" value="1" checked>
             DeActive<input type="radio" class="form-control" name="status" value="0">
-        </div> 
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" class="form-control" id="category_img" name="category_img" value="{{ old('category_img')}}">
+             {!! $errors->first('category_img', '<p class="text-danger">:message</p>') !!}
+        </div>
 
         <div class="form-group">
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Add Category</button>

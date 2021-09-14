@@ -1,34 +1,27 @@
 @extends('user.layouts.default')
 
-@section('title', 'User Index')
+@section('title', 'Audios')
 
 @section('content')
 
+    <h2>Categories 5</h2>
     <div class="col-lg-6">	    
 	    <div class="form-group">
 	        <label>Type a name</label>
 	        <input type="text" name="audio" id="audio" placeholder="Enter audio name" class="form-control">
+	        <input type="hidden" name="cate_id" id="cate_id" value="{{$cat_id}}" class="form-control">
 	    </div>
 	    <div id="country_list">
 	    	<ul> <li></li> </ul>
 	    </div>                    
-	</div>  
-	    @if($categories)
-	    	@foreach($categories as $category)    		
-	    		<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"> -->
-					<div class="thumb-wrapper col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<a href="{{ url('/user/listAudioByCatagory', $category->id)}}">
-							<div class="img-box">
-								<img src="{{ asset('public/categories/'.$category->category_img) }} " alt="Category_image_url" style="max-width: 250px;max-height: 350px;">
-							</div>
-							<div class="thumb-content">
-								<h4>{{$category->name}}</h4>
-								<p class="item-price"><strike>{{$category->id}}</strike> <span>{{$category->category_type}}</span></p>
-							</div>
-						</a>
-					</div>
-				<!-- </div> -->
+	</div> 
+
+	    @if($audios)
+	    	<ul>
+	    	@foreach($audios as $audio)    		
+    			<li class="list-group-item">{{$audio->title}}</li>	    
 	    	@endforeach
+	    	</ul>
 	    @endif	
 @endsection
 
@@ -40,7 +33,7 @@
      
         $('#audio').on('keyup',function() {
             var query = $(this).val();
-            var cat_id = '';
+            var cat_id = $('#cate_id').val();
             $('#country_list').html('');
 
             if( query.length > 2) {

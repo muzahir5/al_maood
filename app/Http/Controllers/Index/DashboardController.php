@@ -15,18 +15,11 @@ class DashboardController extends Controller
         // $this->middleware('auth:user');
     }
 
-    Public function index(){  
-
-        // $products = Product::all();
-        // echo Auth::guard('user')->id();exit;
-
-        $products = DB::table('products as prod')->select('prod.id','prod.name','prod.price','prod.sale_price','prod_imgs.image_url')
-                        ->join('product_images as prod_imgs', 'prod.id','prod_imgs.product_id')->get();
-         
-//        echo '<pre>'; print_r($products); http://dev2.koboniq.com/adminer/?username=root&db=kobon
-//        exit;
-
-    	return view('dashboard.index', compact('products'));
+    Public function index()
+    {
+        $categories = DB::table('categories')->where('status',1)->get();
+    	// echo '<pre>';print_r($categories);exit;
+        return view('user.index', compact('categories'));
     }
     
     public function productDetail($id){

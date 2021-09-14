@@ -19,12 +19,11 @@
    </header>
 
    <div class="row">
-   		<div class="col-lg-2 col-md-3 col-sm-0 col-xs-0 sidebar" id="mySidebar" >
+        <div class="sidebar" id="mySidebar" >
    			@include('user.includes.sidebar')
       </div>
 
-      <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12" id="main">
-        	<button class="openbtn" onclick="openNav()">☰ </button>
+      <div id="main">        	
           @yield('content')
       </div>
 
@@ -47,16 +46,18 @@
   function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
   
-  document.getElementById("main").style.marginLeft = "250px";
+  // document.getElementById("main").style.marginLeft = "250px";
   $(".sidebar").css("display", "block");
+  $(".closebtnn").css("display", "block");
   $(".openbtn").css("display", "none");
 }
 
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+  // document.getElementById("main").style.marginLeft= "0";
   
   $(".sidebar").css("display", "none");
+  $(".closebtnn").css("display", "none");
   $(".openbtn").css("display", "block");
 }
 </script>

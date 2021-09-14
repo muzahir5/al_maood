@@ -28,13 +28,17 @@ Route::group([
 ],function () {
 
     Route::get('/', 'User\LoginController@create');
-    Route::get('/dashboard', 'Index\DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', 'User\DashboardController@index')->name('dashboard');
     Route::get('/register', 'User\RegistrationController@create')->name('register');
     Route::post('/register', 'User\RegistrationController@store')->name('register');
     
     Route::get('/login', 'User\LoginController@create')->name('login');
     Route::post('/login', 'User\LoginController@login');
     Route::get('/logout', 'User\LoginController@logout');
+
+Route::get('/listAudioByCatagory/{id}','User\DashboardController@listAudioByCatagory')->name('user.listAudioByCatagory'
+);
+    Route::get('/listAudio/{searching_word?}/{cat_id?}', 'User\DashboardController@listAudio')->name('user.listAudio');
 
 
 });
@@ -71,6 +75,7 @@ Route::group([
     Route::post('/addCategory', 'Admin\CategoriesController@save')->name('addCategory');
     Route::get('/editCategory/{id}', 'Admin\CategoriesController@edit')->name('editCategory');
     Route::post('/updateCategory', 'Admin\CategoriesController@update')->name('updateCategory');
+    Route::get('/deleteCategory/{id}', 'Admin\CategoriesController@delete')->name('deleteCategory');
 
     Route::get('/users', 'Admin\UserController@index')->name('users');
     Route::get('/updateUserStatus/{id}/{status}', 'Admin\UserController@updateUserStatus')->name('updateUserStatus');

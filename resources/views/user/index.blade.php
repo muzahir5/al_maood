@@ -4,15 +4,17 @@
 
 @section('content')
 
-    <div class="col-lg-6">	    
-	    <div class="form-group">
-	        <label>Type a name</label>
-	        <input type="text" name="audio" id="audio" placeholder="Enter audio name" class="form-control">
-	    </div>
-	    <div id="country_list">
-	    	<ul> <li></li> </ul>
-	    </div>                    
-	</div>  
+    <div class="row">
+	    <div class="col-lg-6">	    
+		    <div class="form-group">
+		        <label>Type a name</label>
+		        <input type="text" name="audio" id="audioo" placeholder="Enter audio name" class="form-control">
+		    </div>
+		    <div id="country_list">
+		    	<ul> <li></li> </ul>
+		    </div>                    
+		</div>
+	</div>
 	    @if($categories)
 	    	@foreach($categories as $category)    		
 	    		<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"> -->
@@ -29,7 +31,35 @@
 					</div>
 				<!-- </div> -->
 	    	@endforeach
-	    @endif	
+	    @endif
+
+	    <!-- <div class="music-container" id="music-container">
+	      <div class="music-info">
+	        <h4 id="title"></h4>
+	        <div class="progress-container" id="progress-container">	        	
+	          <div class="progress" id="progress"></div>
+	          <span id="currTime"></span> <span id="durTime"></span>
+	        </div>
+	      </div>
+
+	      <audio src="{{ asset('public/music/ukulele.mp3')}}" id="audio"></audio>
+
+	      <div class="img-container">
+	        <img src="{{ asset('public/images/ukulele.jpg')}}" alt="music-cover" id="cover" />
+	      </div>
+	      <div class="navigation">
+	        <button id="prev" class="action-btn">
+	          <i class="fas fa-backward"></i>
+	        </button>
+	        <button id="play" class="action-btn action-btn-big">
+	          <i class="fas fa-play"></i>
+	        </button>
+	        <button id="next" class="action-btn">
+	          <i class="fas fa-forward"></i>
+	        </button>
+	      </div>
+	    </div> -->
+
 @endsection
 
 @include('dashboard.includes.foot')
@@ -38,7 +68,7 @@
     $(document).ready(function () {
     	$('#country_list').css('display','none');
      
-        $('#audio').on('keyup',function() {
+        $('#audioo').on('keyup',function() {
             var query = $(this).val();
             var cat_id = '';
             $('#country_list').html('');
@@ -74,5 +104,8 @@
             $('#country').val(value);
             $('#country_list').html("");
         });
+
+        // songs.push('Willy');
+        // console.log(songs);
     });
 </script>

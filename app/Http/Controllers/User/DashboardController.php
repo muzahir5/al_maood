@@ -26,19 +26,29 @@ class DashboardController extends Controller
 
     public function listAudioByCatagory($cat_id)
     {
-        $categories = Categories::all();
+        $category = Categories::where('id',$cat_id)->first();
         $audios = Audio::select('id','title','description','narrator','upload_by','category','audio_url','audio_img','view_by','show_to')
                     ->where('status',1)->Where('category', $cat_id)->get();        
 
-        // echo '<pre>';print_r($audios);exit;
+        // echo '<pre>';print_r($category);exit;
         $cat_id = $cat_id;
-        return view('user.audio.renderAudio', compact('audios','cat_id'));
+        return view('user.audio.renderAudio', compact('audios','category','cat_id'));
+    }
 
-        // return response()->json([            
-        //     'status' => "success",
-        //     'base_path' => base_path().'/',
-        //     'audios' => $audios
-        // ]);
+    public function listAudioByCatagoryId($cate_id)
+    {
+        $category = Categories::where('id',$cate_id)->first();
+        $audios = Audio::select('id','title','description','narrator','upload_by','category','audio_url','audio_img','view_by','show_to')
+                    ->where('status',1)->Where('category', $cate_id)->get();        
+
+        // echo '<pre>';print_r($category);exit;
+        $cat_id = $cate_id;
+
+        return response()->json([            
+            'status' => "success",
+            'base_path' => base_path().'/',
+            'audios' => $audios
+        ]);
     }
 
     //can apply on General search  || search in category

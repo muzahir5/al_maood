@@ -36,8 +36,8 @@ Route::group([
     Route::post('/login', 'User\LoginController@login');
     Route::get('/logout', 'User\LoginController@logout');
 
-Route::get('/listAudioByCatagory/{id}','User\DashboardController@listAudioByCatagory')->name('user.listAudioByCatagory'
-);
+    Route::get('/listAudioByCatagory/{id}','User\DashboardController@listAudioByCatagory')->name('user.listAudioByCatagory');
+    Route::get('/listAudioByCatagoryId/{cate_id?}','User\DashboardController@listAudioByCatagoryId')->name('user.listAudioByCatagoryId');
     Route::get('/listAudio/{searching_word?}/{cat_id?}', 'User\DashboardController@listAudio')->name('user.listAudio');
 
 

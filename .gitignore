@@ -15,5 +15,16 @@ yarn-error.log
 /public/frontend
 /public/uploads
 /nbproject/private/
-/public/*
+/public/audio/*
+/public/categories/*
+/public/images/*
+/public/music/*
+/public/uploads/*
+/public/favicon.ico
+/public/index.php
+/public/robosts.txt
+/public/storage
+/public/web.config
+/public/.htaccess
+
 /al-maood-app/*

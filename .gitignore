@@ -15,5 +15,8 @@ yarn-error.log
 /public/frontend
 /public/uploads
 /nbproject/private/
-/public/*
+/public/audio
+/public/categories
+/public/images
+/public/music
 /al-maood-app/*

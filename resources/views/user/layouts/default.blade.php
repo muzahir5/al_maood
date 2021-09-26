@@ -51,6 +51,9 @@
                 <i class="fas fa-forward"></i>
               </button>
             </div>
+            <div id="player_options">
+            <span class="text-dark"onclick="hide_player()">Hide</span>
+            </div>
           </div>
       
       </div>
@@ -88,6 +91,14 @@ function closeNav() {
   $(".closebtnn").css("display", "none");
   $(".openbtn").css("display", "block");
 }
+
+  function hide_player()
+  {
+    $('div#music-container').css('display','none');
+  }
+  function show_palyer(){
+    $('div#music-container').css('display','block');
+  }
 </script>
 
 </html>

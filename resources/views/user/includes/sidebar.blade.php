@@ -17,3 +17,4 @@
 <?php }else{ ?>
  <a href="{{ url('user') }}">LoginU</a>
   <?php }?>
+  <a href="#" onclick="show_palyer()">Show Player</a>

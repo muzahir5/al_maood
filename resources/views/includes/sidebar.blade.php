@@ -20,11 +20,3 @@
         <?php }else{ ?>
          <a href="{{ url('admin/login') }}">Login</a>
           <?php }?>
-     
-
-
-
-
-
-
-

@@ -110,7 +110,7 @@ class AudioController extends Controller
         if($audio){
             event_track_from_fx_hlpr($post_id = $id, $user_id = null, $event_type = 'show_audio');
             $status = 'success';
-            $relavent_audio = Audio::where(['category'=> $audio->category, 'show_to'=>$audio->show_to])->where('id','!=',$audio->id)->get();
+            $relavent_audio = Audio::where(['category'=> $audio->category,'status'=> 1, 'show_to'=>$audio->show_to])->where('id','!=',$audio->id)->get();
         }
         // if (!$relavent_audio) { $relavent_audio = null; }       
 
@@ -127,13 +127,14 @@ class AudioController extends Controller
 
     public function addAudio(Request $request)
     {
-        // echo 33;exit;
+        // echo $request->language;exit;
         $validator = Validator::make($request->all(), [
                         'user_id' => 'required|integer',
                         'title' => 'required | string | max:255',
                         'category' => 'required|integer',
+                        'language' => 'required|integer',
                         'show_to' => 'nullable',
-                        'mp3_file' =>'required ',//|mimes:audio/mpeg,mpga,mp3,wav,aac',
+                        'mp3_file' =>'required |mimes:mp3',
                         'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
                         'pdf_upload_text_link' =>'nullable|mimes:pdf',
 
@@ -150,13 +151,14 @@ class AudioController extends Controller
                 ], 200);
         }
 
+
         $user_id = $request->user_id;
         $user = User::where('id', $request->user_id)->first();
         
         $audio = new Audio();
         $audio->title = $request->title ;
         $audio->category = $request->category;
-        $audio->show_to = $request->show_to;
+        $audio->show_to = 0; //$request->show_to;
 
         $audio->poet = $request->poet;
         $audio->narrator = $request->narrator;
@@ -166,17 +168,15 @@ class AudioController extends Controller
 
         $audio->upload_by = $user->name ;
         $audio->upload_by_id = $user_id;
-        
-/*            
+                    
         if($request->hasFile('mp3_file')){          
            $music_file = $request->file('mp3_file');
-           $uniqueid= uniqid();
-           $categ_showto = $request->category.'_'.$request->show_to.'__';
-           $filename = $categ_showto.Carbon::now()->format('Ymd').'_'.$request->title.'_'.$music_file->getClientOriginalExtension();
+           $categ_showto = '_'.date('d_m_Y_h_i_s');
+           $filename = $request->title.''.$categ_showto.'.'.$music_file->getClientOriginalExtension();
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
-           $audio_url = 'public/audio/mp3/'.$filename;
+           $audio_url = $filename;
            $audio->audio_url = $audio_url;
         }
 
@@ -185,10 +185,10 @@ class AudioController extends Controller
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';
-            $categ_showto = $request->category.'_'.$request->show_to.'__';
-            $thumbnailImage->save($originalPath.$categ_showto.$request->title);
+            $categ_showto = '_'.date('d_m_Y_h_i_s');
+            $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
-            $audio->audio_img = 'audio/images/'.$categ_showto.$request->title;
+            $audio->audio_img = $request->title.$categ_showto;
         }
 
         if($request->hasFile('pdf_upload_text_link')){
@@ -200,15 +200,106 @@ class AudioController extends Controller
             $thumbnailImage->save($originalPath.$categ_showto.$request->title);
 
             $audio->pdf_upload_text_link = 'audio/pdf/'.$categ_showto.$request->title;
-        }*/
+        }
 
-        $audio->audio_url = 'test';
         // echo '<pre>';print_r($audio);exit;
 
         $audio->save();
         return response()->json(
-            [ 'status' => 'success', 'message' => "Audio has been Added successfully, After Activation Audio will be showing in app" ]
+            [
+                'status' => 'success',
+                'audio_id' => $audio->id,
+                'message' => "Audio has been Added successfully, After Activation Audio will be showing in app" ]
         );
+    }
+
+    public function UpdateAudio(Request $request)
+    {
+        $audio = Audio::where(['id'=>$request->audio_id , 'upload_by_id'=>$request->user_id])->first();
+        
+        if(!count($audio) > 0 ){
+            return response()->json([            
+                'status' => 'error', 'audio' => '',
+                'message' => "UserId or AudioId is not matched"
+            ]);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|integer',
+            'audio_id' => 'required|integer',
+            'title' => 'required | string | max:255',
+            'category' => 'required',
+            'audio_type' => 'nullable | string',
+            'language' => 'required | string',
+            'show_to' => 'nullable',
+            'mp3_file' =>'nullable|mimes:audio/mpeg,mpga,mp3,wav,aac',
+            'img_upload_text_link' =>'nullable|mimes:jpeg,jpg,png,gif',
+            'pdf_upload_text_link' =>'nullable|mimes:pdf',
+
+            'poet' => 'nullable | string | max:255',
+            'narrator' => 'nullable | string | max:255',
+            'duration' => 'nullable | string | max:255',
+            'released_at' => 'nullable | string | max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ]);
+        }        
+        
+        $audio->title = $request->title ;
+        $audio->category = $request->category;
+        $audio->type = $request->audio_type;
+        $audio->language = $request->language;
+        $audio->show_to = 0; //$request->show_to;
+
+        $audio->poet = $request->poet;
+        $audio->narrator = $request->narrator;
+        $audio->duration = $request->duration;
+        $audio->released_at = $request->released_at;
+        $audio->album = $request->album;
+        $audio->status = 4;
+
+
+        if($request->hasFile('img_upload_text_link')){
+
+            $img_upload_text_link = DB::table('audio')->where('id',$request->audio_id)->first();
+            $img_upload_text_link = '/audio/images/'.$img_upload_text_link->audio_img;
+            @unlink(public_path().'/'.$img_upload_text_link);
+
+            $originalImage= $request->file('img_upload_text_link');
+            $thumbnailImage = Image::make($originalImage);            
+            $originalPath = public_path().'/audio/images/';            
+            $categ_showto = '_'.date('d_m_Y_h_i_s');
+            $thumbnailImage->save($originalPath.$request->title.$categ_showto);
+
+            $audio->audio_img = $request->title.$categ_showto;            
+        }
+        
+        if($request->hasFile('mp3_file')){   
+           
+           $audio_url = DB::table('audio')->where('id',$request->audio_id)->first();
+           $audio_url = $audio_url->audio_url;
+           //$audio_url = substr($audio_url, strrpos($audio_url, '/') + 1); // get text after last slash
+           $audio_url = '/audio/mp3/'.$audio_url;
+          
+           @unlink(public_path().'/'.$audio_url);
+        
+           $music_file = $request->file('mp3_file');
+           $categ_showto = '_'.date('d_m_Y_h_i_s');
+           $filename = $request->title.''.$categ_showto.'.'.$music_file->getClientOriginalExtension();
+           $location = public_path('audio/mp3/');
+           $music_file->move($location,$filename);
+
+            $audio_url = $filename;
+           $audio->audio_url = $audio_url;
+        }
+
+        $audio->save();
+
+        return response()->json([            
+            'status' => 'success', 'message' => "Audio Udated Successfully",
+            'audio' => $audio
+        ]);
     }
 
     public function updateAudioStatus(Request $request)
@@ -239,11 +330,11 @@ class AudioController extends Controller
         $user_id = $request->user_id ? $request->user_id : 0;
         // exit($audio_id);
         $audio = Audio::where('id', $audio_id)->first();
-        $audio->view_by = $audio->view_by + 1;        
+        $audio->view_by = $audio->view_by + 1;
         event_track_from_fx_hlpr($post_id = $audio_id,$user_id = $user_id,$event_type = 'audio_played_'.date('Y_m_d_h_i_s'), $device_type = 'app');
-        $audio->save();        
+        $audio->save();
         return response()->json(
-            [ 
+            [
                 'status' => 'success',
                 'message'=> "Audio has been played successfully"
             ]
@@ -253,7 +344,12 @@ class AudioController extends Controller
     public function getCategories(){
         $categories = DB::table('categories')->where('status',1)->get();
         
-        echo '<pre>';print_r($categories);exit;
+        return response()->json(
+            [
+                'status' => 'success',
+                'categories' => $categories 
+            ]
+        );
     }
     
 } //End Controller

@@ -56,11 +56,21 @@ class AudioController extends Controller
         ]);
     }
 
-    public function listAudioByCatagory($cat_id)
+    public function listAudioByCatagory($categ_id,$lang='')
     {
         $categories = Categories::all();
-        $audios = Audio::select('id','title','description','narrator','upload_by','category','audio_url','audio_img','view_by','show_to')
-                    ->where('status',1)->Where('category', 'like', "%{$cat_id}%")->get();        
+        $query = Audio::select('id','title','description','narrator','language','upload_by','category','audio_url','audio_img','view_by','show_to')
+                    ->where('status',1)->Where('category', $categ_id);
+        
+        if($lang != ''){
+            //search in Category
+            $query->where(function ($query) use ($lang) {
+                        $query->orWhere('language',$lang);
+                        
+                });
+        }
+        
+        $audios = $query->get();
 
         return response()->json([            
             'status' => "success",
@@ -224,7 +234,7 @@ class AudioController extends Controller
     }
 
     public function updateAudioPlayeCount(Request $request)
-    {        
+    {
         $audio_id = $request->audio_id;
         $user_id = $request->user_id ? $request->user_id : 0;
         // exit($audio_id);
@@ -238,6 +248,12 @@ class AudioController extends Controller
                 'message'=> "Audio has been played successfully"
             ]
         );
+    }
+
+    public function getCategories(){
+        $categories = DB::table('categories')->where('status',1)->get();
+        
+        echo '<pre>';print_r($categories);exit;
     }
     
 } //End Controller

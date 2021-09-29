@@ -22,6 +22,7 @@ use Carbon\Carbon;
 use File;
 use Image;
 use App\Model\User\WithDraw;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -86,7 +87,18 @@ class UserController extends Controller
                 $user->logged_token = bin2hex(random_bytes(36));
                 $user->update();                
 
-                event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_login_'.$user->id, $device_type = 'app');
+                // event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_login_'.$user->id, $device_type = 'app');
+                
+                $message = 'user: '.$user->id .'Successfully logged In';
+                Log::info($message);
+                // Log::emergency($message);
+                // Log::alert($message);
+                // Log::critical($message);
+                // Log::error($message);
+                // Log::warning($message);
+                // Log::notice($message);
+                // Log::info($message);
+                // Log::debug($message);
 
                 return response()->json([
                     'status' => 'success',
@@ -148,7 +160,6 @@ class UserController extends Controller
             return response()->json([ 'status' => "fail", 'message' => 'user not found' ]);
         }
         $validator = Validator::make($request->all(), [
-            'id' => 'required|integer',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'name' => 'required|string|alpha_num',
             'mobile_number' => ['required','numeric'],
@@ -178,7 +189,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function password_forgot(Request $request){
+    public function password_forgot(Request $request)
+    {
         $validator = Validator::make($request->all(), [
                         'email' => 'required|email'
                     ]);
@@ -187,7 +199,8 @@ class UserController extends Controller
                 [
                     'status' => 'error',
                     'error' => $validator->errors()
-                ], 200);
+                ], 200
+            );
         }
 
         $email = strtolower($request->email);
@@ -252,6 +265,45 @@ class UserController extends Controller
         }
     }
 
+    public function change_password(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|integer',
+            'new_pass' => 'required|string',
+            'password' => 'required|string'                        
+        ]);
+        if ($validator->fails()) {
+        return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
+        }
+        $password = bcrypt($request->password);
+        $new_pass = bcrypt($request->new_pass);
+
+        $user = User::where([ 'id' => $request->user_id ])->first();
+        if($user)
+        {
+            if(Hash::check($request->password, $user->password))
+            {
+                $password_changed = User::where('id',$request->user_id)->update( [ 'password' => $new_pass ]);
+
+                return response()->json([
+                    'status' => "success",
+                    'message' => 'Password Set successfully'
+                ]);
+            }else{
+                return response()->json([
+                    'status' => "error",
+                    'message' => 'Current Password Not Match'
+                ]);
+            }
+            
+        }else{
+            return response()->json([
+                'success' => 'false',
+                'error' => 'user no exist'
+            ]);
+        }
+    }
+
     public function getUserById(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -274,13 +326,15 @@ class UserController extends Controller
         ]);
     }
 
-    public function userSearch(Request $request){
-        
-        $status = 'fail';
-        $user = User::select('id','name','email','mobile_number')->where('name', 'LIKE', "%$request->search%")->orWhere('email', 'like', '%' . $request->search . '%')
-                            ->orWhere('mobile_number', 'like', '%' . $request->search . '%')
+    public function userSearch(Request $request)
+    {        
+        $status = 'error';
+        $user = User::select('id','name','email','mobile_number')
+                    ->where('name', 'LIKE', "%$request->search%")
+                    ->orWhere('email', 'like', '%' . $request->search . '%')
+                    ->orWhere('mobile_number', 'like', '%' . $request->search . '%')
                         // ->where('status', "1")
-                        ->get();
+                    ->get();
         if($user)
         {
             $status = 'success';
@@ -423,49 +477,7 @@ class UserController extends Controller
         $post_tracking->save();
         
         return response()->json([ 'status' => 'success', 'message' => "$request->event_type tracked successfully" ]);
-    }
-
-    public function addFavourite(Request $request)
-    {
-        $status = 'fail';
-        $user = User::where('id', $request->user_id)->first();
-        if(!$user)
-        { 
-            return response()->json([ 'status' => 'fail', 'message' => 'Invalid User Id' ]);
-        }
-
-        $fav = new Fav();
-        $fav->user_id = $request->user_id;
-        $fav->user_type = $request->user_type;
-        $fav->post_id = $request->post_id;
-        $fav->post_type = $request->post_type;
-        // print_r($fav);
-        $fav_added = $fav->save();
-        if($fav_added){
-            event_track_from_fx_hlpr($post_id = $fav->id, $user_id = $request->user_id, $event_type = 'added_fav');
-            $status = 'success';
-        }
-
-        return response()->json([ 'status' => $status, 'message' => 'successfully added in favourite' ]);
-    }
-
-    public function removeFavourite(Request $request)
-    {
-        $status = 'fail';
-        $message = null;        
-
-        $remove_fav = DB::table('favourite_lists')->where([ 'id' => $request->id, 'user_id' => $request->user_id])->delete();
-        if($remove_fav){
-            event_track_from_fx_hlpr($post_id = $request->id,$user_id = $request->user_id,$event_type = 'remove_fav');
-            $status = 'success';
-            $message = 'successfully removed';
-        }
-
-        return response()->json([            
-            'status' => $status,
-            'message' => $message
-        ]);
-    }    
+    }       
 
     public function sendSms(Request $request)
     {

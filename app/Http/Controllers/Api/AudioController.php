@@ -21,6 +21,8 @@ use Carbon\Carbon;
 use File;
 use Image;
 use App\Model\User\WithDraw;
+use App\Model\User\SharePost;
+use Illuminate\Support\Facades\Log;
 
 class AudioController extends Controller
 {
@@ -201,7 +203,6 @@ class AudioController extends Controller
 
             $audio->pdf_upload_text_link = 'audio/pdf/'.$categ_showto.$request->title;
         }
-
         // echo '<pre>';print_r($audio);exit;
 
         $audio->save();
@@ -350,6 +351,86 @@ class AudioController extends Controller
                 'categories' => $categories 
             ]
         );
+    }
+
+    public function addFavourite(Request $request)
+    {
+        $status = 'fail';
+        $user = User::where('id', $request->user_id)->first();
+        if(!$user)
+        { 
+            return response()->json([ 'status' => 'fail', 'message' => 'Invalid User Id' ]);
+        }
+
+        $fav = new Fav();
+        $fav->user_id = $request->user_id;
+        $fav->user_type = $request->user_type;
+        $fav->post_id = $request->post_id;
+        $fav->post_type = $request->post_type;
+        // print_r($fav);
+        $fav_added = $fav->save();
+        if($fav_added){
+            event_track_from_fx_hlpr($post_id = $fav->id, $user_id = $request->user_id, $event_type = 'added_fav');
+            $status = 'success';
+        }
+
+        return response()->json([ 'status' => $status, 'message' => 'successfully added in favourite' ]);
+    }
+
+    public function removeFavourite(Request $request)
+    {
+        $status = 'fail';
+        $message = null;        
+
+        $remove_fav = DB::table('favourite_lists')->where([ 'id' => $request->id, 'user_id' => $request->user_id])->delete();
+        if($remove_fav){            
+            $status = 'success';
+            $message = 'successfully removed';
+        }
+        $fav_list = DB::table('favourite_lists')->where([ 'user_id' => $request->user_id])->get();
+
+        return response()->json([            
+            'status' => $status,
+            'message' => $message,
+            'favourite_list' => $fav_list
+        ]);
+    }
+
+    public function FavouriteList($user_id)
+    {
+        $status = 'error';
+        $fav_list = DB::table('favourite_lists')->where([ 'user_id' => $user_id])->get();
+        
+        if(count($fav_list) > 0 ){
+            $status = 'success';
+        }
+
+        return response()->json([            
+            'status' => $status,
+            'favourite_list' => $fav_list
+        ]);
+        
+    }
+
+    public function sharePost(Request $request)
+    {
+        $status = 'error';
+
+        $share_post = new SharePost();
+        $share_post->from_u_id  = $request->from_u_id;
+        $share_post->to_u_id    = $request->to_u_id;
+        $share_post->post_id    = $request->post_id;
+        $share_post->post_type  = $request->post_type;
+
+        $share_post = $share_post->save();
+
+        if($share_post){
+            $message = 'audio: '.$request->post_id .' share successfully to '. $request->to_u_id .' by '. $request->from_u_id;
+            Log::info($message);
+            $status = 'success';
+        }
+
+        return response()->json([ 'status' => $status, 'message' => $request->post_type .' share successfully' ]);
     }
     
 } //End Controller

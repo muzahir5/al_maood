@@ -79,6 +79,7 @@ Route::group([
 
     Route::get('/users', 'Admin\UserController@index')->name('users');
     Route::get('/updateUserStatus/{id}/{status}', 'Admin\UserController@updateUserStatus')->name('updateUserStatus');
+    Route::get('/editUser/{id}', 'Admin\UserController@edit')->name('editUser');
 
 
 });

@@ -26,6 +26,7 @@ Route::group([
     Route::post('/user/userUpdate/', 'UserController@userUpdate')->name('api.user.userUpdate');
     Route::post('/user/forgot_password', 'UserController@password_forgot')->name('api.user.forgot_password');
     Route::post('/user/update_password', 'UserController@update_password')->name('api.user.update_password');
+    Route::post('/user/change_password', 'UserController@change_password')->name('api.user.change_password'); //not on forgot
 
     Route::get('/user/getUserById/', 'UserController@getUserById')->name('api.user.getUserById');
     Route::get('/user/userSearch/', 'UserController@userSearch')->name('api.user.userSearch');
@@ -43,9 +44,14 @@ Route::group([
     Route::post('/user/updateAudioStatus/', 'AudioController@updateAudioStatus')->name('api.user.updateAudioStatus');
     Route::post('/user/updateAudioPlayeCount/', 'AudioController@updateAudioPlayeCount')->name('api.user.updateAudioPlayeCount');
 
-    Route::get('/user/postTracking/', 'UserController@postTracking')->name('api.user.postTracking');
-    Route::post('/user/addFavourite/', 'UserController@addFavourite')->name('api.user.addFavourite');
-    Route::post('/user/removeFavourite/', 'UserController@removeFavourite')->name('api.user.removeFavourite');
+    Route::post('/user/addFavourite/', 'AudioController@addFavourite')->name('api.user.addFavourite');
+    Route::post('/user/removeFavourite/', 'AudioController@removeFavourite')->name('api.user.removeFavourite');
+    Route::get('/user/FavouriteList/{user_id?}', 'AudioController@FavouriteList')->name('api.user.FavouriteList');
+
+    //sharing audio with friends
+    Route::post('/user/sharePost/', 'AudioController@sharePost')->name('api.user.sharePost');
+
+    Route::get('/user/postTracking/', 'UserController@postTracking')->name('api.user.postTracking');    
 
     Route::post('/user/addFriend/', 'UserController@addFriend')->name('api.user.addFriend');
     Route::post('/user/modifyFriendStatus/', 'UserController@modifyFriendStatus')->name('api.user.modifyFriendStatus');

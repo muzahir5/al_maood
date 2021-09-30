@@ -78,6 +78,7 @@ Route::group([
     Route::get('/deleteCategory/{id}', 'Admin\CategoriesController@delete')->name('deleteCategory');
 
     Route::get('/users', 'Admin\UserController@index')->name('users');
+    Route::post('/updateUser', 'Admin\UserController@updateUser')->name('updateUser');
     Route::get('/updateUserStatus/{id}/{status}', 'Admin\UserController@updateUserStatus')->name('updateUserStatus');
     Route::get('/editUser/{id}', 'Admin\UserController@edit')->name('editUser');
 

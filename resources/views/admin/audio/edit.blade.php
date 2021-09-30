@@ -32,26 +32,26 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-6">
+            <div class="form-group col-md-6">
                 <label for="category">Select Category:</label>
                 <select class="form-select form-control" name="category" id="category" multiple aria-label="multiple select example">
                 <option value="">Select Category</option>
-                @foreach($categories as $category)
-                    <?php $selected = ''; if ($category->id == $audio->category) { $selected = 'selected="selected"'; } ?>                
-                    <option value="{{$category->id}} " <?= $selected; ?> > {{$category->name}} </option>                              
-                @endforeach            
-            </select>
-            {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
+                    @foreach($categories as $category)
+                        <?php $selected = ''; if ($category->id == $audio->category) { $selected = 'selected="selected"'; } ?>                
+                        <option value="{{$category->id}} " <?= $selected; ?> > {{$category->name}} </option>                              
+                    @endforeach            
+                </select>
+                {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
             </div>
-            <div class="form-group col-6">
+            <div class="form-group col-md-6">
                 <label for="show_to">Show To:</label>
                 <select class="form-select form-control" name="show_to" id="show_to" multiple aria-label="">
                 <option value="">Select please</option>
                     <option value="0" <?php if ($audio->show_to == 0) { echo "selected"; } ?> > All </option>
                     <option value="1" <?php if ($audio->show_to == 1) { echo "selected"; } ?> > Science </option>
                     <option value="3" <?php if ($audio->show_to == 3) { echo "selected"; } ?> > Art </option>
-            </select>
-            {!! $errors->first('show_to', '<p class="text-danger">:message</p>') !!}
+                </select>
+                {!! $errors->first('show_to', '<p class="text-danger">:message</p>') !!}
             </div>
         </div>
 
@@ -61,10 +61,19 @@
              {!! $errors->first('audio_type', '<p class="text-danger">:message</p>') !!}
         </div>
 
-        <div class="form-group">
-            <label for="language">Language:</label>
-            <input type="text" class="form-control" id="language" name="language" value="{{ (old('language'))? old('language') : $audio->language}}">
-             {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="language">Language:</label>
+                <select class="form-select form-control" name="language" id="language" multiple aria-label="">
+                <option value="">Select please</option>
+                    <option value="1" <?php if ($audio->language == 1) { echo "selected"; } ?> > Urdu </option>
+                    <option value="2" <?php if ($audio->language == 2) { echo "selected"; } ?> > Pashto </option>
+                    <option value="3" <?php if ($audio->language == 3) { echo "selected"; } ?> > English </option>
+                    <option value="4" <?php if ($audio->language == 4) { echo "selected"; } ?> > Arabic </option>
+                    <option value="5" <?php if ($audio->language == 5) { echo "selected"; } ?> > punjabi </option>
+                </select>
+                {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
+            </div>
         </div>        
 
         <div class="form-group">

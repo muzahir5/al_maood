@@ -74,10 +74,15 @@ class AudioController extends Controller
         
         $audios = $query->get();
 
+        $list_lang =  DB::table('audio')->where('category',$categ_id)
+                        ->select('language as language_id',DB::raw('count(id) as lang_count'))           
+                        ->groupBy('language')->get();
+
         return response()->json([            
             'status' => "success",
             'base_path' => base_path().'/',
-            'audios' => $audios
+            'audios' => $audios,
+            'list_lang' => $list_lang
         ]);
     }
 

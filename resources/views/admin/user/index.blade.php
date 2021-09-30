@@ -7,6 +7,11 @@
     <h2>Users
     	<!-- <span style="float: right;"><a href="{{ url('admin/addAudio') }}">Add Audio</a>  </span> -->
     </h2>
+    <div class="info_msgs">
+      @if(session('success'))
+        <h3>{{session('success')}}</h3>
+      @endif
+    </div>
             <table id="data_tbl" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -57,10 +62,12 @@
 <script>
   $(document).ready(function() {
           
-            $('#data_tbl').DataTable( {
-                "pagingType": "full_numbers",
-                "pageLength": 50
-            } );
-        } );
+    $('#data_tbl').DataTable( {
+        "pagingType": "full_numbers",
+        "pageLength": 50
+    } );
+  } );
+
+  setInterval(function(){ $('.info_msgs').css('display','none'); }, 5000);
 
 </script>

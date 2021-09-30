@@ -6,7 +6,7 @@ body {
 }
 
 .row {
-    display: contents;
+    /* display: contents; */
 }
 
 .sidebar {

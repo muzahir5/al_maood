@@ -6,7 +6,7 @@ body {
 }
 
 .row {
-    /* display: contents; */
+    display: contents;
 }
 
 .sidebar {
@@ -188,7 +188,7 @@ div#country_list {
 }
 
 div#music-container {
-  /* display: none; */
+  display: none;
 }
 #player_options{
   text-align: right;

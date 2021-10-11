@@ -1,0 +1,1348 @@
+{
+	"info": {
+		"_postman_id": "2fa32357-7f1d-4603-af56-efa95f3b9216",
+		"name": "music_app_lara_coll",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCatagories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/getCategories",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"getCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAudioByCatagory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/listAudioByCatagory/{{categ_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"listAudioByCatagory",
+						"{{categ_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAudioByCatagoryBylang",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/listAudioByCatagory/{{categ_id}}/{{lang}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"listAudioByCatagory",
+						"{{categ_id}}",
+						"{{lang}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/userRegister?name=muzahir&email=muz@ef.com&password=12345&password_confirm=12345&mobile_number=12345",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"userRegister"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "muzahir"
+						},
+						{
+							"key": "email",
+							"value": "muz@ef.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						},
+						{
+							"key": "password_confirm",
+							"value": "12345"
+						},
+						{
+							"key": "mobile_number",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "muz@ef.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/userLogin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"userLogin"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "muz@ef.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/getUserById?user_id=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"getUserById"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userUpdate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/userUpdate?id=101&email=muz@ef.com&name=muzahir&country=pakistan&city=kohat&village=utz b&mobile_network=ufone&mobile_number=02236988432",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"userUpdate"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "101"
+						},
+						{
+							"key": "email",
+							"value": "muz@ef.com"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "muzahir"
+						},
+						{
+							"key": "country",
+							"value": "pakistan"
+						},
+						{
+							"key": "city",
+							"value": "kohat"
+						},
+						{
+							"key": "village",
+							"value": "utz b"
+						},
+						{
+							"key": "mobile_network",
+							"value": "ufone"
+						},
+						{
+							"key": "mobile_number",
+							"value": "02236988432"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "new_pass",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/change_password?code=102001&password=12345",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"change_password"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "102001"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/forgot_password?email=muz@ef.com",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"forgot_password"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "muz@ef.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/update_password?code=102001&password=12345",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"update_password"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "102001"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addAudio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "aud by {{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "{{categ_id}}",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "{{lang}}",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mp3_file",
+							"type": "file",
+							"src": "/home/muzahir/Music/muhammad_nabeena_ringtone_islamic_ringtones.mp3"
+						},
+						{
+							"key": "poet",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "img_upload_text_link",
+							"type": "file",
+							"src": "/home/muzahir/Pictures/hotel.png"
+						},
+						{
+							"key": "pdf_upload_text_link",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/addAudio",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"addAudio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SharePost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "from_u_id",
+							"value": "{{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "to_u_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "post_id",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "post_type",
+							"value": "audio",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/sharePost",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"sharePost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showAudio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "13",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/showAudio/?id=9",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"showAudio",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAudio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "audio_id",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "aud by {{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "{{categ_id}}",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "{{lang}}",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mp3_file",
+							"type": "file",
+							"src": "/home/muzahir/Music/muhammad_nabeena_ringtone_islamic_ringtones.mp3"
+						},
+						{
+							"key": "poet",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "img_upload_text_link",
+							"type": "file",
+							"src": "/home/muzahir/Pictures/hotel.png"
+						},
+						{
+							"key": "pdf_upload_text_link",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "poet",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "narrator",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "released_at",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/UpdateAudio",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"UpdateAudio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAudio ???",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/listAudio?searchInCat=19",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"listAudio"
+					],
+					"query": [
+						{
+							"key": "searchInAll",
+							"value": "a",
+							"disabled": true
+						},
+						{
+							"key": "searchInCat",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addFavourite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/addFavourite?user_id=5&post_id=21&user_type=u&post_type=v",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"addFavourite"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "5"
+						},
+						{
+							"key": "post_id",
+							"value": "21"
+						},
+						{
+							"key": "user_type",
+							"value": "u"
+						},
+						{
+							"key": "post_type",
+							"value": "v"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favourite List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/FavouriteList/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"FavouriteList",
+						"5"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeFavourite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/removeFavourite?user_id=5&id=13",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"removeFavourite"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "5"
+						},
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAudioPlayeCount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/updateAudioPlayeCount?audio_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"updateAudioPlayeCount"
+					],
+					"query": [
+						{
+							"key": "audio_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userSearch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/userSearch?search=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"userSearch"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addFriend",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/addFriend?request_user_id=4&response_user_id=222&status=3&reporter_id=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"addFriend"
+					],
+					"query": [
+						{
+							"key": "request_user_id",
+							"value": "4"
+						},
+						{
+							"key": "response_user_id",
+							"value": "222"
+						},
+						{
+							"key": "status",
+							"value": "3"
+						},
+						{
+							"key": "reporter_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifyFriendStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/modifyFriendStatus?login_id=10&user_id=10&user_to_id=66&status=3&reporter_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"modifyFriendStatus"
+					],
+					"query": [
+						{
+							"key": "login_id",
+							"value": "10"
+						},
+						{
+							"key": "user_id",
+							"value": "10"
+						},
+						{
+							"key": "user_to_id",
+							"value": "66"
+						},
+						{
+							"key": "status",
+							"value": "3"
+						},
+						{
+							"key": "reporter_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listFriends",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/listFriends?user_id=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"listFriends"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLogout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/userLogout?id=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"userLogout"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/getProducts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAudioBYUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/listAudioBYUser?user_id=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"listAudioBYUser"
+					],
+					"query": [
+						{
+							"key": "searchInAll",
+							"value": "a",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTracking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/postTracking?user_id=5&post_id=12&language=urw&device_type=api&event_type=listen_voice",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"postTracking"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "5"
+						},
+						{
+							"key": "post_id",
+							"value": "12"
+						},
+						{
+							"key": "language",
+							"value": "urw"
+						},
+						{
+							"key": "device_type",
+							"value": "api"
+						},
+						{
+							"key": "event_type",
+							"value": "listen_voice"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendSms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/sendSms?sender_id=4&receiver_id=2&message=hi its 1st msg form 1 to 2 , Wooo.",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"sendSms"
+					],
+					"query": [
+						{
+							"key": "sender_id",
+							"value": "4"
+						},
+						{
+							"key": "receiver_id",
+							"value": "2"
+						},
+						{
+							"key": "message",
+							"value": "hi its 1st msg form 1 to 2 , Wooo."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showSms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/showSms?sender_id=2&receiver_id=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"showSms"
+					],
+					"query": [
+						{
+							"key": "sender_id",
+							"value": "2"
+						},
+						{
+							"key": "receiver_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userPaidByPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/userPaidByPost?user_id=2&user_type=u&post_id=1&post_type=audio&paid=5&device_type=mob&device_os=ios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"userPaidByPost"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						},
+						{
+							"key": "user_type",
+							"value": "u"
+						},
+						{
+							"key": "post_id",
+							"value": "1"
+						},
+						{
+							"key": "post_type",
+							"value": "audio"
+						},
+						{
+							"key": "paid",
+							"value": "5"
+						},
+						{
+							"key": "device_type",
+							"value": "mob"
+						},
+						{
+							"key": "device_os",
+							"value": "ios"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userEarning",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/userEarning?user_id=2&transaction=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"userEarning"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						},
+						{
+							"key": "transaction",
+							"value": "1"
+						},
+						{
+							"key": null,
+							"value": "6 4 2 -1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showWallet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/showWallet/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"showWallet",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withDrawRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/withDrawRequest?user_id=2&request_amount=2&withDrawBy=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"withDrawRequest"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						},
+						{
+							"key": "request_amount",
+							"value": "2"
+						},
+						{
+							"key": "withDrawBy",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=ku&to=ar",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "e67cedc9d3f74525bb15ced567691c95",
+						"type": "text"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Region",
+						"value": "eastus",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "5",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\"Text\":\"Please enter email address.\"}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=ku&to=ar",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cognitive",
+						"microsofttranslator",
+						"com"
+					],
+					"path": [
+						"translate"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "3.0"
+						},
+						{
+							"key": "from",
+							"value": "en"
+						},
+						{
+							"key": "to",
+							"value": "ku"
+						},
+						{
+							"key": "to",
+							"value": "ar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://koboniq.eu.auth0.com/passwordless/start",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"client_id\": \"Rs8F0K5XdS8EoJqMjngsWZDKMTtsMcXO\",\n  \"client_secret\": \"q6A-8CploUh9jtlQ4Klm7AMZRJPkBXGSA0_mODp5j2rtDHKlkVjK9SadJ5gQuPgg\", \n  \"connection\": \"email\",\n  \"email\": \"muzahir.hussain@earthfactor.net\",\n  \"send\": \"code\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://koboniq.eu.auth0.com/passwordless/start",
+					"protocol": "https",
+					"host": [
+						"koboniq",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"passwordless",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://koboniq.eu.auth0.com/oauth/token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth0-forwarded-for",
+						"value": "115.186.56.142",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"grant_type\" : \"http://auth0.com/oauth/grant-type/passwordless/otp\",\n  \"client_id\": \"Rs8F0K5XdS8EoJqMjngsWZDKMTtsMcXO\",\n  \"client_secret\": \"q6A-8CploUh9jtlQ4Klm7AMZRJPkBXGSA0_mODp5j2rtDHKlkVjK9SadJ5gQuPgg\",\n  \"otp\": \"796214\",\n  \"realm\": \"email\",\n  \"username\":\"muzahir.hussain@earthfactor.net\"\n}"
+				},
+				"url": {
+					"raw": "https://koboniq.eu.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"koboniq",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/al-maood"
+		}
+	]
+}

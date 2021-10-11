@@ -62,7 +62,7 @@ class AudioController extends Controller
     {
         $categories = Categories::all();
         $query = Audio::select('id','title','description','narrator','language','upload_by','category','audio_url','audio_img','view_by','show_to')
-                    ->where('status',1)->Where('category', $categ_id);
+                    ->Where('category', $categ_id)->where('status',1)->orderBy('view_by','DESC');
         
         if($lang != ''){
             //search in Category
@@ -75,7 +75,7 @@ class AudioController extends Controller
         $audios = $query->get();
 
         $list_lang =  DB::table('audio')->where('category',$categ_id)
-                        ->select('language as language_id',DB::raw('count(id) as lang_count'))           
+                        ->select('language as language_id',DB::raw('count(id) as lang_count'))
                         ->groupBy('language')->get();
 
         return response()->json([            
@@ -117,7 +117,7 @@ class AudioController extends Controller
         if($audio){
             event_track_from_fx_hlpr($post_id = $id, $user_id = null, $event_type = 'show_audio');
             $status = 'success';
-            $relavent_audio = Audio::where(['category'=> $audio->category,'status'=> 1, 'show_to'=>$audio->show_to])->where('id','!=',$audio->id)->get();
+            $relavent_audio = Audio::where(['category'=> $audio->category,'status'=> 1, 'language'=>$audio->language])->where('id','!=',$audio->id)->get();
         }
         // if (!$relavent_audio) { $relavent_audio = null; }       
 

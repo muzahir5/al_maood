@@ -19,7 +19,7 @@
                                 <img src="http://localhost/al-maood/public/audio/images/{{$audio->audio_img}}" alt="audio img" style="border-radius: 14px; width: 72px;float: left;margin-right: 5px;">
                                 <h4 class="list-group-item-heading">{{$audio->title}}  </h4>
                                 <p class="list-group-item-text">{{$category->name}}
-                                <i class="fas fa-play list_play_<?php echo $i;?>" onclick="playaudio(<?php echo $i;?>)" style="float: right;"></i> </p>
+                                <i class="fas fa-play list_play_<?php echo $i;?>" onclick="playaudio(<?php echo $i;?> , {{$audio->id}} )" style="float: right;"></i> </p>
                             </span> 
                         </div>
                         </td>
@@ -77,13 +77,14 @@
         // songs.push('Willy');     // console.log(songs);        
     });
     
-    function playaudio(audio_index)
+    function playaudio(audio_index, audio_id)
         {
             songIndex = audio_index;
             loadSong(audio_index);
             playSong();
             $("#data_tbl tbody").on("click", "tr", function(){
                 // console.log(audio_index +' id ');
+                // console.log('audio_id ' + audio_id );
             });
         }
         

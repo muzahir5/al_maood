@@ -27,7 +27,7 @@
     border-top: 0px;
 }
 
-#rcorners2 {
+.rcorners2 {
   border-radius: 25px;
   border: 2px solid #fead19;
   padding: 25px; 
@@ -36,15 +36,15 @@
 }
 
 @media screen and (max-width: 321px) {
-  #rcorners2 {
+  .rcorners2 {
     padding: 12px;
   }
 }
 
-.row.no-gap .col img {
+.row.no-gap .col img , .row.no-gap2 .col img{
   border-radius: 30%;
 }
-.row.no-gap .col {
+.row.no-gap .col , .row.no-gap2 .col {
     text-align: center;
 }
 
@@ -53,3 +53,18 @@ a.elevation-demo {
   font-size: 18px;
 }
 
+
+div#data_tbl_filter, .dataTables_length {
+  display: inline;
+}
+
+#data_tbl_length{
+  float: left;
+  margin-left: 9px;
+}
+
+.dataTables_filter{
+  float: right !important;
+  margin-right: 5px;
+  text-align: left !important;
+}

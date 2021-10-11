@@ -20,38 +20,13 @@ var app = {
         core.current_screen = 'index';
         core.onResume();
         
-
         if (core.isOnline()) {
             profile.showSideMenuName();
             var login_status = localStorage.getItem(login.login_status);
             if (login_status === true || login_status === 'true') {
-                app.startLocationTracking();
                 profile.count_msg_ann();
             }
         }
-    },
-    checkLogin: function (callback) {
-        var login_status = localStorage.getItem(login.login_status);
-
-        if (login_status === true || login_status === 'true') {
-            core.user_id = localStorage.getItem('user_id');
-            callback(true);
-        } else {
-            mainView.router.loadPage('templates/login-screen-page.html');
-            callback(false);
-        }
-    },
-    startLocationTracking: function () {
-        maps.checkAttendanceStatus();
-        maps.setCurrentLocation();
-        maps.show_map('mapcanvas');
-        var status = localStorage.getItem('isStarted');
-        if (status == true || status == 'true') {
-            $('.online_status').attr('checked', 'checked');
-        }
-        push.startNotification();
-        initializeMap();
-
     },
     setSession: function (data) {
         localStorage.setItem(login.login_status, true);

@@ -1,7 +1,7 @@
 @extends('user.layouts.default')
 @section('title', 'Audios')
 @section('content')
-    <h2>{{$category->name}} <span name="cate_id" id="cate_id" style="display: none;">{{$cat_id}}</span></h2>
+    <h2>{{$category->name}} 5<span name="cate_id" id="cate_id" style="display: none;">{{$cat_id}}</span></h2>
 	    	<table id="data_tbl" class="display" style="width:100%">
                 <thead>
                     <tr>

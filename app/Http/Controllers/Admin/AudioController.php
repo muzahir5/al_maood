@@ -89,7 +89,7 @@ class AudioController extends Controller
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';
-            $categ_showto = '_'.date('d_m_Y_h_i_s');
+            $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
             $audio->audio_img = $request->title.$categ_showto;
@@ -162,7 +162,7 @@ class AudioController extends Controller
             $originalImage= $request->file('img_upload_text_link');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/audio/images/';            
-            $categ_showto = '_'.date('d_m_Y_h_i_s');
+            $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->title.$categ_showto);
 
             $audio->audio_img = $request->title.$categ_showto;            

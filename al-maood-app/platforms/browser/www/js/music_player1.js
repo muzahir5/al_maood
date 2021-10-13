@@ -12,45 +12,29 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-	const songs = [];
-	const songsTitle = [];
-	const songsImage = [];
-	const songsSrc = [];
-
-	//console.log(songs);  console.log(songsTitle);	console.log(songsImage);	console.log(songsSrc);
+const songs = ['hey', 'summer', 'ukulele'];
 
 // Keep track of song
-let songIndex = '';
-var next_row = prev_row = 0;
+let songIndex = 2;
 
 // Initially load song details into DOM
-// loadSong(songsTitle[songIndex]);
+// loadSong(songs[songIndex]);
 
 // Update song details
 function loadSong(song) {
   title.innerText = song;
-
-  // alert(song);
-
-  title.innerText = songsTitle[song];
-  cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
-  audio.src = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song]; // song = audio_index
-
-  // audio.src = `public/music/${song}.mp3`;
-  // cover.src = `public/images/${song}.jpg`;
-
+  audio.src = `music/${song}.mp3`;
+  cover.src = `img/${song}.jpg`;
 }
 
 // Play song
 function playSong() {
-	$('div#music-container').css('display','block !important');
-
   musicContainer.classList.add('play');
+  // $('#'+musicContainer).addClass('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
-  playBtn.querySelector('i.fas').classList.add('fa-pause');  
+  playBtn.querySelector('i.fas').classList.add('fa-pause');
 
   audio.play();
-  $('.list_play_'+songIndex).css('display','none');
 }
 
 // Pause song
@@ -59,27 +43,16 @@ function pauseSong() {
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
-  $('list_play').css('display','none');
-
   audio.pause();
-
-  $('.list_play_'+songIndex).css('display','block');
 }
 
 // Previous song
 function prevSong() {
+  songIndex--;
 
-	var prev_row = $('#'+songIndex ).prev("tr").attr("id");
-	if(prev_row == undefined){ prev_row = songIndex; }
-
-	// console.log(prev_row);
-
-  	// songIndex--;
-	// if (songIndex < 0) {
-	// 	songIndex = songs.length - 1;
-	// }
-
-	songIndex = prev_row;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
 
   loadSong(songs[songIndex]);
 
@@ -88,18 +61,11 @@ function prevSong() {
 
 // Next song
 function nextSong() {
-		var next_row = $('#'+songIndex ).next("tr").attr("id");
-        
-        if(next_row == undefined){ next_row = songIndex; }
-        		
-		// console.log(next_row);
+  songIndex++;
 
-//   songIndex++;
-//   if (songIndex > songs.length - 1) {
-//     songIndex = 0;
-//   }
-
-songIndex = next_row;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
 
   loadSong(songs[songIndex]);
 

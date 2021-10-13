@@ -19,15 +19,21 @@ body {
   margin: 0;
 }
 
+
 .music-container {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
   display: flex;
   padding: 20px 30px;
-  position: relative;
+  position: fixed; 
+  /* relative; */
   margin: 100px 0;
   z-index: 10;
+  margin-bottom: 14em;
+}
+.music-container{
+  /* display : none; */
 }
 
 .img-container {
@@ -108,12 +114,13 @@ body {
   position: absolute;
   top: 0;
   left: 20px;
-  width: calc(100% - 40px);
+  /* width: calc(100% - 40px); */
   padding: 10px 10px 10px 150px;
   opacity: 0;
   transform: translateY(0%);
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
   z-index: 0;
+  background: lightblue;
 }
 
 .music-container.play .music-info {

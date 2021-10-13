@@ -13,7 +13,7 @@ const durTime = document.querySelector('#durTime');
 
 // Song titles
 	const songs = [];
-	const songsTitle = [];
+	const songsTitle = ['55'];
 	const songsImage = [];
 	const songsSrc = [];
 
@@ -43,7 +43,7 @@ function loadSong(song) {
 
 // Play song
 function playSong() {
-	$('div#music-container').css('display','block !important');
+	$('div#music-container').css('display','block');
 
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');

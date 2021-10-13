@@ -15,32 +15,45 @@ var home = {
                 $.each(audios,function(key,value){
                     // core.log(result.base_path);
                     var id = value.id; var audio_url = "'http://localhost/al-maood/"+ value.audio_url+"'";
-                    var audio_img = "http://localhost/al-maood/public/audio/images/"+ value.audio_img+'.jpg'; var title = "'"+value.title+"'";
+                    var audio_img = "http://localhost/al-maood/public/audio/images/"+ value.audio_img; var title = "'"+value.title+"'";
                     // core.log(audio_url);
 
                     var html = '<tr id="'+current+'"> <td>'+
                                 '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                 '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                 '<span><h4 class="list-group-item-heading">'+value.title+'</h4>'+
-                                '<p class="list-group-item-text">'+value.description+'<i class="fas fa-play list_play_11" onclick="playaudio('+current+' ,'+value.id+')" style="float: right;"></i> </p>'+
+                                '<p class="list-group-item-text">'+value.description+'<i class="fas fa-play list_play_11" onclick="home.playaudio('+current+' ,'+value.id+')" style="float: right;"></i> </p>'+
                                 '</span> </span> </div> </td>  </tr>';
+
+                                songs.push(current);
+                                songsTitle.push(value.title);
+                                songsImage.push(value.audio_img);
+                                songsSrc.push(value.audio_url);
                                 
                                 current++;
                     $('.render_music').append(html);
                 });
+                // console.log(songs);console.log(songsTitle);console.log(songsImage);console.log(songsSrc);
                 }
             }
-            setTimeout(function(){ 
-                // home.categories_list();
-    
+            setTimeout(function(){     
                 $('#data_tbl').DataTable( {
                     "pagingType": "full_numbers",
                     "pageLength": 50
-                } );
-    
+                } );    
              }, 2000);
         });
 	},
+    playaudio: function(audio_index, audio_id)
+        {
+            songIndex = audio_index;
+            loadSong(audio_index);
+            playSong();
+            $("#data_tbl tbody").on("click", "tr", function(){
+                // console.log(audio_index +' id ');
+                // console.log('audio_id ' + audio_id );
+            });
+        },
     categories_list: function(){	
     	var param = [];
         var url = 'user/getCategories/';

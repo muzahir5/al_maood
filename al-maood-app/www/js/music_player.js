@@ -43,13 +43,17 @@ function loadSong(song) {
 
 // Play song
 function playSong() {
-	$('div#music-container').css('display','block !important');
-
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
   playBtn.querySelector('i.fas').classList.add('fa-pause');  
 
   audio.play();
+
+//   setTimeout(function(){
+	$('.music-container').css('display','flex');
+	// console.log(55);
+//    }, 2000);
+
   $('.list_play_'+songIndex).css('display','none');
 }
 

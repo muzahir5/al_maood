@@ -29,10 +29,14 @@
 
 .rcorners2 {
   border-radius: 25px;
-  border: 2px solid #fead19;
-  padding: 25px; 
+  border: 1px solid #fead19;
+  padding: 12px; 
   width: auto;
-  height: auto;  
+  height: auto;
+  display: flex;
+  height: 140px;
+  width: 320px;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 321px) {
@@ -46,11 +50,12 @@
 }
 .row.no-gap .col , .row.no-gap2 .col {
     text-align: center;
+    margin-right: 19px;
 }
 
 a.elevation-demo {
   background: #fff;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 

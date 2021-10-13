@@ -74,7 +74,7 @@ var home = {
                     if(current < 3){
                         var html = ' <div class="col">'+
                                 '<a onclick="home.audio_list('+id+','+cat_name+')" class="elevation-demo elevation-12" href="#">'+
-                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="100px">'+
+                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px">'+
                                 '<p>'+ cat_name+' <i class="pe-7s-music"></i></p></a></div>';                    
 
                         $('.no-gap').append(html);
@@ -82,7 +82,7 @@ var home = {
                     if(current > 2 && current < 5){
                         var html2 = ' <div class="col">'+
                                 '<a onclick="home.audio_list('+id+','+cat_name+')" class="elevation-demo elevation-12" href="#">'+
-                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="100px">'+
+                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px">'+
                                 '<p>'+ cat_name+' <i class="pe-7s-music"></i></p></a></div>';
                         $('.no-gap2').append(html2);
                     }

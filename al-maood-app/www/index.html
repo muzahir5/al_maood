@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css">
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/music_player.css">
     <!-- <link rel="stylesheet"href="css/fa.css"/> -->
@@ -101,7 +101,7 @@
                             <hr>
                             <!-- <audio controls="" style="vertical-align: middle" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload"> -->
                                 
-                            <marquee width="60%" direction="up" height="100px">
+                            <marqueed width="60%" direction="up" height="100px">
                                 This is a sample scrolling text that has scrolls in the upper direction.
                             </marquee>
 
@@ -166,7 +166,9 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
     
     <script type="text/javascript">
-        setTimeout(function(){ home.categories_list(); }, 100);
+        setTimeout(function(){
+             home.categories_list(); 
+            }, 2000);
     </script>
 
 </body>

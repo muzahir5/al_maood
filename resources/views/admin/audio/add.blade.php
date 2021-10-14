@@ -37,7 +37,7 @@
                 <option value="">Select Category</option>
                 @foreach($categories as $category)                  
                     <option value="{{$category->id}} "> {{$category->name}} </option>                              
-                @endforeach            
+                @endforeach
             </select>
             {!! $errors->first('category', '<p class="text-danger">:message</p>') !!}
             </div>
@@ -60,10 +60,17 @@
              {!! $errors->first('audio_type', '<p class="text-danger">:message</p>') !!}
         </div>
 
-        <div class="form-group">
-            <label for="language">Language:</label>
-            <input type="language" class="form-control" id="language" name="language" value="{{ old('language')}}" Placeholder="english">
-             {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="language">Language:</label>
+                <select class="form-select form-control" name="language" id="language" multiple aria-label="">
+                <option value="">Select please</option>                    
+                    @foreach($languages as $language)                  
+                        <option value="{{$language->id}} "> {{$language->name}} </option>                              
+                    @endforeach
+                </select>
+                {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
+            </div>
         </div>
 
         <div class="form-group">

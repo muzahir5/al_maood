@@ -152,6 +152,9 @@ function DurTime (e) {
 	get_sec (currentTime,sec);
 
 	// change currentTime DOM
+	if(sec > 10 && sec < 12){
+		console.log(sec);
+	}
 	currTime.innerHTML = min +':'+ sec;
 
 	// define minutes duration

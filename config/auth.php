@@ -52,10 +52,14 @@ return [
             'provider' => 'users',
         ],
 
-
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+
+        'editor' => [
+            'driver' => 'session',
+            'provider' => 'editors',
         ],
     ],
 
@@ -85,6 +89,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Model\Admin\Admin::class,
+        ],
+
+        'editors' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Admin\Editor::class,
         ],
 
         // 'users' => [

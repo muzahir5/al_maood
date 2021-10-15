@@ -70,22 +70,21 @@ var home = {
                 $.each(categories,function(key,value){
                     // core.log(result.base_path);
                     var id = value.id; var cat_name = "'"+ value.name +"'"; var category_img = value.category_img;
-                    // core.log(id);                    
-                    if(current < 3){
+                    // core.log(id);
+                    
                         var html = ' <div class="col">'+
-                                '<a onclick="home.audio_list('+id+','+cat_name+')" class="elevation-demo elevation-12" href="#">'+
-                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px">'+
-                                '<p>'+ cat_name+' <i class="pe-7s-music"></i></p></a></div>';                    
+                                '<a onclick="home.audio_list('+id+','+cat_name+')" class="list_cat_home" href="#">'+
+                                '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px" height="80px">'+
+                                '<b>'+ value.name+' </b></a></div>';
 
                         $('.no-gap').append(html);
-                    }
-                    if(current > 2 && current < 5){
+                    
                         var html2 = ' <div class="col">'+
                                 '<a onclick="home.audio_list('+id+','+cat_name+')" class="elevation-demo elevation-12" href="#">'+
                                 '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px">'+
                                 '<p>'+ cat_name+' <i class="pe-7s-music"></i></p></a></div>';
-                        $('.no-gap2').append(html2);
-                    }
+                        // $('.no-gap2').append(html2);
+                    // }
                     current++;
                 });
                 }
@@ -108,6 +107,11 @@ var home = {
     // bottom: 0em;
         $('#music-container').css({'display':'flex','overflow':'unset','position':'fixed','bottom':'0em'})
         playSong();
-
+    },
+    hide_player: function(){
+        $('.music-container').css('display','none');
+    },
+    show_player: function(){
+        $('.music-container').css('display','flex');
     }
 }

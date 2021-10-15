@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Image;
 use App\Model\Admin\Categories;
+use App\Model\Admin\Language;
 use App\Model\Admin\Audio;
 use File;
 use Auth;
@@ -31,8 +32,9 @@ class AudioController extends Controller
 
     public function create(){
         $categories = Categories::all();
+        $languages = language::all();
         
-    	return view('admin.audio.add',compact('categories'));
+    	return view('admin.audio.add',compact('categories','languages'));
     }
 
     public function save(Request $request){

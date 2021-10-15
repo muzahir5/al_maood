@@ -21,7 +21,7 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Your app title -->
-    <title>My App</title>
+    <title>AL MAOOD</title>
 
     <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css">
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/music_player.css">
     <!-- <link rel="stylesheet"href="css/fa.css"/> -->
@@ -56,6 +56,12 @@
                         <div class="col-66">   Home           </div>
                     </a>
                 </div>
+                <div class="a_nav">
+                    <a onclick="home.show_player()" href="#" class="close-panel row">
+                        <div class="col-33"><img src="img/checkout.png" style="margin-left: .2em;width: 20px;height: 20px;margin-top: .7em;"></div>
+                        <div class="col-66"><button class="col button color-orange">Show Player</button> </div>
+                    </a>
+                </div>
             </div>    
         </div>
     </div>
@@ -68,7 +74,7 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Al Maood</div>
+                    <div class="center sliding">Test App</div>
                     <div class="right">
                         <!--
                           Right link contains only icon - additional "icon-only" class
@@ -89,8 +95,8 @@
                             <!-- <div class="block-title">Columns with gap</div> -->
                         <div class="block">
                             <div class="rcorners2">
-                                <div class="row no-gap"></div>
-                                <div class="row no-gap2"></div>
+                                <div class="row no-gap" style="display: contents;"></div>
+                                <!-- <div class="row no-gap2"></div> -->
                             </div>
                         </div>    
                             <!-- Link to another page -->                            
@@ -101,7 +107,7 @@
                             <hr>
                             <!-- <audio controls="" style="vertical-align: middle" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload"> -->
                                 
-                            <marquee width="60%" direction="up" height="100px">
+                            <marqueed width="60%" direction="up" height="100px">
                                 This is a sample scrolling text that has scrolls in the upper direction.
                             </marquee>
 
@@ -114,11 +120,13 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
 
-                    <div class="music-container" id="music-container" style="display: none;">
+                    <div class="music-container" id="music-container">
                 <div class="music-info">
                 
                   <div class="duration">
-                      <p> <b><span id="title"></span></b> <button class="col button color-red">Hide</button> <span id="currTime"></span><span id="durTime"></span> </p> 
+                      <p> <b><span id="title"></span></b>
+                        <button onclick="home.hide_player()" class="col button color-red">Hide</button> 
+                        <span id="currTime"></span><span id="durTime"></span> </p> 
                   </div>
                   <div class="progress-container" id="progress-container">
                     <div class="progress" id="progress"></div>
@@ -166,7 +174,10 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
     
     <script type="text/javascript">
-        setTimeout(function(){ home.categories_list(); }, 100);
+        setTimeout(function(){
+             home.categories_list();
+            // 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
+            }, 2000);
     </script>
 
 </body>

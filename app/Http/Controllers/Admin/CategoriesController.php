@@ -42,7 +42,7 @@ class CategoriesController extends Controller
         $originalImage= $request->file('category_img');
         $thumbnailImage = Image::make($originalImage);            
         $originalPath = public_path().'/categories/';
-        $categ_showto = '_'.date('d_m_Y_h_i_s');
+        $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
         $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 
         $categories->category_img = $request->name.$categ_showto;
@@ -78,7 +78,7 @@ class CategoriesController extends Controller
             $originalImage= $request->file('category_img');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/categories/';            
-            $categ_showto = '_'.date('d_m_Y_h_i_s');
+            $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 
             $category_image = $request->name.$categ_showto;            

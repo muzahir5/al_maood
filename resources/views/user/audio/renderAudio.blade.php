@@ -41,7 +41,7 @@
         $('#data_tbl').DataTable( {
             "pagingType": "full_numbers",
             "pageLength": 50
-        } );                    
+        } );
 
     	//load js song arr by cat_id
     	var cate_id = $('#cate_id').text();

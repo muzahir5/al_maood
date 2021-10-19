@@ -82,3 +82,15 @@ table.dataTable tbody th, table.dataTable tbody td {
 a.list_cat_home img {
     border: 2px solid orange;
 }
+
+.chip {
+    display: inline-block;
+    padding: 0 7px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 20px;
+    background-color: orange;
+    border: 1px dashed white;
+    margin: 7px;
+}

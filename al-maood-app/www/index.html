@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
 <!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
  -->
     <!-- Required meta tags-->
@@ -23,13 +14,9 @@
     <!-- Your app title -->
     <title>AL MAOOD</title>
 
-    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
-        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
-     -->
-
+    <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
     <!-- <link rel="stylesheet" href="lib/framework7/css/framework7-bundle.min.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/music_player.css">
@@ -100,8 +87,7 @@
                             </div>
                         </div>    
                             <!-- Link to another page -->                            
-                            <a href="about.html">About apps</a>
-
+                            <a href="about.html">About apps</a>                            
 
                         </div>                        
                             <hr>
@@ -165,19 +151,21 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/load_data.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/music_player.js"></script>
+    <script type="text/javascript" src="js/music_player.js"></script>    
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
     
     <script type="text/javascript">
         setTimeout(function(){
-             home.categories_list();
+            home.categories_list();
+            // core.log(languages_arr);
             // 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
-            }, 2000);
+        }, 2000);
     </script>
 
 </body>

@@ -23,6 +23,7 @@ use Image;
 use App\Model\User\WithDraw;
 use App\Model\User\SharePost;
 use Illuminate\Support\Facades\Log;
+use App\Model\Admin\language;
 
 class AudioController extends Controller
 {
@@ -76,7 +77,7 @@ class AudioController extends Controller
 
         $list_lang =  DB::table('audio')->where('category',$categ_id)
                         ->select('language as language_id',DB::raw('count(id) as lang_count'))
-                        ->groupBy('language')->get();
+                        ->groupBy('language')->get();        
 
         return response()->json([            
             'status' => "success",
@@ -349,11 +350,13 @@ class AudioController extends Controller
 
     public function getCategories(){
         $categories = DB::table('categories')->where('status',1)->get();
+        $languages = language::select('id','name')->get();
         
         return response()->json(
             [
                 'status' => 'success',
-                'categories' => $categories 
+                'categories' => $categories,
+                'languages' => $languages
             ]
         );
     }

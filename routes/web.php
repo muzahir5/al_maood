@@ -35,11 +35,23 @@ Route::group([
     Route::get('/login', 'User\LoginController@create')->name('login');
     Route::post('/login', 'User\LoginController@login');
     Route::get('/logout', 'User\LoginController@logout');
-
     Route::get('/listAudioByCatagory/{id}','User\DashboardController@listAudioByCatagory')->name('user.listAudioByCatagory');
     Route::get('/listAudioByCatagoryId/{cate_id?}','User\DashboardController@listAudioByCatagoryId')->name('user.listAudioByCatagoryId');
     Route::get('/listAudio/{searching_word?}/{cat_id?}', 'User\DashboardController@listAudio')->name('user.listAudio');
+});
 
+Route::group([
+	'prefix' => 'editor'
+],function () {
+
+    Route::get('/', 'Editor\LoginController@create');
+    Route::get('/dashboard', 'Editor\DashboardController@index')->name('dashboard');
+    Route::get('/register', 'Editor\RegistrationController@create')->name('register');
+    Route::post('/register', 'Editor\RegistrationController@store')->name('register');
+    
+    Route::get('/login', 'Editor\LoginController@create')->name('login');
+    Route::post('/login', 'Editor\LoginController@login');
+    Route::get('/logout', 'Editor\LoginController@logout');
 
 });
 

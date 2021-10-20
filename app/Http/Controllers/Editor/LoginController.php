@@ -24,15 +24,12 @@ class LoginController extends Controller
     	$this->validate($request, [
             'email' => 'required|email',
             'password' => 'required'
-        ]);
-        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            // If successfull, redirect to their intended location
+        ]);                                             // echo '<pre>';print_r($request->email);exit;
+        if (Auth::guard('editor')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {            
             return redirect()->to('/editor/dashboard');
         }
         
-        return back()->withInput($request->only('email', 'remember'));
-        
+        return back()->withInput($request->only('email', 'remember'));        
     }
     
     public function logout()

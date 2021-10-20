@@ -93,7 +93,7 @@ return [
 
         'editors' => [
             'driver' => 'eloquent',
-            'model' => App\Model\Admin\Editor::class,
+            'model' => App\Model\Editor\Editor::class,
         ],
 
         // 'users' => [

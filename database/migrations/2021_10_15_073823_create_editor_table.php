@@ -13,7 +13,7 @@ class CreateEditorTable extends Migration
      */
     public function up()
     {
-        Schema::create('editor', function (Blueprint $table) {
+        Schema::create('editors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -34,6 +34,6 @@ class CreateEditorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('editor');
+        Schema::dropIfExists('editors');
     }
 }

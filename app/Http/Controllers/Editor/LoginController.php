@@ -29,7 +29,7 @@ class LoginController extends Controller
             return redirect()->to('/editor/dashboard');
         }
         
-        return back()->withInput($request->only('email', 'remember'));        
+        return back()->withInput($request->only('email', 'remember'));
     }
     
     public function logout()

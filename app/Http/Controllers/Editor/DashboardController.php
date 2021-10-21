@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers\Editor;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use File;
 use Auth;
+use Image;
 use Session;
+use Carbon\Carbon;
+use App\Model\Admin\Audio;
+use Illuminate\Http\Request;
+use App\Model\Admin\Language;
+use App\Model\Admin\Categories;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -13,7 +20,15 @@ class DashboardController extends Controller
         $this->middleware('auth:editor');
     }
 
-	Public function index(){
-		return view('editor.index');
+	Public function index()
+    {
+        $categories = Categories::all();
+        $audios = Audio::all();
+        $activeAudioCount = Audio::where('status',1)->count();
+        $unActiveAudioCount = Audio::where('status',0)->count();
+        $deletedAudioCount = Audio::where('status',3)->count();
+
+
+		return view('editor.index', compact('audios','categories','activeAudioCount','unActiveAudioCount','deletedAudioCount'));
     }
 }

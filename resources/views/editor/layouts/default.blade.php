@@ -24,6 +24,7 @@
 </body>
 
 @include('editor.includes.foot')
+@yield('footer-content')
 
 <script stype="text/javascript">
 

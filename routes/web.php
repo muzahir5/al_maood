@@ -46,12 +46,18 @@ Route::group([
 
     Route::get('/', 'Editor\LoginController@create');
     Route::get('/dashboard', 'Editor\DashboardController@index')->name('dashboard');
-    Route::get('/register', 'Editor\RegistrationController@create')->name('register');
-    Route::post('/register', 'Editor\RegistrationController@store')->name('register');
-    
+    // Route::get('/register', 'Editor\RegistrationController@create')->name('register');
+    // Route::post('/register', 'Editor\RegistrationController@store')->name('register');
     Route::get('/login', 'Editor\LoginController@create')->name('login');
     Route::post('/login', 'Editor\LoginController@login');
     Route::get('/logout', 'Editor\LoginController@logout');
+
+    Route::get('/createAudio', 'Editor\AudioController@create')->name('createAudio');
+    Route::post('/addAudio', 'Editor\AudioController@store')->name('addAudio');
+    Route::get('/audios/{status?}', 'Editor\AudioController@index')->name('audios');
+    Route::get('/editAudio/{id}', 'Editor\AudioController@edit')->name('editAudio');
+    Route::post('/updateAudio', 'Editor\AudioController@update')->name('updateAudio');
+    Route::get('/updateAudioStatus/{id}', 'Editor\AudioController@updateAudioStatus')->name('updateAudioStatus');
 
 });
 

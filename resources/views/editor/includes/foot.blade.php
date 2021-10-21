@@ -18,6 +18,8 @@
     <script src="{{ asset('public/dashboard/vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('public/dashboard/js/demo/chart-area-demo.js')}}"></script>
+    <!-- <script src="{{ asset('public/dashboard/js/demo/chart-area-demo.js')}}"></script>
 
-    <script src="{{ asset('public/dashboard/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="{{ asset('public/dashboard/js/demo/chart-pie-demo.js')}}"></script> -->
+
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>

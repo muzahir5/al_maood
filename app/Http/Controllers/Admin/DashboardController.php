@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Auth;
+use File;
+use Image;
 use Session;
+use Carbon\Carbon;
+use App\Model\Admin\Audio;
+use Illuminate\Http\Request;
+use App\Model\Admin\Language;
+use App\Model\Admin\Categories;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 
 class DashboardController extends Controller
 {
@@ -15,8 +23,14 @@ class DashboardController extends Controller
 
 	Public function index(){  
 
-		$client_id = Auth::user()->id; 
+		$admin_id = Auth::user()->id;
 
-		return view('admin.dashboard');
+		$categories = Categories::all();
+        $audios = Audio::all();
+        $activeAudioCount = Audio::where('status',1)->count();
+        $unActiveAudioCount = Audio::where('status',0)->count();
+        $deletedAudioCount = Audio::where('status',3)->count();
+
+		return view('admin.dashboard', compact('audios','categories','activeAudioCount','unActiveAudioCount','deletedAudioCount'));
     }
 }

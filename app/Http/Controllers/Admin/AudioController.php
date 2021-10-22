@@ -20,10 +20,17 @@ class AudioController extends Controller
     	$this->middleware('auth:admin');
     }
 
-    public function index(){
+    public function index($status = ''){
         
         $categories = Categories::all();
-        $audios = Audio::all();
+
+        if( $status != ''){
+            $audios = Audio::where('status',$status)->get();
+        }else{
+            $audios = Audio::all();
+        }
+        // $audios = Audio::all();
+        
 
         // echo '<pre>';print_r($audios);exit;        
 

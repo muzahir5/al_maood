@@ -81,7 +81,7 @@ Route::group([
     Route::get('/editProduct/{id}', 'Admin\ProductController@edit')->name('editProduct');
     Route::post('/updateProduct', 'Admin\ProductController@update')->name('updateProduct');
 
-    Route::get('/audio', 'Admin\AudioController@index')->name('audio');
+    Route::get('/audio/{status?}', 'Admin\AudioController@index')->name('audio');
     Route::get('/addAudio', 'Admin\AudioController@create')->name('addAudio');
     Route::post('/addAudio', 'Admin\AudioController@save')->name('addAudio');
     Route::get('/editAudio/{id}', 'Admin\AudioController@edit')->name('editAudio');
@@ -99,6 +99,13 @@ Route::group([
     Route::post('/updateUser', 'Admin\UserController@updateUser')->name('updateUser');
     Route::get('/updateUserStatus/{id}/{status}', 'Admin\UserController@updateUserStatus')->name('updateUserStatus');
     Route::get('/editUser/{id}', 'Admin\UserController@edit')->name('editUser');
+
+    Route::get('/narrators', 'Admin\NarratorController@index')->name('narrator');
+    Route::get('/addNarrator', 'Admin\NarratorController@create')->name('addNarrator');
+    Route::post('/addNarrator', 'Admin\NarratorController@save')->name('addNarrator');
+    Route::get('/editNarrator/{id}', 'Admin\NarratorController@edit')->name('editNarrator');
+    Route::post('/updateNarrator', 'Admin\NarratorController@update')->name('updateNarrator');
+    Route::get('/deleteNarrator/{id}', 'Admin\NarratorController@delete')->name('deleteNarrator');
 
 
 });

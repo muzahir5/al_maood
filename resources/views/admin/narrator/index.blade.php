@@ -26,48 +26,32 @@
                     <div class="row">
                     <div class="col-xl-12 col-md-12 mb-4">
                         
-                    <table id="data_tbl" class="display" style="width:100%">
+                    <table id="narrator_data_tbl" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">Id#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Uploaded by</th>                  
-                                <th scope="col">Category</th>
-                                <th scope="col">View By</th>
-                                <th scope="col">Action</th>
-                                <th scope="col">Item</th>
+                                <!-- <th scope="col">Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
-                            @if($audios)
-                                @foreach($audios as $audio)
+                            @if($narrators)
+                                @foreach($narrators as $narrator)
                                 <tr>
-                                    <th scope="row">{{$audio->id}}</th>
-                                    <td>{{$audio->title}}</td>
+                                    <th scope="row">{{$narrator->id}}</th>
+                                    <td>{{$narrator->name}}</td>
                                     <td>
-                                        @if($audio->status == 3)
-                                        <a href="#" title="Audio is Deleted" > Deleted </a>
-                                        @elseif($audio->status == 1)
-                                        <a href="{{url('admin/updateAudioStatus' , $audio->id)}}" title="Click to InActive status" > Active </a>
+                                        @if($narrator->status == 3)
+                                        <a href="#" title="narrator is Deleted" > Deleted </a>
+                                        @elseif($narrator->status == 1)
+                                        <a href="{{url('admin/updateNarratoroStatus' , $narrator->id)}}" title="Click to InActive status" > Active </a>
                                         @else
-                                        <a href="{{url('admin/updateAudioStatus' ,$audio->id)}}" title="Click to Activate status" > InActive </a>
+                                        <a href="{{url('admin/updateNarratorStatus' ,$narrator->id)}}" title="Click to Activate status" > InActive </a>
                                         @endif
+                                    </td>oreach
                                     </td>
-                                    <td>{{$audio->upload_by}}</td>                  
-                                    <td>
-                                    @foreach($categories as $cat)
-                                        @if($cat->id == $audio->category)
-                                        {{$cat->name}}
-                                        @endif
-                                    @endforeach
-                                    </td>
-                                    <td>{{$audio->view_by}}</td>                  
-                                    <td><a href="{{url('admin/editAudio' ,$audio->id )}} ">Edit</a> |Delete</td>
-                                    <td>
-                                    <!-- {{$audio->audio_url}} -->
-                                    <audio controls="" style="vertical-align: middle" src="{{ asset('public/audio/mp3/'.$audio->audio_url) }} " type="audio/mp3" controlslist="nodownload">
-                                    </td>
+                                    
                                 </tr>                              
                                 @endforeach
                             @endif 
@@ -93,7 +77,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         
-        $('#data_tbl').DataTable( {
+        $('#narrator_data_tbl').DataTable( {
                 "pagingType": "full_numbers",
                 "pageLength": 50
         } );

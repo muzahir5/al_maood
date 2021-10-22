@@ -89,7 +89,7 @@
 
 @endsection
 
-@section('footer-content')
+@section('footer-js-content')
 <script type="text/javascript">
     $(document).ready(function () {
         

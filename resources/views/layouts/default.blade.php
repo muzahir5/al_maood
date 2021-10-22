@@ -4,7 +4,7 @@
 
 <head>
 
-   @include('includes.head')
+   @include('includes2.head')
 
 </head>
 
@@ -14,13 +14,13 @@
 
    <header class="row">
 
-       @include('includes.header')
+       @include('includes2.header')
 
    </header>
 
    <div class="row">
    		<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 sidebar" id="mySidebar" >
-   			@include('includes.sidebar')
+   			@include('includes2.sidebar')
       </div>
 
       <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12" id="main">
@@ -32,7 +32,7 @@
 
    <footer class="row">
    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  p-5">
-       		@include('includes.footer')
+       		@include('includes2.footer')
        	</div>
 
    </footer>

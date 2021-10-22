@@ -8,15 +8,15 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('editor.includes.header')
+        @include('admin.includes.header')
 
-   		@include('editor.includes.sidebar')
+   		@include('admin.includes.sidebar')
 
-        @include('editor.includes.navbar')
+        @include('admin.includes.navbar')
      	
         @yield('content')
 
-        @include('editor.includes.footer')
+        @include('admin.includes.footer')
     
         <!-- Page Wrapper End -->
     </div>

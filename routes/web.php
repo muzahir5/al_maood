@@ -106,6 +106,7 @@ Route::group([
     Route::get('/editNarrator/{id}', 'Admin\NarratorController@edit')->name('editNarrator');
     Route::post('/updateNarrator', 'Admin\NarratorController@update')->name('updateNarrator');
     Route::get('/deleteNarrator/{id}', 'Admin\NarratorController@delete')->name('deleteNarrator');
+    Route::get('/updateNarratorStatus/{id}', 'Admin\NarratorController@updateNarratorStatus')->name('updateNarratorStatus');
 
 
 });

@@ -20,6 +20,7 @@ yarn-error.log
 /public/images/*
 /public/music/*
 /public/uploads/*
+/public/narrators/*
 /public/favicon.ico
 /public/index.php
 /public/robosts.txt

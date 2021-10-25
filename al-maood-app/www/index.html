@@ -163,6 +163,19 @@
     <script type="text/javascript">
         setTimeout(function(){
             home.categories_list();
+
+            var today = new Date().toLocaleDateString();
+
+            var previous_date = localStorage.getItem("previous_date");
+
+            if(today > previous_date) {
+                //Do something..
+                // alert();
+                console.log("today_date is " + today + " ,previous_date is " + previous_date);
+                localStorage.setItem('previous_date', today);
+            }
+            
+
             // core.log(languages_arr);
             // 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
         }, 2000);

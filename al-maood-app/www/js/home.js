@@ -75,7 +75,7 @@ var home = {
                                     songsSrc.push(value.audio_url);                                
                                     current++;
                         $('.render_music').append(html);
-                    });                                
+                    });
                     // core.log(languages_arr);
                     // console.log(songs);console.log(songsTitle);console.log(songsImage);console.log(songsSrc);
                 }

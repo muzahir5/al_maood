@@ -12,3 +12,4 @@
 
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="{{ asset('public/dashboard/css/sb-admin-2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/audio_player.css') }}">

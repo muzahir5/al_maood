@@ -22,4 +22,6 @@
 
     <script src="{{ asset('public/dashboard/js/demo/chart-pie-demo.js')}}"></script> -->
 
+    <script src="{{ asset('public/js/audio_player.js')}}"></script>
+
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>

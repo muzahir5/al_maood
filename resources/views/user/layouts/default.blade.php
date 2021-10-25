@@ -1,32 +1,22 @@
 <!doctype html>
-
 <html>
+    <head>
+        @include('includes.head')
+    </head>
 
-<head>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-   @include('user.includes.head')
+        @include('user.includes.header')
 
-</head>
+   		@include('user.includes.sidebar')
 
-<body>
+        @include('user.includes.navbar')
+     	
+        @yield('content')
 
-<div class="container-fluid">
-
-   <header class="row">
-
-       @include('user.includes.header')
-
-   </header>
-
-   <div class="row">
-        <div class="sidebar" id="mySidebar" >
-   			@include('user.includes.sidebar')
-      </div>
-
-      <div id="main">        	
-          @yield('content')
-
-          <div class="music-container" id="music-container">
+        <div class="music-container" id="music-container">
             <div class="music-info">
               <h4 id="title"></h4>
               <div class="progress-container" id="progress-container">            
@@ -52,53 +42,55 @@
               </button>
             </div>
             <div id="player_options">
-            <span class="text-dark"onclick="hide_player()">Hide</span>
+            <span class="text-dark" onclick="hide_player()">Hide</span>
             </div>
           </div>
-      
-      </div>
 
-   </div>
-
-   <footer class="row">
-   		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-5">
-       		@include('user.includes.footer')
-       	</div>
-
-   </footer>
-
-</div>
+        @include('user.includes.footer')
+    
+        <!-- Page Wrapper End -->
+    </div>
 
 </body>
 
-@include('user.includes.foot')
-<script src="{{ asset('public/js/audio_player.js')}}"></script>
+@include('includes.foot')
+@yield('footer-js-content')
+
 <script stype="text/javascript">
-  function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  
-  // document.getElementById("main").style.marginLeft = "250px";
-  $(".sidebar").css("display", "block");
-  $(".closebtnn").css("display", "block");
-  $(".openbtn").css("display", "none");
-}
+    $(document).ready(function () {      
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  // document.getElementById("main").style.marginLeft= "0";
-  
-  $(".sidebar").css("display", "none");
-  $(".closebtnn").css("display", "none");
-  $(".openbtn").css("display", "block");
-}
+      function hide_player()
+      {
+        console.log(8989);
+        $('div#music-container').css('display','none');
+      }
+      function show_palyer(){
+        $('div#music-container').css('display','block');
+      }
 
-  function hide_player()
-  {
-    $('div#music-container').css('display','none');
-  }
-  function show_palyer(){
-    $('div#music-container').css('display','block');
-  }
+      /*
+      For  auto play after load/Reload page
+      var current_audio_url = localStorage.getItem("current_audio_url");
+      var current_audio_pic = localStorage.getItem("current_audio_pic");
+      var current_audio_title = localStorage.getItem("current_audio_title");
+      var current_audio_status = localStorage.getItem("current_audio_status");      
+      // console.log(current_audio_status + ' { }' + current_audio_pic + ' { }' + current_audio_title + ' { }' + current_audio_url);
+
+		  if( current_audio_status == 1)
+      {
+        title.innerText = "current_audio_title";
+        cover.src = current_audio_pic;
+        audio.src = current_audio_url;
+
+        setTimeout(function(){
+            // playSong();
+        }, 3000);
+        
+      }
+      */
+
+    });
+
 </script>
 
 </html>

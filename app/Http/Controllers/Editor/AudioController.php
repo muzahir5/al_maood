@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Model\Admin\Audio;
 use Illuminate\Http\Request;
 use App\Model\Admin\Language;
+use App\Model\Admin\Narrator;
 use App\Model\Admin\Categories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -119,10 +120,11 @@ class AudioController extends Controller
     public function edit($id)
     {
         $categories = Categories::all();
+        $narrators = Narrator::all();
         $audio = Audio::find($id);
 
         // return $audio;
-        return view('editor.audio.edit', compact('categories','audio'));
+        return view('editor.audio.edit', compact('categories','audio','narrators'));
     }
 
     public function update(Request $request)

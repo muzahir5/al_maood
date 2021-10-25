@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Image;
 use App\Model\Admin\Categories;
+use App\Model\Admin\Narrator;
 use App\Model\Admin\Language;
 use App\Model\Admin\Audio;
 use File;
@@ -124,10 +125,11 @@ class AudioController extends Controller
     public function edit($id)
     {
         $categories = Categories::all();
+        $narrators = Narrator::all();
         $audio = Audio::where('id', $id)->first();
         // print_r($audio);exit;
 
-        return view('admin.audio.edit',compact('audio','categories'));
+        return view('admin.audio.edit',compact('audio','categories','narrators'));
     }
 
     public function update(Request $request){

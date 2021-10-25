@@ -39,11 +39,18 @@
                                 {!! $errors->first('description', '<p class="text-danger">:message</p>') !!}
                             </div>
 
-                            <div class="form-group">
-                                <label for="narrator">Narrator:</label>
-                                <input type="text" class="form-control" id="narrator" name="narrator" value="{{ (old('narrator'))? old('narrator') : $audio->narrator}}">
-                                {!! $errors->first('narrator', '<p class="text-danger">:message</p>') !!}
-                            </div>
+                            <div class="form-group col-md-6">
+                            <label for="narrator">Select Narrator:</label>
+                            <select class="form-select form-control" name="narrator" id="narrator" multiple aria-label="multiple select example">
+                            <option value="">Select Narrator</option>
+                                @foreach($narrators as $narrator)
+                                    <?php $selected = ''; if ($narrator->id == $audio->narrator) { $selected = 'selected="selected"'; } ?>
+                                    <option value="{{$narrator->id}} " <?= $selected; ?> > {{$narrator->name}} </option>
+                                @endforeach            
+                            </select>
+                            {!! $errors->first('narrator', '<p class="text-danger">:message</p>') !!}
+                        </div>
+
 
                             <div class="row">
                                 <div class="form-group col-md-6">

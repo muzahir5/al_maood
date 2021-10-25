@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Auth;
-use Session;
-use Illuminate\Support\Facades\DB;
-use App\Model\User\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
-use App\Model\Admin\Audio;
-use App\Model\Admin\Categories;
-use App\Model\User\FavouriteList as Fav;
-use App\Model\User\Friend;
-use App\Model\User\FriendSms;
-use App\Model\User\UserPostEarn;
-use App\Model\User\UserEarning;
-use Carbon\Carbon;
 use File;
 use Image;
+use Session;
+use Carbon\Carbon;
+use App\Model\User\User;
+use App\Model\Admin\Audio;
+use App\Model\User\Friend;
+use Illuminate\Http\Request;
 use App\Model\User\WithDraw;
 use App\Model\User\SharePost;
-use Illuminate\Support\Facades\Log;
 use App\Model\Admin\language;
+use App\Model\User\FriendSms;
+use App\Model\Admin\Narrator;
+use App\Model\Admin\Categories;
+use App\Model\User\UserEarning;
+use App\Model\User\UserPostEarn;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Model\User\FavouriteList as Fav;
+use Illuminate\Support\Facades\Validator;
 
 class AudioController extends Controller
 {
@@ -357,6 +358,18 @@ class AudioController extends Controller
                 'status' => 'success',
                 'categories' => $categories,
                 'languages' => $languages
+            ]
+        );
+    }
+
+    public function getNarrators()
+    {
+        $narrators = Narrator::where('status',1)->get();
+
+        return response()->json(
+            [
+                'status' => 'success',
+                'narrators' => $narrators
             ]
         );
     }

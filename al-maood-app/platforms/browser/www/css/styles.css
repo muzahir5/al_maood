@@ -96,3 +96,29 @@ a.list_cat_home img {
   width: 72px;
   text-align: center;
 }
+
+
+.demo-swiper .swiper-slide {
+    font-size: 25px;
+    font-weight: 300;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    max-width: 200px;
+  }
+
+  .demo-swiper .swiper-slide {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 5px
+  }
+
+  .demo-swiper {
+    margin: 0px 0 0px;
+    font-size: 18px;
+    height: auto;
+    padding: 5px;
+  }

@@ -87,7 +87,18 @@
                             </div>
                         </div>    
                             <!-- Link to another page -->                            
-                            <a href="about.html">About apps</a>                            
+                            <hr>
+                            <a href="about.html">About apps</a>
+                            <hr>
+
+                            <div class="swiper-container swiper-init demo-swiper">
+                                <div class="block-title">Narrators</div>
+                                                              
+                                <div class="swiper-wrapper">                                  
+                                </div>
+                              </div>
+                              <div class="swiper-pagination"></div>
+                            </div>
 
                         </div>                        
                             <hr>
@@ -163,6 +174,7 @@
     <script type="text/javascript">
         setTimeout(function(){
             home.categories_list();
+            home.narrators_list();
 
             var today = new Date().toLocaleDateString();
 
@@ -174,11 +186,14 @@
                 console.log("today_date is " + today + " ,previous_date is " + previous_date);
                 localStorage.setItem('previous_date', today);
             }
-            
-
-            // core.log(languages_arr);
-            // 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
+            // core.log(previous_date);
+            // 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
         }, 2000);
+
+        $$('.swiper-container').on('show', function(){
+            $$(this).find('.swiper-pagination')[0].swiper.update();
+        });
+
     </script>
 
 </body>

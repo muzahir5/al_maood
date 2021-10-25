@@ -91,8 +91,8 @@ class NarratorController extends Controller
             @unlink(public_path().'/'.$profile_image);
 
             $originalImage= $request->file('profile_pic');
-            $thumbnailImage = Image::make($originalImage);            
-            $originalPath = public_path().'/narrators/';            
+            $thumbnailImage = Image::make($originalImage);
+            $originalPath = public_path().'/narrators/';
             $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 

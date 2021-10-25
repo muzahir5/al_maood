@@ -1,6 +1,6 @@
-@extends('editor.layouts.default')
+@extends('admin.layouts.default')
 
-@section('title', 'Editor Index')
+@section('title', 'Admin Edit Audio')
 
 @section('content')
 

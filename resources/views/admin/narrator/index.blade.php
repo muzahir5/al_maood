@@ -33,6 +33,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Profile Pic</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -52,6 +53,7 @@
                                             <a href="{{url('admin/updateNarratorStatus' ,$narrator->id)}}" title="Click to Activate status" > InActive </a>
                                             @endif
                                         </td>
+                                        <td><img src="{{ asset('public/narrators/'.$narrator->profile_pic) }}" width="80px" alt="Narrator Pic"></td>
                                         <td><a href="{{url('admin/editNarrator' ,$narrator->id )}} ">Edit</a> |Delete</td>
                                     </tr>
                                     @endforeach

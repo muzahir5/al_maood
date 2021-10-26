@@ -29,7 +29,7 @@
 
 .rcorners2 {
   border-radius: 25px;
-  /* border: 1px solid #fead19; */
+  border: 1px solid #fead19;
   padding: 10px; 
   width: auto;
   height: auto;
@@ -46,10 +46,10 @@
   }
 }
 
-.row.no-gap .col img , .row.no-gap2 .col img{
+.row.no-gap .col img , .row.no-gap2 .col img , .row.no-gap-narrators .col img{
   border-radius: 30%;
 }
-.row.no-gap .col , .row.no-gap2 .col {
+.row.no-gap .col , .row.no-gap2 .col  , .row.no-gap-narrators .col  {
     text-align: center;
     margin-right: 19px;
 }

@@ -34,6 +34,7 @@ Route::group([
 // Other Controller nnn
     Route::get('/user/getProducts/', 'UserController@getProducts')->name('api.user.getProducts');
 
+    Route::get('/user/dynamicSearch/{table_name?}/{col_name?}/{where_value?}', 'AudioController@dynamicSearch')->name('api.user.dynamicSearch');
     Route::get('/user/getCategories/', 'AudioController@getCategories')->name('api.user.getCategories');
     Route::get('/user/getNarrators/', 'AudioController@getNarrators')->name('api.user.getNarrators');
     Route::get('/user/listAudioByCatagory/{categ_id}/{lang?}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');

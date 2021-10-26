@@ -81,23 +81,23 @@
                         <div class="content-block">
                             <!-- <div class="block-title">Columns with gap</div> -->
                         <div class="block">
+                            <div class="block-title"><h3>Categories</h3></div>
                             <div class="rcorners2">
                                 <div class="row no-gap" style="display: contents;"></div>
                                 <!-- <div class="row no-gap2"></div> -->
                             </div>
-                        </div>    
+                        </div>
                             <!-- Link to another page -->                            
                             <hr>
                             <a href="about.html">About apps</a>
                             <hr>
 
-                            <div class="swiper-container swiper-init demo-swiper">
-                                <div class="block-title">Narrators</div>
-                                                              
-                                <div class="swiper-wrapper">                                  
+                            <div class="block">
+                                <div class="block-title"><h3>Narrators</h3></div>
+                                <div class="rcorners2">
+                                    <div class="row no-gap-narrators" style="display: contents;"></div>
+                                    <!-- <div class="row no-gap2"></div> -->
                                 </div>
-                              </div>
-                              <div class="swiper-pagination"></div>
                             </div>
 
                         </div>                        
@@ -174,7 +174,10 @@
     <script type="text/javascript">
         setTimeout(function(){
             home.categories_list();
-            home.narrators_list();
+            setTimeout(function(){
+                home.narrators_list();
+            },500);
+            
 
             var today = new Date().toLocaleDateString();
 
@@ -187,8 +190,8 @@
                 localStorage.setItem('previous_date', today);
             }
             // core.log(previous_date);
-            // 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
-        }, 2000);
+            // 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
+        }, 100);
 
         $$('.swiper-container').on('show', function(){
             $$(this).find('.swiper-pagination')[0].swiper.update();

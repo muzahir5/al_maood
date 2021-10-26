@@ -115,7 +115,6 @@ Route::group([
     Route::get('/deleteNarrator/{id}', 'Admin\NarratorController@delete')->name('deleteNarrator');
     Route::get('/updateNarratorStatus/{id}', 'Admin\NarratorController@updateNarratorStatus')->name('updateNarratorStatus');
 
-
 });
 
 Route::get('/about', function()

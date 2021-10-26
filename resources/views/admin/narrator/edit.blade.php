@@ -40,7 +40,7 @@
                                 {!! $errors->first('profile_pic', '<p class="text-danger">:message</p>') !!}
                             </div>
                             <div class="form-group col-6">            
-                            <img src="{{ asset('public/narrators/'.$narrator->profile_pic) }} " alt="profile_pic" style="max-width: 150px;">
+                            <img src="{{ asset('public/narrators/'.$narrator->profile_pic) }}" alt="profile_pic" style="max-width: 150px;">
                             </div>
                         </div>
                         

@@ -1,2 +1,0 @@
-
-const languages_arr = [];

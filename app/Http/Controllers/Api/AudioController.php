@@ -28,6 +28,17 @@ use Illuminate\Support\Facades\Validator;
 
 class AudioController extends Controller
 {
+    // provide table name , column name and where condition
+    public function dynamicSearch($tab_name,$col_name,$where_value)
+    {
+        $result = DB::table($tab_name)->where($col_name,$where_value)->get();
+
+        return response()->json([            
+            'status' => "success",
+            'results' => $result
+        ]);
+    }
+
     //can apply on General search  || search in category
 	public function listAudio(Request $request){
         $searchInAll = $request->searchInAll ? $request->searchInAll : '';
@@ -97,7 +108,6 @@ class AudioController extends Controller
             'status' => "success",
             'audios' => $audios
         ]);
-
     }
 
     public function showAudio(Request $request)
@@ -311,7 +321,7 @@ class AudioController extends Controller
     }
 
     public function updateAudioStatus(Request $request)
-    {        
+    {
         $user_id = $request->user_id;        
 
         $audio_id = $request->id;
@@ -352,12 +362,20 @@ class AudioController extends Controller
     public function getCategories(){
         $categories = DB::table('categories')->where('status',1)->get();
         $languages = language::select('id','name')->get();
+
+        $narrators = DB::table('narrators')
+            ->join('audio', 'narrators.id', '=', 'audio.narrator')            
+            ->select('narrators.id','narrators.id')->where('narrators.status',1)
+            ->get();
+
+        // $narrators = Narrator::where('status',1)->get();
         
         return response()->json(
             [
                 'status' => 'success',
                 'categories' => $categories,
-                'languages' => $languages
+                'languages' => $languages,
+                'narrators' => $narrators
             ]
         );
     }

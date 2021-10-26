@@ -10,7 +10,7 @@
 
         @include('user.includes.header')
 
-   		@include('user.includes.sidebar')
+   		  @include('user.includes.sidebar')
 
         @include('user.includes.navbar')
      	
@@ -57,16 +57,18 @@
 @yield('footer-js-content')
 
 <script stype="text/javascript">
-    $(document).ready(function () {      
 
       function hide_player()
       {
-        console.log(8989);
         $('div#music-container').css('display','none');
       }
-      function show_palyer(){
+      function show_player(){
         $('div#music-container').css('display','block');
       }
+    $(document).ready(function () {
+
+      
+      
 
       /*
       For  auto play after load/Reload page

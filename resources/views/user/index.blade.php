@@ -7,6 +7,10 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+				<div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">
@@ -18,8 +22,6 @@
                             </div>
                         @endif
                         </h1>
-                        <a href="{{url('admin/addAudio')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="http://localhost/al-maood/admin/audios text-white-50"></i> Add Audio</a>
                     </div>
 
                     <!-- Content Row -->

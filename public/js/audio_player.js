@@ -28,16 +28,14 @@ var next_row = prev_row = 0;
 
 // Update song details
 function loadSong(song) {
-  title.innerText = song;
+//   title.innerText = song;
 
-  // alert(song);
+ console.log(songsTitle[song]);
 
-  var title = songsTitle[song];
-  title.innerText = title;
-  var cover = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
-  cover.src = cover;
-  var audio = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song];
-  audio.src = audio; // song = audio_index
+  var titlee = songsTitle[song];
+  title.innerText = titlee;
+  cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
+  audio.src = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song]; // song = audio_index
 
   // audio.src = `public/music/${song}.mp3`;
   // cover.src = `public/images/${song}.jpg`;

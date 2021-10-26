@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Index\DashboardController@index')->name('dashboard');
+Route::get('/', 'User\DashboardController@index')->name('dashboard');
 
 Route::group([
     'prefix' => 'index'
@@ -38,6 +38,13 @@ Route::group([
     Route::get('/listAudioByCatagory/{id}','User\DashboardController@listAudioByCatagory')->name('user.listAudioByCatagory');
     Route::get('/listAudioByCatagoryId/{cate_id?}','User\DashboardController@listAudioByCatagoryId')->name('user.listAudioByCatagoryId');
     Route::get('/listAudio/{searching_word?}/{cat_id?}', 'User\DashboardController@listAudio')->name('user.listAudio');
+
+    Route::get('/audios/{status?}', 'User\AudioController@index')->name('audios');
+    Route::get('/createAudio', 'User\AudioController@create')->name('createAudio');
+    Route::post('/addAudio', 'User\AudioController@store')->name('addAudio');
+    Route::get('/audios/{status?}', 'User\AudioController@index')->name('audios');
+    Route::get('/editAudio/{id}', 'User\AudioController@edit')->name('editAudio');
+    Route::post('/updateAudio', 'User\AudioController@update')->name('updateAudio');
 });
 
 Route::group([

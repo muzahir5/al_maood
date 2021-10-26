@@ -1,6 +1,6 @@
-@extends('editor.layouts.default')
+@extends('user.layouts.default')
 
-@section('title', 'Editor - Add Audio')
+@section('title', 'User - Add Audio')
 
 @section('content')
 
@@ -10,15 +10,14 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"> Add Audio</h1>
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+                        
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
                     <div class="col-xl-12 col-md-12 mb-4">
 
-                    <form method="POST" action="{{ url('/editor/addAudio')}} " enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('/user/addAudio')}} " enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name">Title:</label>
@@ -40,7 +39,12 @@
 
                         <div class="form-group">
                             <label for="narrator">Narrator:</label>
-                            <input type="text" class="form-control" id="narrator" name="narrator" value="{{ old('narrator')}}">
+                            <select class="form-select form-control" name="narrator" id="narrator" multiple aria-label="multiple select example">
+                                <option value="">Select Narrator</option>
+                                @foreach($narrators as $narrator)                  
+                                    <option value="{{$narrator->id}} "> {{$narrator->name}} </option>                              
+                                @endforeach
+                            </select>
                             {!! $errors->first('narrator', '<p class="text-danger">:message</p>') !!}
                         </div>        
 
@@ -111,11 +115,12 @@
                             {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="pdf_upload_text_link">pdf_upload_text_link:</label>
-                            <input type="file" class="form-control" id="pdf_upload_text_link" name="pdf_upload_text_link" value="{{ old('pdf_upload_text_link')}}">
+                            <input type="file" class="form-control" id="dpdf_upload_text_link" name="dpdf_upload_text_link" value="{{ old('pdf_upload_text_link')}}">
                             {!! $errors->first('pdf_upload_text_link', '<p class="text-danger">:message</p>') !!}
-                        </div>
+                        </div> -->
+
                         
                         <div class="form-group">
                             <button style="cursor:pointer" type="submit" class="btn btn-primary">Add Audio</button>

@@ -72,7 +72,7 @@
         //load js song arr by cat_id
         var cate_id = $('#cate_id').text();
         if(cate_id > 0){
-            console.log(cate_id);
+            // console.log(cate_id);
             $.ajax({               
                 url:"{{ route('user.listAudioByCatagoryId') }}" + '/'+ + cate_id,
                 type:"GET",               

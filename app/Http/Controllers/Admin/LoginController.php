@@ -16,7 +16,8 @@ class LoginController extends Controller
 
     public function create()
     {
-        return view('sessions.create');
+        return view('admin.auth.login');
+        // return view('sessions.create');
     }
     
     public function login(Request $request)

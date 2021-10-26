@@ -1,6 +1,6 @@
-@extends('user.layouts.default')
+@extends('admin.layouts.default')
 
-@section('title', 'User Auth')
+@section('title', 'Admin Auth')
 
 @section('content')
 
@@ -11,18 +11,18 @@
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-10 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Log In</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Admin Log In</h6>
                                 </div>
                                 <div class="card-body">
                                     @if($errors->any())
                                         <h4 class="text-danger">{{$errors->first('message')}}</h4>
                                     @endif
-                                    <form method="POST" action="{{ url('/user/login')}} ">
+                                    <form method="POST" action="{{ url('/admin/login')}} ">
                                         {{ csrf_field() }}
                                         <div class="form-group">
                                             <label for="email">Email:</label>
@@ -42,19 +42,17 @@
                                     </form>
                                 </div>
                             </div>
-
-
                         </div>
 
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4" style="display: none;">
 
-                            <!-- Illustrations -->
+                            <!-- Registeration -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">User Register</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Admin Register</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="{{ url('/user/register') }}">
+                                    <form method="POST" action="{{ url('/admin/register') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group">
                                             <label for="name">Name:</label>

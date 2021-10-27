@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Model\User\User;
+use App\Model\Admin\Audio;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Gates
+        // Gate::define('update-audio', function (User $user, Audio $audio) {
+        //     return $user->id === $audio->narrator;
+        // });
     }
+
+    
 }

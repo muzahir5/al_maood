@@ -31,7 +31,8 @@ class UserController extends Controller
 		$this->validate($request, [
             'id' => 'required|integer',
 			// 'email' => 'required|email|unique:users,email,'.$user->id,
-            'name' => 'required|string|alpha_num',
+            'fname' => 'required|string|alpha_num',
+			// 'lname' => 'required|string|alpha_num',
             'mobile_number' => ['required','numeric'],
             'country' => 'required|string',
             'city' => 'required|string',
@@ -40,7 +41,8 @@ class UserController extends Controller
         ]);
 
 		$user = User::where('id', $request->id)->first();
-		$user->name = $request->name;
+		$name = $request->fname ;// .' '. $request->lname;
+		$user->name = $name;
         // $user->email = $request->email;
         $user->country = $request->country;
         $user->city = $request->city;

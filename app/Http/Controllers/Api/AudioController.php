@@ -31,10 +31,15 @@ class AudioController extends Controller
     // provide table name , column name and where condition
     public function dynamicSearch($tab_name,$col_name,$where_value)
     {
+        $status = 'error';
         $result = DB::table($tab_name)->where($col_name,$where_value)->get();
 
+        if(count($result) > 0 ){
+            $status = 'success';
+        }
+
         return response()->json([            
-            'status' => "success",
+            'status' => $status,
             'results' => $result
         ]);
     }

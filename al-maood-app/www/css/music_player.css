@@ -114,8 +114,8 @@ body {
   position: absolute;
   top: 0;
   left: 20px;
-  /* width: calc(100% - 40px); */
-  padding: 10px 10px 10px 150px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 10px;
   opacity: 0;
   transform: translateY(0%);
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
@@ -132,13 +132,19 @@ body {
   margin: 0;
 }
 
+.music-info .duration p button {
+  float: right;
+}
+
 .progress-container {
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
   height: 4px;
-  width: 100%;
+  /* width: 100%; */
+  width: 66%;
+  margin-left: 74px;
 }
 
 .progress {
@@ -150,7 +156,7 @@ body {
 }
 
 .music-info .duration {
-    margin-left: -3em;
+    margin-left: 0em;
 }
 .duration span {
     display: table-cell;

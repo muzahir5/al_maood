@@ -31,11 +31,13 @@ Route::group([
     Route::get('/user/getUserById/', 'UserController@getUserById')->name('api.user.getUserById');
     Route::get('/user/userSearch/', 'UserController@userSearch')->name('api.user.userSearch');
 
+    Route::get('/user/listAudioByNarrator/{narrator_id}', 'IndexController@listAudioByNarrator')->name('api.user.listAudioByNarrator');
+
 // Other Controller nnn
     Route::get('/user/getProducts/', 'UserController@getProducts')->name('api.user.getProducts');
 
     Route::get('/user/dynamicSearch/{table_name?}/{col_name?}/{where_value?}', 'AudioController@dynamicSearch')->name('api.user.dynamicSearch');
-    Route::get('/user/getCategories/', 'AudioController@getCategories')->name('api.user.getCategories');
+    Route::get('/user/renderIndexScreen/{to_day?}', 'AudioController@renderIndexScreen')->name('api.user.renderIndexScreen');
     Route::get('/user/getNarrators/', 'AudioController@getNarrators')->name('api.user.getNarrators');
     Route::get('/user/listAudioByCatagory/{categ_id}/{lang?}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');
     Route::get('/user/listAudio/', 'AudioController@listAudio')->name('api.user.listAudio');    

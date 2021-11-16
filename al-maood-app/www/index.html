@@ -173,10 +173,19 @@
     
     <script type="text/javascript">
         setTimeout(function(){
-            home.categories_list();
-            setTimeout(function(){
-                home.narrators_list();
-            },500);
+
+            const d = new Date();
+            const weekday = new Array(7);
+            weekday[0] = "Sunday";  weekday[1] = "Monday";  weekday[2] = "Tuesday"; weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";    weekday[5] = "Friday"; weekday[6] = "Saturday";
+
+            var to_day = weekday[d.getDay()];
+            console.log(to_day);
+
+            home.render_index_screen(to_day);
+            // setTimeout(function(){
+                // home.narrators_list();
+            // },500);
             
 
             var today = new Date().toLocaleDateString();
@@ -192,6 +201,7 @@
             // core.log(previous_date);
             // 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
         }, 100);
+
 
         $$('.swiper-container').on('show', function(){
             $$(this).find('.swiper-pagination')[0].swiper.update();

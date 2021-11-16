@@ -83,9 +83,18 @@ a.list_cat_home img {
     border: 2px solid orange;
 }
 
-.chip {
-  display: inline-block;
-  /* padding: 0 7px; */
+span.append_render_chips {
+  display: -webkit-inline-box;
+  /* min-width: 320px; */
+  overflow: auto;
+  height: 50 px;
+  background: lightyellow;
+  border-radius: 7px;
+  border: 1px solid lightsalmon;
+  margin: 5px;
+}
+
+.chip {  
   height: 35px;
   font-size: 16px;
   line-height: 30px;
@@ -93,7 +102,8 @@ a.list_cat_home img {
   background-color: orange;
   border: 1px dashed white;
   margin: 7px;
-  width: 72px;
+  width: fit-content;
+  padding: 3px 6px;
   text-align: center;
 }
 
@@ -121,4 +131,8 @@ a.list_cat_home img {
     font-size: 18px;
     height: auto;
     padding: 5px;
+  }
+
+  .fam-pause{
+    display: none !important;
   }

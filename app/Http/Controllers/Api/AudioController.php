@@ -364,23 +364,25 @@ class AudioController extends Controller
         );
     }
 
-    public function getCategories(){
+    public function renderIndexScreen($to_day){
         $categories = DB::table('categories')->where('status',1)->get();
         $languages = language::select('id','name')->get();
 
         $narrators = DB::table('narrators')
             ->join('audio', 'narrators.id', '=', 'audio.narrator')            
-            ->select('narrators.id','narrators.id')->where('narrators.status',1)
+            ->select('narrators.id','narrators.name','narrators.profile_pic')->distinct()->where('narrators.status',1)
             ->get();
 
         // $narrators = Narrator::where('status',1)->get();
+        $today_dua = DB::table('audio')->where(['status' => 1 , 'type' => $to_day , 'category' => 2])->get();
         
         return response()->json(
             [
                 'status' => 'success',
                 'categories' => $categories,
                 'languages' => $languages,
-                'narrators' => $narrators
+                'narrators' => $narrators,
+                'today_dua' => $today_dua
             ]
         );
     }

@@ -50,11 +50,10 @@ function playSong() {
   audio.play();
 
 //   setTimeout(function(){
-	$('.music-container').css('display','flex');
-	// console.log(55);
+		$('.music-container').css('display','flex');
+		$('.fam-pause_'+songIndex).css('display','block !important');		
 //    }, 2000);
-
-  $('.list_play_'+songIndex).css('display','none');
+	$('.list_play_'+songIndex).css('display','none');	
 }
 
 // Pause song

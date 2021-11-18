@@ -73,7 +73,19 @@ var home = {
         var current = 0;
         $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
         $('.block-title').html(''); $('.render_music').html(''); //$('.append_render_chips').html('');
-
+        $.each(languages_arr,function(key,value){
+            $.each(audiosAvaInLang_all,function(key,lang_id){
+                // var lang_id = list_lang_value.language_id;
+                // console.log('vId ='+ value.id +' && lang_id = '+lang_id);
+                if(value.id == lang_id){
+                    var searchInCat = 3;
+                    var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+cat_name+','+lang_id+')">'+value.name+'</div>';
+                    // $('.append_render_chips').html('');
+                    $('.append_render_chips').append(lang_chips);
+                }
+            });
+            
+        });
         $.each(audios_all,function(key,value){
             // core.log(songsTitle_all);
             var id = value.id; var audio_url = "'http://localhost/al-maood/"+ value.audio_url+"'";
@@ -86,19 +98,9 @@ var home = {
                         '<p class="list-group-item-text">'+value.description+'<i class="fas fa-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+current+')" style="float: right;"></i> <i class="fas fa-pause fam-pause fam-pause_'+current+'" style="margin-right:5px; float: right;"></i> </p>'+
                         '</span> </span> </div> </td>  </tr>';
             current++;
-            $('.render_music').append(html);
-            $.each(languages_arr,function(key,value){
-                $.each(audiosAvaInLang_all,function(key,lang_id){
-                    // var lang_id = list_lang_value.language_id;
-                    console.log('vId ='+ value.id +' && lang_id = '+lang_id);
-                    if(value.id == lang_id){
-                        var searchInCat = 3;
-                        var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+cat_name+','+lang_id+')">'+value.name+'</div>';
-                        $('.append_render_chips').append(lang_chips);
-                    }
-                });
-                
-            });
+            $('.render_music').append(html);    var aAIlL = audiosAvaInLang_all.length; var aAIlL_count = 0;
+            
+            
         });
     },audio_list: function(searchInCat,cat_name,lang_id=''){
         var param = [];        
@@ -129,11 +131,12 @@ var home = {
                             $.each(list_lang,function(key,list_lang_value){
                                 var lang_id = list_lang_value.language_id;
                                             
-                                                if(audiosAvaInLang_all.indexOf(lang_id) === -1){
-                                                    audiosAvaInLang_all.push(lang_id);
-                                                }
+                                if(!audiosAvaInLang_all.includes(lang_id)){
+                                    console.log(lang_id + ' added in audiosAvaInLang_all');
+                                    audiosAvaInLang_all.push(lang_id);
+                                } 
                                 if(value.id == lang_id){
-    var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
+                                    var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
                                     $('.append_render_chips').append(lang_chips);
                                 }
                             });

@@ -27,17 +27,18 @@ var next_row = prev_row = 0;
 // loadSong(songsTitle[songIndex]);
 
 // Update song details
-function loadSong(song) {
-  title.innerText = song;
-
-  // alert(song);
-
-  title.innerText = songsTitle[song];
-  cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
-  audio.src = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song]; // song = audio_index
-
-  // audio.src = `public/music/${song}.mp3`;
-  // cover.src = `public/images/${song}.jpg`;
+function loadSong(song,category_id = 0) {
+	if(category_id == 3){
+		// audios_nohay_all_ids,cat_name,audios_nohay_all_current,audios_nohay_Title,audios_nohay_image_src,audios_nohay_url_src
+		title.innerText = audios_nohay_Title[song];
+		cover.src = 'http://localhost/al-maood/public/audio/images/' + audios_nohay_image_src[song];
+		audio.src = 'http://localhost/al-maood/public/audio/mp3/' + audios_nohay_url_src[song]; // song = audio_index
+	}else{
+		title.innerText = song;
+		title.innerText = songsTitle[song];
+		cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
+		audio.src = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song]; // song = audio_index
+	}
 
 }
 
@@ -76,15 +77,15 @@ function prevSong() {
 	if(prev_row == undefined){ prev_row = songIndex; }
 
 	// console.log(prev_row);
-
   	// songIndex--;
 	// if (songIndex < 0) {
 	// 	songIndex = songs.length - 1;
 	// }
 
 	songIndex = prev_row;
-
-  loadSong(songs[songIndex]);
+core.log('c l C is '+ carrent_load_categ);
+  loadSong(songIndex,carrent_load_categ);
+//   loadSong(songs[songIndex]);	//old
 
   playSong();
 }
@@ -104,7 +105,9 @@ function nextSong() {
 
 songIndex = next_row;
 
-  loadSong(songs[songIndex]);
+core.log('c l C is '+ carrent_load_categ);
+loadSong(songIndex,carrent_load_categ);
+//   loadSong(songs[songIndex]);
 
   playSong();
 }

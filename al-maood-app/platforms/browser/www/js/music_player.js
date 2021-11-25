@@ -30,9 +30,9 @@ var next_row = prev_row = 0;
 function loadSong(song,category_id = 0) {
 	if(category_id == 3){
 		// audios_nohay_all_ids,cat_name,audios_nohay_all_current,audios_nohay_Title,audios_nohay_image_src,audios_nohay_url_src
-		title.innerText = audios_nohay_Title[song];
-		cover.src = 'http://localhost/al-maood/public/audio/images/' + audios_nohay_image_src[song];
-		audio.src = 'http://localhost/al-maood/public/audio/mp3/' + audios_nohay_url_src[song]; // song = audio_index
+		title.innerText = nohay_all[song].nohay_title;
+		cover.src = 'http://localhost/al-maood/public/audio/images/' + nohay_all[song].nohay_audio_img;
+		audio.src = 'http://localhost/al-maood/public/audio/mp3/' + nohay_all[song].nohay_audio_url; // song = audio_index
 	}else{
 		title.innerText = song;
 		title.innerText = songsTitle[song];

@@ -69,72 +69,75 @@ var home = {
                 }
             }
         });
-    },audios_arrays_rendering : function(audios_nohay_all_ids,cat_name,audios_nohay_all_current,audios_nohay_Title,audios_nohay_image_src,audios_nohay_url_src){
-        var current = 0;
+    },audios_arrays_rendering : function(searchInCat,cat_name,lang_id){
+        var current = 0;                
         $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
-        $('.block-title').html(''); $('.append_render_chips').html(''); $('.render_music').html(''); //$('.append_render_chips').html('');
-        
-        for (let i = 0; i < languages_arr.length; i++) {
-            $.each(audios_nohay_language,function(key,lang_id){
-                if(languages_arr[i].id == lang_id){
-                    var lang_chips = '<div class="chip" onclick="home.audio_list('+languages_arr[i].id+','+cat_name+','+lang_id+')">'+languages_arr[i].name+'</div>';
-                    $('.append_render_chips').append(lang_chips);
+        $('.block-title').html('');  $('.render_music').html('');  //$('.append_render_chips').html('');
+
+// nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
+            if(searchInCat == 3){
+                all = nohay_all;
+            }
+          for (var i = 0; i < all.length; i++){
+            var audio_id = all[i].id; var cat_id = all[i].category;
+            var audio_img = "http://localhost/al-maood/public/audio/images/"+ nohay_all[i].audio_img;
+
+                if(lang_id){
+                    if (lang_id > 0 && lang_id == all[i].language){
+                        core.log('IF , lang_id = ' + lang_id );
+                            var html = '<tr id="'+i+'"> <td>'+
+                                '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
+                                '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
+                                '<span><h4 class="list-group-item-heading">'+all[i].title+'</h4>'+
+                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
+                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'" style="margin-right:5px; float: right;"></i> </p>'+
+                                '</span> </span> </div> </td>  </tr>';
+                                $('.render_music').append(html);
+                    }
+                }else {
+                        core.log('Else , lang_id = ' + lang_id );
+                            var html = '<tr id="'+i+'"> <td>'+
+                                '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
+                                '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
+                                '<span><h4 class="list-group-item-heading">'+all[i].title+'</h4>'+
+                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
+                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'" style="margin-right:5px; float: right;"></i> </p>'+
+                                '</span> </span> </div> </td>  </tr>';
+                                $('.render_music').append(html);
                 }
-            });
+                current++;
+
+                $('.append_render_chips').html('');
+                for (let i = 0; i < languages_arr.length; i++) {
+                    $.each(nohay_languages,function(key,lang_id){
+                        if(languages_arr[i].id == lang_id){
+                            var catag_name = "'" + cat_name +"'";
+                            var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+languages_arr[i].name+'</div>';
+                            $('.append_render_chips').append(lang_chips);
+                        }
+                    });
+                  }
           }
-          
-        $.each(audios_nohay_all_current,function(key,id){
-            // core.log(songsTitle_all);
-            var audio_id = audios_nohay_all_ids[id]; var cat_id = audios_nohay_category[id];
-            var audio_img = "http://localhost/al-maood/public/audio/images/"+ audios_nohay_image_src[id]; 
-            var html = '<tr id="'+id+'"> <td>'+
-                        '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
-                        '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
-                        '<span><h4 class="list-group-item-heading">'+audios_nohay_Title[id]+'</h4>'+
-                        '<p class="list-group-item-text">'+id+'<i class="fas fa-play list_play_'+id+'" onclick="home.playaudio('+id+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
-                        '<i class="fas fa-pause fam-pause fam-pause_'+id+'" style="margin-right:5px; float: right;"></i> </p>'+
-                        // '<p class="list-group-item-text"> id is = '+id+'<i class="fas fa-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+current+')" style="float: right;"></i> <i class="fas fa-pause fam-pause fam-pause_'+current+'" style="margin-right:5px; float: right;"></i> </p>'+
-                        '</span> </span> </div> </td>  </tr>';
-            current++;
-            $('.render_music').append(html);            
-        });
+        
     },audio_list: function(searchInCat,cat_name,lang_id=''){
-        var param = [];        
+        var param = []; var InterVal;
         var url = 'user/listAudioByCatagory/'+searchInCat+'/'+lang_id;
         mainView.router.loadPage('templates/audio_list.html');
 
-        if(searchInCat == 3 & audios_nohay_all_current.length > 0){    //for all nohay & all
-            console.log("audios_nohay_all_current Array is Not empty!");  //console.log(songsTitle_all); console.log(songs_all);            
-            home.audios_arrays_rendering(audios_nohay_all_ids,cat_name,audios_nohay_all_current,audios_nohay_Title,audios_nohay_image_src,audios_nohay_url_src);
-        }else{
+        if(searchInCat == 3 & nohay_all.length > 0){    //for all nohay & all
+            console.log("nohay_all Array is Not empty!");
+            home.audios_arrays_rendering(searchInCat,cat_name,lang_id);
+            InterVal = 10;
+        }else{ InterVal = 2000;
             console.log("languages_arr Array is Empty!");
-            // core.log('Error: ' + url);
-            core.getRequest(url,param, function (response, status) {
-                
+            core.getRequest(url,param, function (response, status) {                
                 if (status === 'success') {
-                    var result = response;
-                    // core.log(result);
+                    var result = response;   // core.log(result);
                     if (result.status === 'success') {
                         $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
                         var audios = result.audios;
                         $('.block-title').html('');$('.append_render_chips').html(''); $('.render_music').html('');
-                        
-                        $('.block-title').append(cat_name); var catag_name = "'" + cat_name +"'";
-                        $.each(languages_arr,function(key,value){
-                            var list_lang = result.list_lang;       //from server
-                            $.each(list_lang,function(key,list_lang_value){
-                                var lang_id = list_lang_value.language_id;
-                                
-                                if(!audios_nohay_language.includes(lang_id)){
-                                    console.log(lang_id + ' added in audios_nohay_language');
-                                    audios_nohay_language.push(lang_id);
-                                } 
-                                if(value.id == lang_id){
-            var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
-                                    $('.append_render_chips').append(lang_chips);
-                                }
-                            });
-                        });
+                        $('.block-title').append(cat_name);
 
                         var current = 0;
                         $.each(audios,function(key,value){
@@ -145,18 +148,19 @@ var home = {
                                         '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                         '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                         '<span><h4 class="list-group-item-heading">'+value.title+'</h4>'+
-                                        '<p class="list-group-item-text">'+value.description+
+                                        '<p class="list-group-item-text">'+value.id+
                                         '<i class="fas fa-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+id+','+cat_id+')" style="float: right;"></i>'+
                                         '<i class="fas fa-pause fam-pause fam-pause_'+current+'" style="margin-right:5px; float: right;"></i> </p>'+
                                         '</span> </span> </div> </td>  </tr>';
 
-                                        if(searchInCat == 3){    //for all nohay & all
-                                            audios_nohay_all_current.push(current);
-                                            audios_nohay_all_ids.push(value.id)
-                                            audios_nohay_Title.push(value.title);
-                                            audios_nohay_image_src.push(value.audio_img);
-                                            audios_nohay_url_src.push(value.audio_url);
-                                            audios_nohay_category.push(value.category);                                
+                                        if(searchInCat == 1){ //for all Quran
+                                            languages_arr.push({id:value.id, name:value.name});
+                    quran_all.push({nohay_id:value.id,nohay_title:value.title,nohay_audio_img:value.audio_img,nohay_audio_url:value.audio_url,nohay_category:value.category,nohay_language:value.language});
+                                            current++;
+                                        }else if(searchInCat == 3){ //for all nohay & all
+                                            languages_arr.push({id:value.id, name:value.name});
+// nohay_all.push({nohay_id:value.id,nohay_title:value.title,nohay_audio_img:value.audio_img,nohay_audio_url:value.audio_url,nohay_category:value.category,nohay_language:value.language});
+nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
                                             current++;
                                         }else{
                                             songs.push(current);
@@ -166,27 +170,31 @@ var home = {
                                             current++;
                                         }
                             $('.render_music').append(html);
+                            // core.log('ff '+ nohay_all[0].nohay_id);
                         });
-                        // core.log(languages_arr);
-                        // console.log(songs);console.log(songsTitle);console.log(songsImage);console.log(songsSrc);
+                        var catag_name = "'" + cat_name +"'";
+                        $.each(languages_arr,function(key,value){
+                            var list_lang = result.list_lang;       //from server
+                            $.each(list_lang,function(key,list_lang_value){
+                                var lang_id = list_lang_value.language_id;
+                                if(!nohay_languages.includes(lang_id)){   nohay_languages.push(lang_id);    }
+                                if(value.id == lang_id){
+            var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
+                                    $('.append_render_chips').append(lang_chips);
+                                }
+                            });
+                        });
                     }
                 }
-                /*setTimeout(function(){
-                    $('#data_tbl').DataTable( {
-                        "pagingType": "full_numbers",
-                        "pageLength": 50
-                    } );    
-                }, 2000);*/
             });
 
         }
-        setTimeout(function(){                           
-
+        setTimeout(function(){
             $('#data_tbl').DataTable( {
                 "pagingType": "full_numbers",
                 "pageLength": 50
-            } );    
-        }, 2000);
+            } ); //core.log('InterVal = '+ InterVal )
+        }, InterVal);
         
 	},
     audio_list_by_narrator: function(narrator_id,narrator_name){

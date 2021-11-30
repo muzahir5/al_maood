@@ -31,6 +31,7 @@ body {
   margin: 100px 0;
   z-index: 10;
   margin-bottom: 14em;
+  width: 95%;
 }
 .music-container{
   display : none;

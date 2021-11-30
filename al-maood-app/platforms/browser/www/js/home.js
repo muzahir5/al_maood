@@ -16,7 +16,7 @@ var home = {
                         languages_arr.push({id:value.id, name:value.name});
                     });
                     $.each(narrators, function (index, value) {
-                        narrators_arr.push({id:value.id, name:value.name, profile_pic:value.profile_pic});
+                        narrators_arr.push({id:value.id, name:value.name, profile_pic:value.profile_pic,narrator_type:value.user_type});
                     });
                     
                     // core.log(narrators_arr);
@@ -203,7 +203,7 @@ nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_ur
         var tab_name = 'audio'; var col_name = 'narrator'; var where_value = narrator_id;
         var url = 'user/dynamicSearch/'+ tab_name +'/'+ col_name +'/'+ where_value;
         mainView.router.loadPage('templates/audio_list.html');
-        // core.log('Error: ' + url);
+        core.log('Error: ' + narrator_id);
         core.getRequest(url,param, function (response, status) {
         	
             if (status === 'success') {
@@ -216,11 +216,11 @@ nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_ur
                     $('.block-title').html('');$('.append_render_chips').html(''); $('.render_music').html('');
                     
                     $('.block-title').append(narrator_name); //var catag_name = "'" + cat_name +"'";
-                    
-                    
+                                        
                     $.each(narrators_arr,function(key,value){
+                        var narrator_name = "'"+value.name+"'"; var narrator_type = "'"+value.narrator_type+"'";
                         
-var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+narrator_id+','+narrator_name+')">'+value.name+'</div>';
+var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+narrator_id+','+narrator_name+','+narrator_type+')">'+value.name+'</div>';
                                 $('.append_render_chips').append(render_chips);
 
                     });

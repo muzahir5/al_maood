@@ -370,7 +370,7 @@ class AudioController extends Controller
 
         $narrators = DB::table('narrators')
             ->join('audio', 'narrators.id', '=', 'audio.narrator')            
-            ->select('narrators.id','narrators.name','narrators.profile_pic')->distinct()->where('narrators.status',1)
+            ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type')->distinct()->where('narrators.status',1)
             ->get();
 
         // $narrators = Narrator::where('status',1)->get();

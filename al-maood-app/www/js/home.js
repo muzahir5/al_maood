@@ -74,7 +74,7 @@ var home = {
         $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
         $('.block-title').html('');  $('.render_music').html('');  //$('.append_render_chips').html('');
 
-// nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
+        // nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
             if(searchInCat == 3){
                 all = nohay_all;
             }
@@ -89,8 +89,8 @@ var home = {
                                 '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                 '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                 '<span><h4 class="list-group-item-heading">'+all[i].title+'</h4>'+
-                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
-                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'" style="margin-right:5px; float: right;"></i> </p>'+
+                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play fam-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
+                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'"  onclick="home.pauseaudio('+current+' ,'+id+','+cat_id+')" style="margin-right:5px; float: right;"></i> </p>'+
                                 '</span> </span> </div> </td>  </tr>';
                                 $('.render_music').append(html);
                     }
@@ -100,8 +100,8 @@ var home = {
                                 '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                 '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                 '<span><h4 class="list-group-item-heading">'+all[i].title+'</h4>'+
-                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
-                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'" style="margin-right:5px; float: right;"></i> </p>'+
+                                '<p class="list-group-item-text">'+i+'<i class="fas fa-play fam-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
+                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'"  onclick="home.pauseaudio('+current+' ,'+audio_id+','+cat_id+')" style="margin-right:5px; float: right;"></i> </p>'+
                                 '</span> </span> </div> </td>  </tr>';
                                 $('.render_music').append(html);
                 }
@@ -149,20 +149,21 @@ var home = {
                                         '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                         '<span><h4 class="list-group-item-heading">'+value.title+'</h4>'+
                                         '<p class="list-group-item-text">'+value.id+
-                                        '<i class="fas fa-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+id+','+cat_id+')" style="float: right;"></i>'+
-                                        '<i class="fas fa-pause fam-pause fam-pause_'+current+'" style="margin-right:5px; float: right;"></i> </p>'+
+                                        '<i class="fas fa-play fam-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+id+','+cat_id+')" style="float: right;"></i>'+
+                                        '<i class="fas fa-pause fam-pause list_pause_'+current+'" onclick="home.pauseaudio('+current+' ,'+id+','+cat_id+')"style="margin-right:5px; float: right;"></i> </p>'+
                                         '</span> </span> </div> </td>  </tr>';
-
+                                        /*
                                         if(searchInCat == 1){ //for all Quran
                                             languages_arr.push({id:value.id, name:value.name});
-                    quran_all.push({nohay_id:value.id,nohay_title:value.title,nohay_audio_img:value.audio_img,nohay_audio_url:value.audio_url,nohay_category:value.category,nohay_language:value.language});
+                                            quran_all.push({nohay_id:value.id,nohay_title:value.title,nohay_audio_img:value.audio_img,nohay_audio_url:value.audio_url,nohay_category:value.category,nohay_language:value.language});
                                             current++;
-                                        }else if(searchInCat == 3){ //for all nohay & all
+                                        }else*/ 
+                                        if(searchInCat == 3){ //for all nohay & all
                                             languages_arr.push({id:value.id, name:value.name});
-// nohay_all.push({nohay_id:value.id,nohay_title:value.title,nohay_audio_img:value.audio_img,nohay_audio_url:value.audio_url,nohay_category:value.category,nohay_language:value.language});
-nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
+                                            nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
                                             current++;
                                         }else{
+                                            // Arrays are in music_player.js file
                                             songs.push(current);
                                             songsTitle.push(value.title);
                                             songsImage.push(value.audio_img);
@@ -177,9 +178,11 @@ nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_ur
                             var list_lang = result.list_lang;       //from server
                             $.each(list_lang,function(key,list_lang_value){
                                 var lang_id = list_lang_value.language_id;
-                                if(!nohay_languages.includes(lang_id)){   nohay_languages.push(lang_id);    }
+                                if(!nohay_languages.includes(lang_id) && searchInCat == 3){
+                                   nohay_languages.push(lang_id);    
+                                }
                                 if(value.id == lang_id){
-            var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
+                                    var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+value.name+'</div>';
                                     $('.append_render_chips').append(lang_chips);
                                 }
                             });
@@ -210,7 +213,6 @@ nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_ur
                 var result = response;
                 core.log(result);
                 if (result.status === 'success') {
-                    // core.log('786 ');
                     $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
                     var audios = result.results;
                     $('.block-title').html('');$('.append_render_chips').html(''); $('.render_music').html('');
@@ -219,13 +221,10 @@ nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_ur
                                         
                     $.each(narrators_arr,function(key,value){
                         var narrator_name = "'"+value.name+"'"; var narrator_type = "'"+value.narrator_type+"'";
-                        
-var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+narrator_id+','+narrator_name+','+narrator_type+')">'+value.name+'</div>';
-                                $('.append_render_chips').append(render_chips);
-
+                        var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+value.id+','+narrator_name+','+narrator_type+')">'+value.name+'</div>';
+                                                $('.append_render_chips').append(render_chips);
                     });
-                    
-                    
+                                        
                     var current = 0;
                     $.each(audios,function(key,value){
                         // core.log(result);
@@ -235,7 +234,9 @@ var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+nar
                                     '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                     '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                     '<span><h4 class="list-group-item-heading">'+value.title+'</h4>'+
-                                    '<p class="list-group-item-text">'+value.description+'<i class="fas fa-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+value.id+')" style="float: right;"></i> <i class="fas fa-pause fam-pause fam-pause_'+current+'" style="margin-right:5px; float: right;"></i></p>'+
+                                    '<p class="list-group-item-text">'+value.description+
+                                    '<i class="fas fa-play fam-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+value.id+')" style="float: right;"></i>'+
+                                    '<i class="fas fa-pause fam-pause fam-pause_'+current+'" onclick="home.pauseaudio('+current+' ,'+id+')" style="margin-right:5px; float: right;"></i></p>'+
                                     '</span> </span> </div> </td>  </tr>';
 
                                     songs.push(current);
@@ -260,7 +261,37 @@ var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+nar
 	},
     playaudio: function(audio_index, audio_id, category_id = 0)
     {
-        songIndex = audio_index;
+        // var isPlaying = musicContainer.classList.contains('play');
+
+        // if (isPlaying) { core.log(87);
+        //     playSong();
+        // } else {
+            songIndex = audio_index;
+
+    $('.fam-pause').css('display','none');
+    $('.fam-play').css('display','block');
+
+            if(category_id == 3){ core.log('playaudio if & cat_id = '+ category_id);// for nohay 
+                loadSong(audio_index, category_id);
+                carrent_load_categ = category_id;
+            }else{
+                core.log('playaudio else');
+                loadSong(audio_index);
+                carrent_load_categ = 0;
+            }
+            playSong();
+        // }     
+        
+        
+        
+        $("#data_tbl tbody").on("click", "tr", function(){
+            // console.log(audio_index +' id ');
+            // console.log('audio_id ' + audio_id );
+        });
+    },
+    pauseaudio: function(audio_index, audio_id, category_id = 0)
+    {
+        /*songIndex = audio_index;
         if(category_id == 3){ core.log('playaudio if & cat_id = '+ category_id);// for nohay 
             loadSong(audio_index, category_id);
             carrent_load_categ = category_id;
@@ -268,9 +299,9 @@ var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+nar
             core.log('playaudio else');
             loadSong(audio_index);
             carrent_load_categ = 0;
-        }
+        }*/
         
-        playSong();
+        pauseSong();
         $("#data_tbl tbody").on("click", "tr", function(){
             // console.log(audio_index +' id ');
             // console.log('audio_id ' + audio_id );
@@ -287,9 +318,7 @@ var render_chips = '<div class="chip" onclick="home.audio_list_by_narrator('+nar
         $("#cover").attr("src",audio_img);
         $("#title").html(title);
 
-        // overflow: unset;
-        // position: fixed;
-        // bottom: 0em;
+        // overflow: unset;        // position: fixed;        // bottom: 0em;
         $('#music-container').css({'display':'flex','overflow':'unset','position':'fixed','bottom':'0em'})
         playSong();
     },

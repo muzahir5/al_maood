@@ -52,9 +52,10 @@ function playSong() {
 
 //   setTimeout(function(){
 		$('.music-container').css('display','flex');
-		$('.fam-pause_'+songIndex).css('display','block !important');		
+		// $('.fam-pause_'+songIndex).css('display','block !important');		
 //    }, 2000);
-	$('.list_play_'+songIndex).css('display','none');	
+	$('.list_play_'+songIndex).css('display','none');
+	$('.list_pause_'+songIndex).css('display','block');
 }
 
 // Pause song
@@ -63,10 +64,9 @@ function pauseSong() {
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
-  $('list_play').css('display','none');
-
   audio.pause();
 
+  $('.list_pause_'+songIndex).css('display','none');
   $('.list_play_'+songIndex).css('display','block');
 }
 
@@ -86,7 +86,8 @@ function prevSong() {
 core.log('c l C is '+ carrent_load_categ);
   loadSong(songIndex,carrent_load_categ);
 //   loadSong(songs[songIndex]);	//old
-
+	$('.fam-pause').css('display','none');
+	$('.fam-play').css('display','block');
   playSong();
 }
 
@@ -105,10 +106,11 @@ function nextSong() {
 
 songIndex = next_row;
 
-core.log('c l C is '+ carrent_load_categ);
+core.log('songIndex is '+ songIndex);
 loadSong(songIndex,carrent_load_categ);
 //   loadSong(songs[songIndex]);
-
+$('.fam-pause').css('display','none');
+$('.fam-play').css('display','block');
   playSong();
 }
 

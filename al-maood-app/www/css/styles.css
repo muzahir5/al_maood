@@ -92,6 +92,7 @@ span.append_render_chips {
   border-radius: 7px;
   border: 1px solid lightsalmon;
   margin: 5px;
+  max-width: -webkit-fill-available;
 }
 
 .chip {  
@@ -134,5 +135,5 @@ span.append_render_chips {
   }
 
   .fam-pause{
-    display: none !important;
+    display: none;
   }

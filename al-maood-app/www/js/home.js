@@ -90,7 +90,7 @@ var home = {
                                 '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                 '<span><h4 class="list-group-item-heading">'+all[i].title+'</h4>'+
                                 '<p class="list-group-item-text">'+i+'<i class="fas fa-play fam-play list_play_'+i+'" onclick="home.playaudio('+i+' ,'+audio_id+','+cat_id+')" style="float: right;"></i>'+
-                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'"  onclick="home.pauseaudio('+current+' ,'+id+','+cat_id+')" style="margin-right:5px; float: right;"></i> </p>'+
+                                '<i class="fas fa-pause fam-pause fam-pause_'+i+'"  onclick="home.pauseaudio('+current+' ,'+audio_id+','+cat_id+')" style="margin-right:5px; float: right;"></i> </p>'+
                                 '</span> </span> </div> </td>  </tr>';
                                 $('.render_music').append(html);
                     }

@@ -365,11 +365,13 @@ class AudioController extends Controller
     }
 
     public function renderIndexScreen($to_day){
-        $categories = DB::table('categories')->where('status',1)->get();
+        $categories = DB::table('categories')->distinct()
+                ->join('audio', 'categories.id', '=', 'audio.category')->where('categories.status',1)
+                ->select('categories.id','categories.name','categories.category_img')->get();
         $languages = language::select('id','name')->get();
 
         $narrators = DB::table('narrators')
-            ->join('audio', 'narrators.id', '=', 'audio.narrator')            
+            ->join('audio', 'narrators.id', '=', 'audio.narrator')
             ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type')->distinct()->where('narrators.status',1)
             ->get();
 

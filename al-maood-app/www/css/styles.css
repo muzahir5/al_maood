@@ -137,3 +137,7 @@ span.append_render_chips {
   .fam-pause{
     display: none;
   }
+  .toolbar-inner a {
+    padding: 5px;
+    font-size: x-large;
+  }

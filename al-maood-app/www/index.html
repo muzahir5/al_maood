@@ -97,8 +97,15 @@
                             <div class="block">
                                 <div class="block-title">
                                     <h3>Narrators
-                                        <!--<a href="#" class="create-popup" style="float: right;">Show All</a>-->
+                                        <a href="#" class="create-popupp" onclick="home.narrators_popup()" style="float: right;">Show All</a>
                                     </h3>
+                                    <div class="popup narr_p" style="display: block;border: 3px dashed orange;">'+
+                                    '<div class="content-block" style="font-size: large;">
+                                      <p style="text-align: center;"><b>Narrators List</b></p>
+                                      <div class="col narr_popup"></div>
+                                        <p style="text-align: end;"><a href="#"class="close-popup">Close me</a></p>
+                                    </div>
+                                  </div>
                                 </div>                                
 
                                 <div class="rcorners2">
@@ -214,15 +221,15 @@
  
         var $$ = Dom7;
          
-        $$('.create-popup').on('click', function () {
-          var popupHTML = '<div class="popup">'+
-                            '<div class="content-block">'+
-                              '<p>Narrators List</p>'+
-                              '<div class="col"><a onclick="home.audio_list_by_narrator(1,"Nadeem Sarwar")" class="list_cat_home" href="#"><img src="http://localhost/al-maood/public/narrators/Nadeem Sarwar_23_10_2021_09_14_45.jpg" alt="Narrator Avatar" width="120px" height="120px"><b>Nadeem Sarwar </b></a></div> <hr> <div class="col"><a onclick="home.audio_list_by_narrator(1,"Nadeem Sarwar")" class="list_cat_home" href="#"><img src="http://localhost/al-maood/public/narrators/Nadeem Sarwar_23_10_2021_09_14_45.jpg" alt="Narrator Avatar" width="120px" height="120px"><b>Nadeem Sarwar </b></a></div> <p><a href="#" class="close-popup">Close me</a></p>'+
-                            '</div>'+
-                          '</div>'
-          myApp.popup(popupHTML);
-        });  
+        // $$('.create-popup').on('click', function () {
+          // var popupHTML = '<div class="popup" style="display: block;border: 3px dashed orange;">'+
+          //                   '<div class="content-block" style="font-size: large;">'+
+          //                     '<p style="text-align: center;"><b>Narrators List</b></p>'+
+          //                     '<div class="col narr_popupp"></div> <p style="text-align: end;"><a href="#" class="close-popup">Close me</a></p>'+
+          //                   '</div>'+
+          //                 '</div>'
+          // myApp.popup(popupHTML);
+        // });  
 
     </script>
 </body>

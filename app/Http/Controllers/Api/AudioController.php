@@ -372,10 +372,9 @@ class AudioController extends Controller
 
         $narrators = DB::table('narrators')
             ->join('audio', 'narrators.id', '=', 'audio.narrator')
-            ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type')->distinct()->where('narrators.status',1)
-            ->get();
-
-        // $narrators = Narrator::where('status',1)->get();
+            ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type', DB::raw('count(*) as total_audio'))
+            ->where('narrators.status',1)->groupBy('narrators.id')->get();
+        
         $today_dua = DB::table('audio')->where(['status' => 1 , 'type' => $to_day , 'category' => 2])->get();
         
         return response()->json(

@@ -16,10 +16,9 @@ var home = {
                         languages_arr.push({id:value.id, name:value.name});
                     });
                     $.each(narrators, function (index, value) {
-                        narrators_arr.push({id:value.id, name:value.name, profile_pic:value.profile_pic,narrator_type:value.user_type});
+                        narrators_arr.push({id:value.id, name:value.name, profile_pic:value.profile_pic,narrator_type:value.user_type,total_audio:value.total_audio});
                     });
                     
-                    // core.log(narrators_arr);
                     var current = 1;
                     $.each(narrators_arr,function(key,value){
                         // core.log(result.base_path);
@@ -46,6 +45,21 @@ var home = {
                 }
             }
         });
+    },
+    narrators_popup: function(){
+        $('.narr_popup').html('');
+        var current = 1;
+        $.each(narrators_arr,function(key,value){
+            var id = value.id; var profile_pic = value.profile_pic; var narator_name = "'"+ value.name +"'";
+            var rand_popup = '<a style="display:flex;" onclick="home.audio_list_by_narrator('+id+','+narator_name+')" class="list_cat_home" href="#">'+
+            '<img src="http://localhost/al-maood/public/narrators/'+profile_pic+'" alt="Narrator Avatar" width="120px" height="120px">'+
+            '<div class="popup_right_content"><b>'+narator_name+'</b> <br><b>'+value.total_audio+'</b> </div></a>';
+
+            $('.narr_popup').append(rand_popup);
+        });
+        $('.narr_p').addClass('modal-in');
+        $('.narr_p').css('display','block');
+        //   myApp.popup();
     },
     narrators_list: function(){
         var param = [];

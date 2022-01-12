@@ -52,8 +52,8 @@ var home = {
         $.each(narrators_arr,function(key,value){
             var id = value.id; var profile_pic = value.profile_pic; var narator_name = "'"+ value.name +"'";
             var rand_popup = '<a style="display:flex;" onclick="home.audio_list_by_narrator('+id+','+narator_name+')" class="list_cat_home" href="#">'+
-            '<img src="http://localhost/al-maood/public/narrators/'+profile_pic+'" alt="Narrator Avatar" width="120px" height="120px">'+
-            '<div class="popup_right_content"><b>'+narator_name+'</b> <br><b>'+value.total_audio+'</b> </div></a>';
+            '<img src="http://localhost/al-maood/public/narrators/'+profile_pic+'" alt="Narrator Avatar" width="72px" height="72px">'+
+            '<div class="popup_right_content"><b>'+value.name+'</b><br><b>Count :- '+value.total_audio+'</b> </div></a><hr>';
 
             $('.narr_popup').append(rand_popup);
         });
@@ -174,7 +174,7 @@ var home = {
                                         }else*/ 
                                         if(searchInCat == 3){ //for all nohay & all
                                             languages_arr.push({id:value.id, name:value.name});
-                                            nohay_all.push({id:value.id,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
+                                            nohay_all.push({id:value.id,narrator:value.narrator,title:value.title,audio_img:value.audio_img,audio_url:value.audio_url,category:value.category,language:value.language});
                                             current++;
                                         }else{
                                             // Arrays are in music_player.js file
@@ -204,15 +204,13 @@ var home = {
                     }
                 }
             });
-
         }
         setTimeout(function(){
             $('#data_tbl').DataTable( {
                 "pagingType": "full_numbers",
                 "pageLength": 50
             } ); //core.log('InterVal = '+ InterVal )
-        }, InterVal);
-        
+        }, InterVal);        
 	},
     audio_list_by_narrator: function(narrator_id,narrator_name){
     	var param = [];
@@ -225,7 +223,7 @@ var home = {
         	
             if (status === 'success') {
                 var result = response;
-                core.log(result);
+                // core.log(result);
                 if (result.status === 'success') {
                     $("#data_tbl").dataTable().fnDestroy();     //to sovel the dataTable reinitialise error/warning
                     var audios = result.results;
@@ -294,10 +292,7 @@ var home = {
                 carrent_load_categ = 0;
             }
             playSong();
-        // }     
-        
-        
-        
+        // }
         $("#data_tbl tbody").on("click", "tr", function(){
             // console.log(audio_index +' id ');
             // console.log('audio_id ' + audio_id );

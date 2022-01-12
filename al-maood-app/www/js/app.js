@@ -24,7 +24,7 @@ var app = {
             profile.showSideMenuName();
             var login_status = localStorage.getItem(login.login_status);
             if (login_status === true || login_status === 'true') {
-                profile.count_msg_ann();
+                profile.count_msg_ann13();
             }
         }
     },

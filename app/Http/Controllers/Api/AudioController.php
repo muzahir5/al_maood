@@ -79,7 +79,7 @@ class AudioController extends Controller
     public function listAudioByCatagory($categ_id,$lang='')
     {
         $categories = Categories::all();
-        $query = Audio::select('id','title','language','category','audio_url','audio_img','view_by')
+        $query = Audio::select('id','title','language','category','audio_url','audio_img','view_by','narrator')
                     ->Where('category', $categ_id)->where('status',1)->orderBy('view_by','DESC');
         
         if($lang != ''){

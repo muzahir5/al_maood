@@ -375,7 +375,8 @@ class AudioController extends Controller
             ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type', DB::raw('count(*) as total_audio'))
             ->where('narrators.status',1)->groupBy('narrators.id')->get();
         
-        $today_dua = DB::table('audio')->where(['status' => 1 , 'type' => $to_day , 'category' => 2])->get();
+        $today_dua = DB::table('audio')->select('id','title','audio_url','audio_img')
+                            ->where(['status' => 1 , 'type' => 'dua' , 'category' => 2])->get();
         
         return response()->json(
             [
@@ -383,7 +384,7 @@ class AudioController extends Controller
                 'categories' => $categories,
                 'languages' => $languages,
                 'narrators' => $narrators,
-                'today_dua' => $today_dua
+                'today_duas' => $today_dua
             ]
         );
     }

@@ -42,6 +42,15 @@ var home = {
                         $('.no-gap').append(html);
                         current++;
                     });
+
+                    $('.append_duas_chips').html('');
+                    $.each(result.today_duas,function(key,today_dua){
+                        var dua_title = "'" + today_dua.title +"'";
+                        // core.log('d t '+ dua_title);
+                        var duas_chips = '<div class="chip" onclick="home.audio_list('+today_dua.audio_url+')">'+today_dua.title+'</div>';
+                        $('.append_duas_chips').append(duas_chips);
+                        today_duas.push({id:today_dua.id,title:today_dua.title,audio_img:today_dua.audio_img,audio_url:today_dua.audio_url});
+                    });
                 }
             }
         });
@@ -130,7 +139,7 @@ var home = {
                             $('.append_render_chips').append(lang_chips);
                         }
                     });
-                  }
+                }
           }
         
     },audio_list: function(searchInCat,cat_name,lang_id=''){
@@ -273,26 +282,23 @@ var home = {
 	},
     playaudio: function(audio_index, audio_id, category_id = 0)
     {
-        // var isPlaying = musicContainer.classList.contains('play');
+        songIndex = audio_index;
 
-        // if (isPlaying) { core.log(87);
-        //     playSong();
-        // } else {
-            songIndex = audio_index;
+        $('.fam-pause').css('display','none');
+        $('.fam-play').css('display','block');
 
-    $('.fam-pause').css('display','none');
-    $('.fam-play').css('display','block');
+        if(category_id == 3)
+        {
+            core.log('playaudio if & cat_id = '+ category_id);// for nohay 
+            loadSong(audio_index, category_id);
+            carrent_load_categ = category_id;
+        }else{
+            core.log('playaudio else');
+            loadSong(audio_index);
+            carrent_load_categ = 0;
+        }
+        playSong();
 
-            if(category_id == 3){ core.log('playaudio if & cat_id = '+ category_id);// for nohay 
-                loadSong(audio_index, category_id);
-                carrent_load_categ = category_id;
-            }else{
-                core.log('playaudio else');
-                loadSong(audio_index);
-                carrent_load_categ = 0;
-            }
-            playSong();
-        // }
         $("#data_tbl tbody").on("click", "tr", function(){
             // console.log(audio_index +' id ');
             // console.log('audio_id ' + audio_id );
@@ -334,7 +340,15 @@ var home = {
     hide_player: function(){
         $('.music-container').css('display','none');
     },
-    show_player: function(){
+    show_playerd: function(){ //delee plz
         $('.music-container').css('display','flex');
+    },
+    show_player: function(){ //to hid player   
+      var x = document.getElementById("music-container");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
     }
 }

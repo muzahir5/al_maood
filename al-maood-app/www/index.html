@@ -45,12 +45,6 @@
                         <div class="col-66">   Home           </div>
                     </a>
                 </div>
-                <div class="a_nav">
-                    <a onclick="home.show_player()" href="#" class="close-panel row">
-                        <div class="col-33"><img src="img/checkout.png" style="margin-left: .2em;width: 20px;height: 20px;margin-top: .7em;"></div>
-                        <div class="col-66"><button class="col button color-orange">Show Player</button> </div>
-                    </a>
-                </div>
             </div>    
         </div>
     </div>
@@ -91,7 +85,9 @@
                         </div>
                             <!-- Link to another page -->                            
                             <hr>
-                            <a href="about.html">About apps</a>
+                            <!-- <a href="about.html">About apps</a> -->
+                            <h3>Today Dua</h3>
+                            <div class="append_duas_chips"></div>
                             <hr>
 
                             <div class="block">
@@ -163,7 +159,8 @@
             </div>
                     <!-- Toolbar links -->
                     <a href="#" class="link">Link 1</a>
-                    <a href="home.html" class="link"><i class="fas fa-home"></i></a>
+
+                    <a onclick="home.show_player()" href="#" class="link"><i class="fas fa-music"></i></a>
                 </div>
             </div>
         </div>
@@ -210,7 +207,7 @@
                 localStorage.setItem('previous_date', today);
             }
             core.log(previous_date);
-            // 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
+            // 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33zz
         }, 100);
 
         $$('.swiper-container').on('show', function(){

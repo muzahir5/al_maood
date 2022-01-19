@@ -83,7 +83,7 @@ a.list_cat_home img {
     border: 2px solid orange;
 }
 
-span.append_render_chips {
+span.append_render_chips ,.append_duas_chips{
   display: -webkit-inline-box;
   /* min-width: 320px; */
   overflow: auto;
@@ -93,6 +93,7 @@ span.append_render_chips {
   border: 1px solid lightsalmon;
   margin: 5px;
   max-width: -webkit-fill-available;
+  min-width: 328px;
 }
 
 .chip {  

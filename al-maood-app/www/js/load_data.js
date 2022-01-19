@@ -7,3 +7,6 @@ quran_all = [];
 // load all nohay
 nohay_all = [];
 nohay_languages = [];
+
+// load todayDuas
+today_duas = [];

@@ -43,13 +43,14 @@ var home = {
                         current++;
                     });
 
-                    $('.append_duas_chips').html('');
+                    $('.append_duas_chips').html(''); var ci = 0;
                     $.each(result.today_duas,function(key,today_dua){
                         var dua_title = "'" + today_dua.title +"'";
                         // core.log('d t '+ dua_title);
-                        var duas_chips = '<div class="chip" onclick="home.audio_list('+today_dua.audio_url+')">'+today_dua.title+'</div>';
+                        var duas_chips = '<div class="chip" onclick="home.playaudio('+ci +','+ today_dua.id+',0)">'+today_dua.title+'</div>';
                         $('.append_duas_chips').append(duas_chips);
                         today_duas.push({id:today_dua.id,title:today_dua.title,audio_img:today_dua.audio_img,audio_url:today_dua.audio_url});
+                        ci++;
                     });
                 }
             }
@@ -280,14 +281,18 @@ var home = {
              }, 2000);
         });
 	},
-    playaudio: function(audio_index, audio_id, category_id = 0)
+    playaudio: function(audio_index, audio_id, category_id)
     {
         songIndex = audio_index;
 
         $('.fam-pause').css('display','none');
         $('.fam-play').css('display','block');
 
-        if(category_id == 3)
+        if(category_id == 0){
+            core.log('playaudio for today_dua & cat_id = '+ category_id);// for nohay 
+            loadSong(audio_index, category_id);
+            carrent_load_categ = category_id;
+        }else if(category_id == 3)
         {
             core.log('playaudio if & cat_id = '+ category_id);// for nohay 
             loadSong(audio_index, category_id);

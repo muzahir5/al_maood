@@ -27,8 +27,12 @@ var next_row = prev_row = 0;
 // loadSong(songsTitle[songIndex]);
 
 // Update song details
-function loadSong(song,category_id = 0) {
-	if(category_id == 3){
+function loadSong(song,category_id) { 
+	if(category_id == 0){ core.log('id is '+ category_id);
+		title.innerText = today_duas[song].title;
+		cover.src = 'http://localhost/al-maood/public/audio/images/' + today_duas[song].audio_img;
+		audio.src = 'http://localhost/al-maood/public/audio/mp3/' + today_duas[song].audio_url; // song = audio_index
+	}else if(category_id == 3){
 		// audios_nohay_all_ids,cat_name,audios_nohay_all_current,audios_nohay_Title,audios_nohay_image_src,audios_nohay_url_src
 		title.innerText = nohay_all[song].title;
 		cover.src = 'http://localhost/al-maood/public/audio/images/' + nohay_all[song].audio_img;

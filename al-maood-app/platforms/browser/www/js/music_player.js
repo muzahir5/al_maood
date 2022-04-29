@@ -60,6 +60,16 @@ function playSong() {
 //    }, 2000);
 	$('.list_play_'+songIndex).css('display','none');
 	$('.list_pause_'+songIndex).css('display','block');
+
+	$('#player_icon').css('display','block');
+	$('.music-info').css('display','');
+	
+	setTimeout(function(){
+		var aud_src = $('#audio').attr('src');
+		aud_src = aud_src.substr(aud_src.length - 27); //get last 27 from src 
+		// core.log('aud_src = ' + aud_src);
+		home.incAudioByOne(aud_src);
+	}, 5000);
 }
 
 // Pause song
@@ -72,6 +82,8 @@ function pauseSong() {
 
   $('.list_pause_'+songIndex).css('display','none');
   $('.list_play_'+songIndex).css('display','block');
+
+	$('.music-info').css('display','none');
 }
 
 // Previous song

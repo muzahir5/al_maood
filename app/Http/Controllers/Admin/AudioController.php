@@ -78,6 +78,7 @@ class AudioController extends Controller
         $audio->duration = $request->duration;
         $audio->released_at = $request->released_at;
         $audio->album = $request->album;
+        $audio->video_url = $request->video_url;
 
         $audio->upload_by = 'admin' ;
         $audio->upload_by_id = $admin_id;
@@ -162,6 +163,7 @@ class AudioController extends Controller
         $audio->duration = $request->duration;
         $audio->released_at = $request->released_at;
         $audio->album = $request->album;
+        $audio->video_url = $request->video_url;
 
 
         if($request->hasFile('img_upload_text_link')){

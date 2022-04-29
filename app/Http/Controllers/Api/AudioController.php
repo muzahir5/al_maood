@@ -364,6 +364,23 @@ class AudioController extends Controller
         );
     }
 
+    public function incAudioByOne(Request $request)
+    {
+        
+        $audio_src   = $request['aud_src'];
+        $user_id = $request->user_id ? $request->user_id : 0;
+        $audio = Audio::where('audio_url','like', "%{$audio_src}")->first();        
+        $audio->view_by = $audio->view_by + 1;        
+        // event_track_from_fx_hlpr($post_id = $audio_id,$user_id = $user_id,$event_type = 'audio_played_'.date('Y_m_d_h_i_s'), $device_type = 'app');
+        $audio->save();
+        return response()->json(
+            [
+                'status' => "success",
+                'message'=> "Audio Incremented successfully"
+            ]
+        );
+    }
+
     public function renderIndexScreen($to_day){
         $categories = DB::table('categories')->distinct()
                 ->join('audio', 'categories.id', '=', 'audio.category')->where('categories.status',1)

@@ -7,7 +7,7 @@ var home = {
         core.getRequest(url,param, function (response, status) {
             
             if (status === 'success') {
-                var result = response;                     
+                var result = response;
                 if (result.status === 'success') {
                     var categories = result.categories;
                     var languages = result.languages;
@@ -26,7 +26,7 @@ var home = {
                         var narr_swiper = ' <div class="col">'+
                         '<a onclick="home.audio_list_by_narrator('+id+','+narator_name+')" class="list_cat_home" href="#">'+
                         '<img src="http://localhost/al-maood/public/narrators/'+profile_pic+'" alt="Narrator Avatar" width="80px" height="80px">'+
-                        '<b>'+ value.name+' </b></a></div>';
+                        '<br><b>'+ value.name+' </b></a></div>';
                         $('.no-gap-narrators').append(narr_swiper);
                         current++;
                     });
@@ -38,7 +38,7 @@ var home = {
                         var html = ' <div class="col">'+
                                 '<a onclick="home.audio_list('+id+','+cat_name+')" class="list_cat_home" href="#">'+
                                 '<img src="http://localhost/al-maood/public/categories/'+category_img+'" alt="Avatar" width="80px" height="80px">'+
-                                '<b>'+ value.name+' </b></a></div>';
+                                '<br><b>'+ value.name+' </b></a></div>';
                         $('.no-gap').append(html);
                         current++;
                     });
@@ -167,12 +167,13 @@ var home = {
                         $.each(audios,function(key,value){
                             // core.log(value);
                             var id = value.id; var cat_id = "'"+value.category+"'";
+                            var view_by = value.view_by; if(view_by == null){ view_by = 0;}
                             var audio_img = "http://localhost/al-maood/public/audio/images/"+ value.audio_img; 
                             var html = '<tr id="'+current+'"> <td>'+
                                         '<div class="list-group def_audios"> <span class="list-group-item list_audio"style="">'+
                                         '<img src="'+audio_img+'" alt="img" style="width:80px;float:left;margin-right:3%;border:1px dotted orange;margin:5px;">'+
                                         '<span><h4 class="list-group-item-heading">'+value.title+'</h4>'+
-                                        '<p class="list-group-item-text">'+value.id+
+                                        '<p class="list-group-item-text"> played: '+view_by+
                                         '<i class="fas fa-play fam-play list_play_'+current+'" onclick="home.playaudio('+current+' ,'+id+','+cat_id+')" style="float: right;"></i>'+
                                         '<i class="fas fa-pause fam-pause list_pause_'+current+'" onclick="home.pauseaudio('+current+' ,'+id+','+cat_id+')"style="margin-right:5px; float: right;"></i> </p>'+
                                         '</span> </span> </div> </td>  </tr>';
@@ -195,7 +196,7 @@ var home = {
                                             current++;
                                         }
                             $('.render_music').append(html);
-                            // core.log('ff '+ nohay_all[0].nohay_id);
+                            // core.log('nohay_all -> '+ nohay_all[0].title);
                         });
                         var catag_name = "'" + cat_name +"'";
                         $.each(languages_arr,function(key,value){
@@ -224,6 +225,23 @@ var home = {
 	},
     audio_list_by_narrator: function(narrator_id,narrator_name){
     	var param = [];
+
+        /*
+            if(nohay_all.length > 0)
+            {
+                for (let i = 0; i < nohay_all.length; i++) {
+                    core.log('i = '+ i);
+                    // $.each(nohay_languages,function(key,lang_id){
+                        if(nohay_all[i].narrator == narrator_id){
+                            // var catag_name = "'" + cat_name +"'";
+                            // var lang_chips = '<div class="chip" onclick="home.audio_list('+searchInCat+','+catag_name+','+lang_id+')">'+languages_arr[i].name+'</div>';
+                            // $('.append_render_chips').append(lang_chips);
+                            core.log(nohay_all[i].title)
+                        }
+                    // });
+                }            
+            }
+        */
         
         var tab_name = 'audio'; var col_name = 'narrator'; var where_value = narrator_id;
         var url = 'user/dynamicSearch/'+ tab_name +'/'+ col_name +'/'+ where_value;
@@ -283,6 +301,7 @@ var home = {
 	},
     playaudio: function(audio_index, audio_id, category_id)
     {
+        core.log('idd is '+audio_id);
         songIndex = audio_index;
 
         $('.fam-pause').css('display','none');
@@ -332,7 +351,7 @@ var home = {
         mainView.router.loadPage('templates/'+page_name);
     },
     load_audio_play: function(id,audio_url,audio_img,title){
-        // core.log('id is '+audio_url);
+        core.log('idd is '+id);
         core.log('img is '+audio_img+'title is '+title);
         $("#audio").attr("src",audio_url);
         $("#cover").attr("src",audio_img);
@@ -355,5 +374,18 @@ var home = {
       } else {
         x.style.display = "none";
       }
+    },
+    incAudioByOne: function(aud_src){
+
+        var audio_src = {aud_src: aud_src};
+        core.log('audio_src = '+ audio_src);
+        var url = "user/incAudioByOne";
+        core.postRequest(url, audio_src, function (response, status) {
+            core.log(response);
+            var result = JSON.parse(response);
+                if (result.status === 'success') {
+
+                }
+            });
     }
 }

@@ -44,6 +44,10 @@
                         <div class="col-33"><img src="img/home.png" style="margin-left: .2em;width: 20px;height: 20px;margin-top: .7em;"></div>
                         <div class="col-66">   Home           </div>
                     </a>
+                    <a onclick="home.render_page('register.html')" href="#" class="close-panel row">
+                        <div class="col-33"><img src="img/home.png" style="margin-left: .2em;width: 20px;height: 20px;margin-top: .7em;"></div>
+                        <div class="col-66">   Test link           </div>
+                    </a>
                 </div>
             </div>    
         </div>
@@ -77,18 +81,26 @@
                         <div class="content-block">
                             <!-- <div class="block-title">Columns with gap</div> -->
                         <div class="block">
-                            <div class="block-title"><h3>Categories</h3></div>
+                            
+                            <h3>Today Dua</h3>
+                            <div class="append_duas_chips"></div>
+
+                            <!-- <div id="v_player">
+                                <iframe width="" height="" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                                </iframe>
+                            </div> -->
+
+                            <div class="block-title"><h3>Audios</h3></div>
                             <div class="rcorners2">
                                 <div class="row no-gap" style="display: contents;"></div>
                                 <!-- <div class="row no-gap2"></div> -->
                             </div>
                         </div>
                             <!-- Link to another page -->                            
-                            <hr>
+                            <!-- <hr> -->
                             <!-- <a href="about.html">About apps</a> -->
-                            <h3>Today Dua</h3>
-                            <div class="append_duas_chips"></div>
-                            <hr>
+                            
+                            <!-- <hr> -->
 
                             <div class="block">
                                 <div class="block-titlee">
@@ -113,13 +125,11 @@
                         </div>                        
                             <hr>
                             <!-- <audio controls="" style="vertical-align: middle" src="http://localhost/al-maood/public/audio/mp3/4_3__20210614_tes_mp3 " type="audio/mp3" controlslist="nodownload"> -->
-                                
+
                             <marqueed width="60%" direction="up" height="100px">
                                 This is a sample scrolling text that has scrolls in the upper direction.
                             </marquee>
-
                             <hr>
-
                     </div>
                 </div>
             </div>
@@ -159,8 +169,9 @@
             </div>
                     <!-- Toolbar links -->
                     <a href="#" class="link">Link 1</a>
-
-                    <a onclick="home.show_player()" href="#" class="link"><i class="fas fa-music"></i></a>
+                    <a onclick="home.show_player()" href="#" id="player_icon" class="link" style="display: none;">
+                        <i class="fas fa-music"></i>
+                    </a>
                 </div>
             </div>
         </div>

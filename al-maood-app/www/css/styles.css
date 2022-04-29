@@ -26,6 +26,25 @@
 .toolbar {
     border-top: 0px;
 }
+.panel.panel-left.panel-reveal.active {
+    border: 2px solid orange;
+}
+.menu_item {
+    border: 2px dashed orange;
+    border-radius: 14px;
+    padding: 5px;
+}
+.menu_item .a_nav {
+    padding: 1px;
+}
+.menu_item .a_nav a.close-panel.row {
+    border-bottom: 2px dotted orange;
+    margin: 5px;
+}
+.menu_item .a_nav a.close-panel.row .col-66 {
+    padding-top: 3px;
+    font-size: 19px;
+}
 
 .rcorners2 {
   border-radius: 25px;
@@ -35,7 +54,8 @@
   height: auto;
   display: flex;
   height: 140px;
-  width: auto;
+  /*width: auto;*/
+  width: fit-content;
   overflow-x: auto;
   background: #f7f7f8;
 }
@@ -85,7 +105,6 @@ a.list_cat_home img {
 
 span.append_render_chips ,.append_duas_chips{
   display: -webkit-inline-box;
-  /* min-width: 320px; */
   overflow: auto;
   height: 50 px;
   background: lightyellow;
@@ -93,7 +112,8 @@ span.append_render_chips ,.append_duas_chips{
   border: 1px solid lightsalmon;
   margin: 5px;
   max-width: -webkit-fill-available;
-  min-width: 328px;
+  /*min-width: 328px;*/
+  width: fit-content;
 }
 
 .chip {  

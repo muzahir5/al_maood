@@ -100,6 +100,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="video_url">Video Url:</label>
+                            <input type="text" class="form-control" id="video_url" name="video_url" value="{{ old('video_url')}}">
+                            {!! $errors->first('video_url', '<p class="text-danger">:message</p>') !!}
+                        </div>
+
+                        <div class="form-group">
                             <label for="mp3_file">mp3 file:</label>
                             <input type="file" class="form-control" id="mp3_file" name="mp3_file" value="{{ old('mp3_file')}}">
                             {!! $errors->first('mp3_file', '<p class="text-danger">:message</p>') !!}

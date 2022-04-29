@@ -41,7 +41,7 @@ login = {
                 // if (status === 'success') {            
                 core.log(response);
                 var result = JSON.parse(response);
-                    if (result.status === 'success') {                        
+                    if (result.status === 'success') {
                         $$('.login_form .email').val('');
                         $$('.login_form .password').val('');
                         $$('.reg_form .password').val('');

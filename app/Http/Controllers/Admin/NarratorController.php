@@ -54,7 +54,7 @@ class NarratorController extends Controller
             $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 
-            $narrator->profile_pic = $request->name.$categ_showto;
+            $narrator->profile_pic = 'narrators/'.$request->name.$categ_showto;
         }        
 
         $narrator->save();
@@ -96,7 +96,7 @@ class NarratorController extends Controller
             $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
             $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 
-            $narrator->profile_pic = $request->name.$categ_showto;            
+            $narrator->profile_pic = 'narrators/'.$request->name.$categ_showto;            
         }
 
         $narrator->save();

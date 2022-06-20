@@ -381,11 +381,12 @@ class AudioController extends Controller
         );
     }
 
-    public function renderIndexScreen($to_day){
+    public function renderIndexScreen($to_day=''){
         $categories = DB::table('categories')->distinct()
                 ->join('audio', 'categories.id', '=', 'audio.category')->where('categories.status',1)
                 ->select('categories.id','categories.name','categories.category_img')->get();
-        $languages = language::select('id','name')->get();
+        // $languages = language::select('id','name')->get();
+        $languages = DB::table('languages')->select('id','name')->get();
 
         $narrators = DB::table('narrators')
             ->join('audio', 'narrators.id', '=', 'audio.narrator')
@@ -394,14 +395,19 @@ class AudioController extends Controller
         
         $today_dua = DB::table('audio')->select('id','title','audio_url','audio_img')
                             ->where(['status' => 1 , 'type' => 'dua' , 'category' => 2])->get();
+        $public_path = public_path();
         
         return response()->json(
             [
                 'status' => 'success',
+                // 'public_path' => $public_path,
+                'today_duas' => $today_dua,
                 'categories' => $categories,
-                'languages' => $languages,
                 'narrators' => $narrators,
-                'today_duas' => $today_dua
+                'languages' => $languages,
+                'recently' => null,
+                'most_played' => null,
+                'videos_catagories' => null
             ]
         );
     }

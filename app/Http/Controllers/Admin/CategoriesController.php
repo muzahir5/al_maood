@@ -45,7 +45,8 @@ class CategoriesController extends Controller
         $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
         $thumbnailImage->save($originalPath.$request->name.$categ_showto);
 
-        $categories->category_img = $request->name.$categ_showto;
+        // $categories->category_img = $request->name.$categ_showto;
+        $categories->category_img = 'categories/'.$request->name.$categ_showto;
 
         $categories->save();
 
@@ -87,7 +88,7 @@ class CategoriesController extends Controller
         $category = DB::table('categories')->where('id',$request->id)->
         			update([
         				'name' => $request->name,
-                        'category_img' => $category_image ? $category_image : $category_imagee,
+                        'category_img' => $category_image ? 'categories/'.$category_image : $category_imagee,
         				'status' => $request->status,
         				'updated_at' => date('y-m-d h-i-s') ]
         			);

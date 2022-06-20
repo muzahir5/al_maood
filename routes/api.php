@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group([
-    'namespace' => 'Api'
+    'namespace' => 'Api','cors'
 ], function(){
     Route::post('/user/userRegister/', 'UserController@userRegister')->name('api.user.userRegister');
     Route::post('/user/userLogin/', 'UserController@userLogin')->name('api.user.userLogin');

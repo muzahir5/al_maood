@@ -381,7 +381,7 @@ class AudioController extends Controller
         );
     }
 
-    public function renderIndexScreen($to_day=''){
+    public function renderIndexScreen(){
         $categories = DB::table('categories')->distinct()
                 ->join('audio', 'categories.id', '=', 'audio.category')->where('categories.status',1)
                 ->select('categories.id','categories.name','categories.category_img')->get();

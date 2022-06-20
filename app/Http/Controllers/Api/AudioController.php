@@ -381,37 +381,6 @@ class AudioController extends Controller
         );
     }
 
-    public function renderIndexScreen(){
-        $categories = DB::table('categories')->distinct()
-                ->join('audio', 'categories.id', '=', 'audio.category')->where('categories.status',1)
-                ->select('categories.id','categories.name','categories.category_img')->get();
-        // $languages = language::select('id','name')->get();
-        $languages = DB::table('languages')->select('id','name')->get();
-
-        $narrators = DB::table('narrators')
-            ->join('audio', 'narrators.id', '=', 'audio.narrator')
-            ->select('narrators.id','narrators.name','narrators.profile_pic','narrators.user_type', DB::raw('count(*) as total_audio'))
-            ->where('narrators.status',1)->groupBy('narrators.id')->get();
-        
-        $today_dua = DB::table('audio')->select('id','title','audio_url','audio_img')
-                            ->where(['status' => 1 , 'type' => 'dua' , 'category' => 2])->get();
-        $public_path = public_path();
-        
-        return response()->json(
-            [
-                'status' => 'success',
-                // 'public_path' => $public_path,
-                'today_duas' => $today_dua,
-                'categories' => $categories,
-                'narrators' => $narrators,
-                'languages' => $languages,
-                'recently' => null,
-                'most_played' => null,
-                'videos_catagories' => null
-            ]
-        );
-    }
-
     public function getNarrators()
     {
         $narrators = Narrator::where('status',1)->get();

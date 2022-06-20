@@ -132,8 +132,9 @@
                                 <input type="file" class="form-control" id="img_upload_text_link" name="img_upload_text_link" value="{{ old('img_upload_text_link')}}">
                                 {!! $errors->first('img_upload_text_link', '<p class="text-danger">:message</p>') !!}
                             </div>
-                            <div class="form-group col-6">            
-                            <img src="{{ asset('public/audio/images/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
+                            <div class="form-group col-6">
+                            <!-- public             -->
+                            <img src="{{ asset('/audio/images/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
                             </div>
                         </div>
 

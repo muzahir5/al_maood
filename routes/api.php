@@ -20,6 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group([
     'namespace' => 'Api','cors'
 ], function(){
+
+    Route::get('/user/renderIndexScreen', 'IndexController@renderIndexScreen')->name('api.user.renderIndexScreen');
+    
+    Route::get('/user/listAudioByNarrator/{narrator_id}', 'IndexController@listAudioByNarrator')->name('api.user.listAudioByNarrator');
+
     Route::post('/user/userRegister/', 'UserController@userRegister')->name('api.user.userRegister');
     Route::post('/user/userLogin/', 'UserController@userLogin')->name('api.user.userLogin');
     Route::post('/user/userLogout/', 'UserController@userLogout')->name('api.user.userLogout');
@@ -31,13 +36,11 @@ Route::group([
     Route::get('/user/getUserById/', 'UserController@getUserById')->name('api.user.getUserById');
     Route::get('/user/userSearch/', 'UserController@userSearch')->name('api.user.userSearch');
 
-    Route::get('/user/listAudioByNarrator/{narrator_id}', 'IndexController@listAudioByNarrator')->name('api.user.listAudioByNarrator');
 
 // Other Controller nnn
     Route::get('/user/getProducts/', 'UserController@getProducts')->name('api.user.getProducts');
 
     Route::get('/user/dynamicSearch/{table_name?}/{col_name?}/{where_value?}', 'AudioController@dynamicSearch')->name('api.user.dynamicSearch');
-    Route::get('/user/renderIndexScreen', 'AudioController@renderIndexScreen')->name('api.user.renderIndexScreen');
     Route::get('/user/getNarrators/', 'AudioController@getNarrators')->name('api.user.getNarrators');
     Route::get('/user/listAudioByCatagory/{categ_id}/{lang?}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');
     Route::get('/user/listAudio/', 'AudioController@listAudio')->name('api.user.listAudio');    

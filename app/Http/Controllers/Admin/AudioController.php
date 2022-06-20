@@ -91,7 +91,7 @@ class AudioController extends Controller
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
-           $audio_url = $filename;
+           $audio_url = 'audio/mp3/'.$filename;
            $audio->audio_url = $audio_url;
         }
 
@@ -162,6 +162,7 @@ class AudioController extends Controller
         $audio->narrator = $request->narrator;
         $audio->duration = $request->duration;
         $audio->released_at = $request->released_at;
+        $audio->description = $request->description;
         $audio->album = $request->album;
         $audio->video_url = $request->video_url;
 
@@ -196,8 +197,8 @@ class AudioController extends Controller
            $location = public_path('audio/mp3/');
            $music_file->move($location,$filename);
 
-            $audio_url = $filename;
-           $audio->audio_url = $audio_url;
+            $audio_url = 'audio/mp3/'.$filename;
+            $audio->audio_url = $audio_url;
         }
 
         $audio->save();

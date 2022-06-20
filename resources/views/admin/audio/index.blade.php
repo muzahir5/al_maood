@@ -65,8 +65,8 @@
                                     <td>{{$audio->view_by}}</td>                  
                                     <td><a href="{{url('admin/editAudio' ,$audio->id )}} ">Edit</a> |Delete</td>
                                     <td>
-                                    <!-- {{$audio->audio_url}} -->
-                                    <audio controls="" style="vertical-align: middle" src="{{ asset('public/audio/mp3/'.$audio->audio_url) }} " type="audio/mp3" controlslist="nodownload">
+                                    <!-- {{$audio->audio_url}} public -->
+                                    <audio controls="" style="vertical-align: middle" src="{{ asset('/audio/mp3/'.$audio->audio_url) }} " type="audio/mp3" controlslist="nodownload">
                                     </td>
                                 </tr>                              
                                 @endforeach

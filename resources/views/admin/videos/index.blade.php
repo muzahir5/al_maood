@@ -3,7 +3,6 @@
 @section('title', 'Audio Index')
 
 @section('content')
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
@@ -17,14 +16,12 @@
                             </div>
                         @endif
                         </h1>
-                        <a href="{{url('admin/addAudio')}}" class="d-none3 d-sm-inline-block btn btn-sm btn-primary shadow-sm"style="float: right;">
-                            <i class="http://localhost/al-maood/admin/audios text-white-50"></i> Add Audio</a>
+                        <a href="{{url('admin/addVideo')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="http://localhost/al-maood/admin/audios text-white-50"></i> Add Video</a>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
                     <div class="col-xl-12 col-md-12 mb-4">
-                        
-                    <table id="data_tbl" class="display table-responsive" style="width:100%">
+                    <table id="data_tbl" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">Id#</th>
@@ -38,8 +35,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if($audios)
-                                @foreach($audios as $audio)
+                            @if($videos)
+                                @foreach($videos as $audio)
                                 <tr>
                                     <th scope="row">{{$audio->id}}</th>
                                     <td>{{$audio->title}}</td>
@@ -74,7 +71,6 @@
                 </td>
                 </tr>
             </table>
-
                     </div>
 
                     </div>

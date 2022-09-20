@@ -14,25 +14,29 @@ use App\Model\Admin\Audio;
 class DashboardController extends Controller
 {
     public function __construct(){
-    	$this->middleware('auth:user')->except("index","listAudioByCatagory","listAudioByCatagoryId");
+    	$this->middleware('auth:user')->except("index","listAudioByCatagory","listAudioByCatagoryId","privacyPolicy");
     }
 
     public function index()
     {
-        $categories = DB::table('categories')->where('status',1)->get();
+        $categories = DB::table('categories')->where('category_type','audio')->where('status',1)->get();
     	// echo '<pre>';print_r($categories);exit;
         return view('user.index', compact('categories'));
+    }
+    Public function privacyPolicy()
+    {
+        return view('privacy-policy');
     }
 
     public function listAudioByCatagory($cat_id)
     {
+        $file_path = 'http://139.59.33.123:8000';
         $category = Categories::where('id',$cat_id)->first();
         $audios = Audio::select('id','title','description','narrator','upload_by','category','audio_url','audio_img','view_by','show_to')
-                    ->where('status',1)->Where('category', $cat_id)->get();        
-
-        // echo '<pre>';print_r($category);exit;
+                    ->where('status',1)->Where('category', $cat_id)->get();
+        // echo '<pre>';print_r($audios);exit;
         $cat_id = $cat_id;
-        return view('user.audio.renderAudio', compact('audios','category','cat_id'));
+        return view('user.audio.renderAudio', compact('audios','category','cat_id','file_path'));
     }
 
     public function listAudioByCatagoryId($cate_id)

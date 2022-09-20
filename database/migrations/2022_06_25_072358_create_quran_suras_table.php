@@ -20,6 +20,7 @@ class CreateQuranSurasTable extends Migration
             $table->integer('status')->default(1);
             $table->text('arabic_text');
             $table->text('translation');
+            $table->integer('read_by');
             $table->text('footnotes');
             $table->timestamps();
         });

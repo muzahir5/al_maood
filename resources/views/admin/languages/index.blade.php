@@ -1,6 +1,7 @@
 @extends('admin.layouts.default')
-@section('title', 'Admin - Categories Index')
+@section('title', 'Admin - Languages Index')
 @section('content')
+<?php // echo '<pre>';print_r($locations);exit;?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
@@ -14,8 +15,8 @@
                             </div>
                         @endif
                         </h1>
-                        <a href="{{url('admin/addCategory')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                            <i class="http://localhost/al-maood/admin/audios text-white-50"></i>Add Category</a>
+                        <a href="{{url('admin/addLanguage')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="http://localhost/al-maood/admin/audios text-white-50"></i>Add Language</a>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
@@ -26,21 +27,19 @@
                                 <th scope="col">Id #</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">type</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if($categories)
-                                @foreach($categories as $category)
+                            @if($languages)
+                                @foreach($languages as $language)
                             <tr>
-                                <td>{{$category->id}}</th>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->status}}</td>
-                                <td>{{$category->category_type}}</td>
+                                <td>{{$language->id}}</th>
+                                <td>{{$language->name}}</td>
+                                <td>{{$language->status}}</td>
                                 <td>
-                                 <a href="{{url('admin/editCategory' ,$category->id)}}">Edit</a>
-             |                   <a href="#" onclick="deleteCategoryy({{$category->id}})"> Delete </a> </td> 
+                                 <a href="{{url('admin/editLanguage' ,$language->id)}}">Edit</a>
+             |                   <a href="#" onclick="deleteLanguage({{$language->id}})"> Delete </a> </td> 
                             </tr>                             
                                 @endforeach
                             @endif 

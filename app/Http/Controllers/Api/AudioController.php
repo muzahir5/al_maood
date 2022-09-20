@@ -79,7 +79,7 @@ class AudioController extends Controller
     public function listAudioByCatagory($categ_id,$lang='')
     {
         $categories = Categories::all();
-        $query = Audio::select('id','title','language','category','audio_url','audio_img','view_by','narrator')
+        $query = Audio::select('id','title','language','location','category','audio_url','audio_img','view_by','narrator','pdf_link')
                     ->Where('category', $categ_id)->where('status',1)->orderBy('view_by','DESC');
         
         if($lang != ''){
@@ -92,15 +92,29 @@ class AudioController extends Controller
         
         $audios = $query->get();
 
-        $list_lang =  DB::table('audio')->where('category',$categ_id)
-                        ->select('language as language_id',DB::raw('count(id) as lang_count'))
-                        ->groupBy('language')->get();        
+        if ($categ_id == 4) { //only for JamaY
+                $switcher =DB::table('audio as a')->leftJoin('locations as loc', 'a.location', '=', 'loc.id')
+                            ->where('a.category',$categ_id)
+                            ->select('a.location as id','loc.name',DB::raw('count(a.id) as count'))
+                            ->groupBy('a.location')->get();
+                $switcher_type = 'location';
+        }else{
+                $switcher =  DB::table('audio as a')->leftJoin('languages as l', 'a.language', '=', 'l.id')
+                            ->where('a.category',$categ_id)
+                            ->select('a.language as id','l.name',DB::raw('count(a.id) as count')) //,DB::raw('"flat" as str')
+                            ->groupBy('a.language')->get();
+                $switcher_type = 'language';
+        }
+        // if(empty($audios)){
+        //     $switcher_type = '';
+        // }
 
-        return response()->json([            
+        return response()->json([
             'status' => "success",
-            'base_path' => base_path().'/',
+            'files_path' => 'http://139.59.33.123:8000/',
             'audios' => $audios,
-            'list_lang' => $list_lang
+            'switcher' => $switcher,
+            'switcher_type' => $switcher_type
         ]);
     }
 
@@ -132,11 +146,11 @@ class AudioController extends Controller
         $audio = Audio::where( [ 'id'=> $id, 'status'=> 1 ])->first();
                 
         if($audio){
-            event_track_from_fx_hlpr($post_id = $id, $user_id = null, $event_type = 'show_audio');
+            // event_track_from_fx_hlpr($post_id = $id, $user_id = null, $event_type = 'show_audio');
             $status = 'success';
             $relavent_audio = Audio::where(['category'=> $audio->category,'status'=> 1, 'language'=>$audio->language])->where('id','!=',$audio->id)->get();
         }
-        // if (!$relavent_audio) { $relavent_audio = null; }       
+        // if (!$relavent_audio) { $relavent_audio = null; }
 
         // echo $audio->show_to;exit;
         // echo print_r($relavent_audio);exit;
@@ -383,7 +397,9 @@ class AudioController extends Controller
 
     public function getNarrators()
     {
-        $narrators = Narrator::where('status',1)->get();
+        $narrators = DB::table('narrators as n')->select('n.id','n.name','n.profile_pic','n.status', DB::raw('count(a.narrator) as total_audio'))
+                            ->leftJoin('audio as a', 'a.narrator', '=', 'n.id')
+                            ->where('n.status',1)->groupBy('n.id')->get();
 
         return response()->json(
             [

@@ -21,8 +21,13 @@ Route::group([
     'namespace' => 'Api','cors'
 ], function(){
 
+    Route::get('/user/get_quarani_surah/{surah_id}', 'IndexController@get_quarani_surah')->name('api.user.get_quarani_surah');
+
     Route::get('/user/renderIndexScreen', 'IndexController@renderIndexScreen')->name('api.user.renderIndexScreen');
+    Route::get('/user/get_surah/{surah_number}', 'IndexController@getSurah')->name('api.user.get_surah');
     
+    Route::get('/user/listAudioByCatagory/{categ_id}/{lang?}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');
+    Route::get('/user/listVideoByCatagory/{categ_id}/{lang?}', 'IndexController@listVideoByCatagory')->name('api.user.listVideoByCatagory');
     Route::get('/user/listAudioByNarrator/{narrator_id}', 'IndexController@listAudioByNarrator')->name('api.user.listAudioByNarrator');
 
     Route::post('/user/userRegister/', 'UserController@userRegister')->name('api.user.userRegister');
@@ -42,8 +47,7 @@ Route::group([
 
     Route::get('/user/dynamicSearch/{table_name?}/{col_name?}/{where_value?}', 'AudioController@dynamicSearch')->name('api.user.dynamicSearch');
     Route::get('/user/getNarrators/', 'AudioController@getNarrators')->name('api.user.getNarrators');
-    Route::get('/user/listAudioByCatagory/{categ_id}/{lang?}', 'AudioController@listAudioByCatagory')->name('api.user.listAudioByCatagory');
-    Route::get('/user/listAudio/', 'AudioController@listAudio')->name('api.user.listAudio');    
+    Route::get('/user/listAudio/', 'AudioController@listAudio')->name('api.user.listAudio');
     Route::get('/user/listAudioBYUser/', 'AudioController@listAudioBYUser')->name('api.user.listAudioBYUser');
     Route::get('/user/showAudio/', 'AudioController@showAudio')->name('api.user.showAudio');
     Route::post('/user/addAudio/', 'AudioController@addAudio')->name('api.user.addAudio');
@@ -73,4 +77,10 @@ Route::group([
     Route::post('/user/userEarning/', 'UserController@userEarning')->name('api.user.userEarning');
     Route::get('/user/showWallet/{user_id}', 'UserController@showWallet')->name('api.user.showWallet');
     Route::post('/user/withDrawRequest/', 'UserController@withDrawRequest')->name('api.user.withDrawRequest');
+
+    // Videos starts
+    Route::post('/user/videoCreate/', 'VideoController@videoCreate')->name('api.user.videoCreate');
+
+    // Videos end
+
 });

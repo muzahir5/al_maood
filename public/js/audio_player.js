@@ -34,8 +34,9 @@ function loadSong(song) {
 
   var titlee = songsTitle[song];
   title.innerText = titlee;
-  cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
-  audio.src = 'http://localhost/al-maood/public/audio/mp3/' + songsSrc[song]; // song = audio_index
+  // cover.src = 'http://localhost/al-maood/public/audio/images/' + songsImage[song];
+  cover.src = 'http://139.59.33.123:8000/' + songsImage[song];
+  audio.src = 'http://139.59.33.123:8000/' + songsSrc[song]; // song = audio_index
 
   // audio.src = `public/music/${song}.mp3`;
   // cover.src = `public/images/${song}.jpg`;

@@ -1,0 +1,930 @@
+Laravel development server started: <http://0.0.0.0:80>
+[Tue Sep 20 16:40:01 2022] Failed to listen on 0.0.0.0:80 (reason: Address already in use)
+Laravel development server started: <http://0.0.0.0:8000>
+[Tue Sep 20 16:40:55 2022] PHP 7.4.30 Development Server (http://0.0.0.0:8000) started
+[Tue Sep 20 16:41:04 2022] 116.71.180.194:59205 Accepted
+[Tue Sep 20 16:41:04 2022] 116.71.180.194:59270 Accepted
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59270 Closing
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59205 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59151 Accepted
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59207 Accepted
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59279 Accepted
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59151 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59151 Closing
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59221 Accepted
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59207 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59279 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59279 Closing
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59221 Closing
+[Tue Sep 20 16:41:05 2022] 116.71.180.194:59205 Closing
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59163 Accepted
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59339 Accepted
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59163 Closing
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59343 Accepted
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59339 Closing
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59285 Accepted
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59225 Accepted
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59225 Closing
+[Tue Sep 20 16:41:06 2022] 116.71.180.194:59343 Closing
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59285 Closing
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59345 Accepted
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59287 Accepted
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59227 Accepted
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59165 Accepted
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59288 Accepted
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59207 Closing
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59287 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59345 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59165 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59165 Closing
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59227 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59227 Closing
+[Tue Sep 20 16:41:07 2022] 116.71.180.194:59288 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59228 Accepted
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59149 Accepted
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59347 Accepted
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59228 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59228 Closing
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59347 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59149 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59149 Closing
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59287 Closing
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59345 Closing
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59349 Accepted
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59349 [200]: GET /categories/Jamay_19_06_2022_07_42_28.jpg
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59349 Closing
+[Tue Sep 20 16:41:08 2022] 116.71.180.194:59204 Accepted
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59347 Closing
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59167 Accepted
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59204 [200]: GET /categories/Quran_27_07_2022_07_38_41.png
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59167 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59167 Closing
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59288 Closing
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59204 Closing
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59289 Accepted
+[Tue Sep 20 16:41:09 2022] 116.71.180.194:59168 Accepted
+[Tue Sep 20 16:41:10 2022] 116.71.180.194:59289 Closing
+[Tue Sep 20 16:41:10 2022] 116.71.180.194:59168 Closing
+[Tue Sep 20 16:41:10 2022] 116.71.180.194:59229 Accepted
+[Tue Sep 20 16:41:10 2022] 116.71.180.194:59229 [200]: GET /favicon.ico
+[Tue Sep 20 16:41:10 2022] 116.71.180.194:59229 Closing
+[Tue Sep 20 16:41:24 2022] 116.71.180.194:59290 Accepted
+[Tue Sep 20 16:41:24 2022] 116.71.180.194:59154 Accepted
+[Tue Sep 20 16:41:24 2022] 116.71.180.194:59290 Closing
+[Tue Sep 20 16:41:24 2022] 116.71.180.194:59154 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59233 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59355 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59170 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59334 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59355 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59355 Closing
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59233 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59334 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59334 Closing
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59154 Closing
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59170 Closing
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59356 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59171 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59234 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59292 Accepted
+[Tue Sep 20 16:41:25 2022] 116.71.180.194:59172 Accepted
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59356 Closing
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59171 Closing
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59172 Closing
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59292 Closing
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59234 Closing
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59235 Accepted
+[Tue Sep 20 16:41:26 2022] 116.71.180.194:59338 Accepted
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59233 Closing
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59137 Accepted
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59294 Accepted
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59237 Accepted
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59235 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59338 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59137 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59137 Closing
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59294 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59294 Closing
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59237 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59238 Accepted
+[Tue Sep 20 16:41:27 2022] 116.71.180.194:59238 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59357 Accepted
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59357 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59357 Closing
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59358 Accepted
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59358 [200]: GET /categories/Jamay_19_06_2022_07_42_28.jpg
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59358 Closing
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59338 Closing
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59235 Closing
+[Tue Sep 20 16:41:28 2022] 116.71.180.194:59238 Closing
+[Tue Sep 20 16:41:29 2022] 116.71.180.194:59237 Closing
+[Tue Sep 20 16:41:29 2022] 116.71.180.194:59332 Accepted
+[Tue Sep 20 16:41:29 2022] 116.71.180.194:59173 Accepted
+[Tue Sep 20 16:41:29 2022] 116.71.180.194:59342 Accepted
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59332 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59173 [200]: GET /categories/Quran_27_07_2022_07_38_41.png
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59342 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59342 Closing
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59332 Closing
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59174 Accepted
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59173 Closing
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59174 Closing
+[Tue Sep 20 16:41:30 2022] 116.71.180.194:59175 Accepted
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59359 Accepted
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59175 Closing
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59359 [200]: GET /favicon.ico
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59359 Closing
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59143 Accepted
+[Tue Sep 20 16:41:31 2022] 116.71.180.194:59143 Closing
+[Tue Sep 20 16:41:32 2022] 116.71.180.194:59176 Accepted
+[Tue Sep 20 16:41:32 2022] 116.71.180.194:59176 [200]: GET /favicon.ico
+[Tue Sep 20 16:41:32 2022] 116.71.180.194:59176 Closing
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59205 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59273 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59205 Closing
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59273 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59340 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59275 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59277 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59342 Accepted
+[Tue Sep 20 16:43:48 2022] 116.71.180.194:59340 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59275 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59342 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59342 Closing
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59277 Closing
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59340 Closing
+[Tue Sep 20 16:43:49 2022] 116.71.180.194:59273 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59279 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59137 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59281 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59207 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59344 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59281 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59279 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59137 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59207 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59344 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59345 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59142 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59213 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59143 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59346 Accepted
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59345 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59275 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59142 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59213 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59213 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59143 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59143 Closing
+[Tue Sep 20 16:43:50 2022] 116.71.180.194:59346 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59215 Accepted
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59283 Accepted
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59221 Accepted
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59215 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59345 Closing
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59142 Closing
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59283 [200]: GET /categories/Jamay_19_06_2022_07_42_28.jpg
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59283 Closing
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59221 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 16:43:51 2022] 116.71.180.194:59221 Closing
+[Tue Sep 20 16:43:52 2022] 116.71.180.194:59215 Closing
+[Tue Sep 20 16:43:52 2022] 116.71.180.194:59347 Accepted
+[Tue Sep 20 16:43:52 2022] 116.71.180.194:59349 Accepted
+[Tue Sep 20 16:43:52 2022] 116.71.180.194:59151 Accepted
+[Tue Sep 20 16:43:52 2022] 116.71.180.194:59346 Closing
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59347 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59347 Closing
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59349 [200]: GET /categories/Quran_27_07_2022_07_38_41.png
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59151 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59151 Closing
+[Tue Sep 20 16:43:53 2022] 116.71.180.194:59284 Accepted
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59349 Closing
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59285 Accepted
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59284 Closing
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59285 Closing
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59154 Accepted
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59154 [200]: GET /favicon.ico
+[Tue Sep 20 16:43:54 2022] 116.71.180.194:59154 Closing
+[Tue Sep 20 16:43:55 2022] 116.71.180.194:59159 Accepted
+Laravel development server started: <http://0.0.0.0:8001>
+[Tue Sep 20 16:44:13 2022] PHP 7.4.30 Development Server (http://0.0.0.0:8001) started
+Laravel development server started: <http://0.0.0.0:8000>
+[Tue Sep 20 16:50:53 2022] PHP 7.4.30 Development Server (http://0.0.0.0:8000) started
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59328 Accepted
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59138 Accepted
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59138 Closing
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59328 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59283 Accepted
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59223 Accepted
+[Tue Sep 20 16:51:05 2022] 116.71.180.194:59139 Accepted
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59224 Accepted
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59283 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59283 Closing
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59139 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59223 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59223 Closing
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59224 Closing
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59328 Closing
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59285 Accepted
+[Tue Sep 20 16:51:06 2022] 116.71.180.194:59339 Accepted
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59339 Closing
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59285 Closing
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59139 Closing
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59345 Accepted
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59287 Accepted
+[Tue Sep 20 16:51:07 2022] 116.71.180.194:59350 Accepted
+[Tue Sep 20 16:51:08 2022] 116.71.180.194:59289 Accepted
+[Tue Sep 20 16:51:08 2022] 116.71.180.194:59352 Accepted
+[Tue Sep 20 16:51:08 2022] 116.71.180.194:59345 Closing
+[Tue Sep 20 16:51:08 2022] 116.71.180.194:59350 Closing
+[Tue Sep 20 16:51:08 2022] 116.71.180.194:59287 Closing
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59289 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59352 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59227 Accepted
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59229 Accepted
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59264 Accepted
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59142 Accepted
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59229 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59264 [200]: GET /categories/Jamay_19_06_2022_07_42_28.jpg
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59264 Closing
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59227 [200]: GET /categories/Quran_27_07_2022_07_38_41.png
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59142 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:51:09 2022] 116.71.180.194:59352 Closing
+[Tue Sep 20 16:51:10 2022] 116.71.180.194:59142 Closing
+[Tue Sep 20 16:51:10 2022] 116.71.180.194:59289 Closing
+[Tue Sep 20 16:51:10 2022] 116.71.180.194:59227 Closing
+[Tue Sep 20 16:51:10 2022] 116.71.180.194:59229 Closing
+[Tue Sep 20 16:51:11 2022] 116.71.180.194:59336 Accepted
+[Tue Sep 20 16:51:11 2022] 116.71.180.194:59150 Accepted
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59231 Accepted
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59150 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59150 Closing
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59336 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59336 Closing
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59231 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59231 Closing
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59153 Accepted
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59156 Accepted
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59156 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59153 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59153 Closing
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59157 Accepted
+[Tue Sep 20 16:51:12 2022] 116.71.180.194:59341 Accepted
+[Tue Sep 20 16:51:13 2022] 116.71.180.194:59341 Closing
+[Tue Sep 20 16:51:13 2022] 116.71.180.194:59157 Closing
+[Tue Sep 20 16:51:13 2022] 116.71.180.194:59156 Closing
+[Tue Sep 20 16:51:14 2022] 116.71.180.194:59293 Accepted
+[Tue Sep 20 16:51:14 2022] 116.71.180.194:59293 [200]: GET /favicon.ico
+[Tue Sep 20 16:51:14 2022] 116.71.180.194:59293 Closing
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59160 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59242 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59160 Closing
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59242 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59353 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59161 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59294 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59353 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59161 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59294 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59294 Closing
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59355 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59357 Accepted
+[Tue Sep 20 16:51:15 2022] 116.71.180.194:59353 Closing
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59357 [200]: GET /audio/images/Dua.e.Imam.e.Zaman_26_08_2022_06_39_49.png
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59357 Closing
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59355 [200]: GET /audio/images/Dua-e-Juma_11_07_2022_06_06_21.jpg
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59242 Closing
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59355 Closing
+[Tue Sep 20 16:51:16 2022] 116.71.180.194:59162 Accepted
+[Tue Sep 20 16:51:17 2022] 116.71.180.194:59161 Closing
+[Tue Sep 20 16:51:17 2022] 116.71.180.194:59162 Closing
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59163 Accepted
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59358 Accepted
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59358 Closing
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59163 Closing
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59202 Accepted
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59360 Accepted
+[Tue Sep 20 16:51:18 2022] 116.71.180.194:59268 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59360 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59202 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59268 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59295 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59211 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59164 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59295 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59211 [200]: GET /audio/images/Dua-e-Maarij_24_07_2022_07_15_34.jpg
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59164 [200]: GET /audio/images/Dua-e-Ahad_24_07_2022_07_17_29.jpg
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59361 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59165 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59361 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59211 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59164 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59296 Accepted
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59361 Closing
+[Tue Sep 20 16:51:19 2022] 116.71.180.194:59165 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59295 Closing
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59296 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59244 Accepted
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59165 Closing
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59244 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:51:20 2022] 116.71.180.194:59244 Closing
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59296 Closing
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59166 Accepted
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59362 Accepted
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59297 Accepted
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59166 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59166 Closing
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59362 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59297 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59297 Closing
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59298 Accepted
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59298 Closing
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59245 Accepted
+[Tue Sep 20 16:51:21 2022] 116.71.180.194:59245 Closing
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59362 Closing
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59363 Accepted
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59170 Accepted
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59363 Closing
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59170 [200]: GET /favicon.ico
+[Tue Sep 20 16:51:23 2022] 116.71.180.194:59170 Closing
+[Tue Sep 20 16:51:24 2022] 116.71.180.194:59171 Accepted
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59171 Closing
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59301 Accepted
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59301 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59342 Accepted
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59303 Accepted
+[Tue Sep 20 16:51:52 2022] 116.71.180.194:59136 Accepted
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59304 Accepted
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59342 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59342 Closing
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59301 Closing
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59303 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59136 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59136 Closing
+[Tue Sep 20 16:51:53 2022] 116.71.180.194:59304 Closing
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59305 Accepted
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59343 Accepted
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59140 Accepted
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59200 Accepted
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59147 Accepted
+[Tue Sep 20 16:51:54 2022] 116.71.180.194:59303 Closing
+[Tue Sep 20 16:51:55 2022] 116.71.180.194:59305 Closing
+[Tue Sep 20 16:51:55 2022] 116.71.180.194:59343 Closing
+[Tue Sep 20 16:51:55 2022] 116.71.180.194:59140 Closing
+[Tue Sep 20 16:51:55 2022] 116.71.180.194:59200 Closing
+[Tue Sep 20 16:51:55 2022] 116.71.180.194:59147 Closing
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59152 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59203 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59154 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59230 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59333 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59265 Accepted
+[Tue Sep 20 16:51:56 2022] 116.71.180.194:59152 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59203 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59154 [200]: GET /audio/images/Dua-e-Ahad_24_07_2022_07_17_29.jpg
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59152 Closing
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59265 [200]: GET /audio/images/Dua-e-Juma_11_07_2022_06_06_21.jpg
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59333 [200]: GET /audio/images/Dua.e.Imam.e.Zaman_26_08_2022_06_39_49.png
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59333 Closing
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59230 [200]: GET /audio/images/Dua-e-Maarij_24_07_2022_07_15_34.jpg
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59154 Closing
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59203 Closing
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59265 Closing
+[Tue Sep 20 16:51:57 2022] 116.71.180.194:59230 Closing
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59167 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59233 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59247 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59249 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59174 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59251 Accepted
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59167 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59233 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59247 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59247 Closing
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59249 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59249 Closing
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59251 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59174 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:51:59 2022] 116.71.180.194:59251 Closing
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59252 Accepted
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59340 Accepted
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59252 Closing
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59340 Closing
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59167 Closing
+[Tue Sep 20 16:52:00 2022] 116.71.180.194:59233 Closing
+[Tue Sep 20 16:52:01 2022] 116.71.180.194:59174 Closing
+[Tue Sep 20 16:52:02 2022] 116.71.180.194:59349 Accepted
+[Tue Sep 20 16:52:02 2022] 116.71.180.194:59253 Accepted
+[Tue Sep 20 16:52:02 2022] 116.71.180.194:59349 Closing
+[Tue Sep 20 16:52:02 2022] 116.71.180.194:59253 [200]: GET /favicon.ico
+[Tue Sep 20 16:52:02 2022] 116.71.180.194:59253 Closing
+[Tue Sep 20 16:52:14 2022] 116.71.180.194:59331 Accepted
+[Tue Sep 20 16:52:14 2022] 116.71.180.194:59219 Accepted
+[Tue Sep 20 16:52:14 2022] 116.71.180.194:59219 Closing
+[Tue Sep 20 16:52:14 2022] 116.71.180.194:59222 Accepted
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59331 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59222 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59222 Closing
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59141 Accepted
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59235 Accepted
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59176 Accepted
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59141 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59331 Closing
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59235 [200]: GET /css/audio_player.css
+[Tue Sep 20 16:52:15 2022] 116.71.180.194:59235 Closing
+[Tue Sep 20 16:52:16 2022] 116.71.180.194:59176 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59271 Accepted
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59178 Accepted
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59348 Accepted
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59254 Accepted
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59367 Accepted
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59141 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59271 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59178 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59254 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59348 Closing
+[Tue Sep 20 16:52:17 2022] 116.71.180.194:59367 Closing
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59256 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59179 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59258 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59368 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59279 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59259 Accepted
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59256 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59179 [200]: GET /audio/images/Dua.e.Imam.e.Zaman_26_08_2022_06_39_49.png
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59179 Closing
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59258 [200]: GET /audio/images/Dua-e-Ahad_24_07_2022_07_17_29.jpg
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59368 [200]: GET /audio/images/Dua-e-Juma_11_07_2022_06_06_21.jpg
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59279 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59259 [200]: GET /audio/images/Dua-e-Maarij_24_07_2022_07_15_34.jpg
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59258 Closing
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59368 Closing
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59279 Closing
+[Tue Sep 20 16:52:18 2022] 116.71.180.194:59259 Closing
+[Tue Sep 20 16:52:19 2022] 116.71.180.194:59256 Closing
+[Tue Sep 20 16:52:22 2022] 116.71.180.194:59370 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59270 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59371 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59372 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59307 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59373 Accepted
+[Tue Sep 20 16:52:23 2022] 116.71.180.194:59370 Closing
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59270 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59371 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59372 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59372 Closing
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59307 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59307 Closing
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59373 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59205 Accepted
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59374 Accepted
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59205 [200]: GET /favicon.ico
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59205 Closing
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59270 Closing
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59308 Accepted
+[Tue Sep 20 16:52:24 2022] 116.71.180.194:59371 Closing
+[Tue Sep 20 16:52:25 2022] 116.71.180.194:59374 [200]: GET /js/audio_player.js
+[Tue Sep 20 16:52:25 2022] 116.71.180.194:59374 Closing
+[Tue Sep 20 16:52:25 2022] 116.71.180.194:59308 Closing
+[Tue Sep 20 16:52:25 2022] 116.71.180.194:59149 Accepted
+[Tue Sep 20 16:52:25 2022] 116.71.180.194:59373 Closing
+[Tue Sep 20 16:52:26 2022] 116.71.180.194:59149 Closing
+[Tue Sep 20 16:52:27 2022] 116.71.180.194:59217 Accepted
+[Tue Sep 20 16:52:27 2022] 116.71.180.194:59375 Accepted
+[Tue Sep 20 16:52:27 2022] 116.71.180.194:59217 Closing
+[Tue Sep 20 16:52:27 2022] 116.71.180.194:59375 [200]: GET /favicon.ico
+[Tue Sep 20 16:52:27 2022] 116.71.180.194:59375 Closing
+[Tue Sep 20 16:52:29 2022] 116.71.180.194:59260 Accepted
+[Tue Sep 20 16:52:30 2022] 116.71.180.194:59260 Closing
+Laravel development server started: <http://0.0.0.0:8000>
+[Tue Sep 20 16:55:17 2022] PHP 7.4.30 Development Server (http://0.0.0.0:8000) started
+[Tue Sep 20 16:55:21 2022] 116.71.180.194:59330 Accepted
+[Tue Sep 20 16:55:21 2022] 116.71.180.194:59330 Closing
+[Tue Sep 20 16:56:19 2022] 116.71.180.194:59265 Accepted
+[Tue Sep 20 16:56:19 2022] 116.71.180.194:59265 Closing
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59271 Accepted
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59279 Accepted
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59145 Accepted
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59339 Accepted
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59271 [200]: GET /audio/images/Dua.e.Imam.e.Zaman_26_08_2022_06_39_49.png
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59271 Closing
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59279 [200]: GET /settings/images/al-maood-logo.png
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59279 Closing
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59145 [200]: GET /audio/images/Dua-e-Juma_11_07_2022_06_06_21.jpg
+[Tue Sep 20 16:57:00 2022] 116.71.180.194:59339 Closing
+[Tue Sep 20 16:57:01 2022] 116.71.180.194:59145 Closing
+[Tue Sep 20 16:57:01 2022] 116.71.180.194:59341 Accepted
+[Tue Sep 20 16:57:02 2022] 116.71.180.194:59341 [200]: GET /audio/mp3/Dua.e.Imam.e.Zaman_21_06_2022_06_44_16.mp3
+[Tue Sep 20 16:57:03 2022] 116.71.180.194:59343 Accepted
+[Tue Sep 20 16:57:03 2022] 116.71.180.194:59341 Closing
+[Tue Sep 20 16:57:03 2022] 116.71.180.194:59343 Closing
+[Tue Sep 20 17:01:56 2022] 116.71.180.194:59334 Accepted
+[Tue Sep 20 17:01:56 2022] 116.71.180.194:59336 Accepted
+[Tue Sep 20 17:01:56 2022] 116.71.180.194:59334 Closing
+[Tue Sep 20 17:01:56 2022] 116.71.180.194:59336 [200]: GET /favicon.ico
+[Tue Sep 20 17:01:56 2022] 116.71.180.194:59336 Closing
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59279 Accepted
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59145 Accepted
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59279 Closing
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59145 Closing
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59147 Accepted
+[Tue Sep 20 17:02:03 2022] 116.71.180.194:59147 Closing
+[Tue Sep 20 17:02:04 2022] 116.71.180.194:59286 Accepted
+[Tue Sep 20 17:02:04 2022] 116.71.180.194:59286 [200]: GET /favicon.ico
+[Tue Sep 20 17:02:04 2022] 116.71.180.194:59286 Closing
+[Tue Sep 20 17:02:08 2022] 116.71.180.194:59290 Accepted
+[Tue Sep 20 17:02:08 2022] 116.71.180.194:59292 Accepted
+[Tue Sep 20 17:02:08 2022] 116.71.180.194:59290 Closing
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59292 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59149 Accepted
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59330 Accepted
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59295 Accepted
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59149 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59149 Closing
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59151 Accepted
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59295 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59330 [200]: GET /css/audio_player.css
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59330 Closing
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59151 Closing
+[Tue Sep 20 17:02:09 2022] 116.71.180.194:59292 Closing
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59212 Accepted
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59153 Accepted
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59337 Accepted
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59154 Accepted
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59339 Accepted
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59212 Closing
+[Tue Sep 20 17:02:10 2022] 116.71.180.194:59153 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59154 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59337 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59339 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59295 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59341 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59296 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59298 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59156 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59158 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59296 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59341 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59298 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59298 Closing
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59156 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59158 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59213 Accepted
+[Tue Sep 20 17:02:11 2022] 116.71.180.194:59158 Closing
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59213 [200]: GET /audio/images/Dua-e-Maarij_24_07_2022_07_15_34.jpg
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59156 Closing
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59213 Closing
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59296 Closing
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59299 Accepted
+[Tue Sep 20 17:02:12 2022] 116.71.180.194:59341 Closing
+[Tue Sep 20 17:02:13 2022] 116.71.180.194:59160 Accepted
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59299 [200]: GET /audio/images/Dua-e-Ahad_24_07_2022_07_17_29.jpg
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59299 Closing
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59162 Accepted
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59300 Accepted
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59350 Accepted
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59160 [200]: GET /audio/images/Dua-e-Juma_11_07_2022_06_06_21.jpg
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59300 [200]: GET /audio/images/Dua.e.Imam.e.Zaman_26_08_2022_06_39_49.png
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59300 Closing
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59301 Accepted
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59162 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59162 Closing
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59350 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59160 Closing
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59301 [200]: GET /js/audio_player.js
+[Tue Sep 20 17:02:14 2022] 116.71.180.194:59301 Closing
+[Tue Sep 20 17:02:15 2022] 116.71.180.194:59302 Accepted
+[Tue Sep 20 17:02:15 2022] 116.71.180.194:59206 Accepted
+[Tue Sep 20 17:02:15 2022] 116.71.180.194:59302 Closing
+[Tue Sep 20 17:02:15 2022] 116.71.180.194:59206 Closing
+[Tue Sep 20 17:02:16 2022] 116.71.180.194:59350 Closing
+[Tue Sep 20 17:02:17 2022] 116.71.180.194:59164 Accepted
+[Tue Sep 20 17:02:17 2022] 116.71.180.194:59340 Accepted
+[Tue Sep 20 17:02:17 2022] 116.71.180.194:59164 Closing
+[Tue Sep 20 17:02:17 2022] 116.71.180.194:59340 [200]: GET /favicon.ico
+[Tue Sep 20 17:02:17 2022] 116.71.180.194:59340 Closing
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59155 Accepted
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59217 Accepted
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59155 Closing
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59217 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59343 Accepted
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59165 Accepted
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59219 Accepted
+[Tue Sep 20 17:02:22 2022] 116.71.180.194:59166 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59343 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59343 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59165 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59217 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59166 [200]: GET /css/audio_player.css
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59166 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59219 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59303 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59221 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59223 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59303 [200]: GET /categories/Dua_19_06_2022_07_41_53.jpg
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59225 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59221 [200]: GET /categories/Jamay_19_06_2022_07_42_28.jpg
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59221 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59223 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59223 Closing
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59304 Accepted
+[Tue Sep 20 17:02:23 2022] 116.71.180.194:59225 [200]: GET /categories/Quran_27_07_2022_07_38_41.png
+[Tue Sep 20 17:02:24 2022] 116.71.180.194:59303 Closing
+[Tue Sep 20 17:02:24 2022] 116.71.180.194:59304 Closing
+[Tue Sep 20 17:02:24 2022] 116.71.180.194:59225 Closing
+[Tue Sep 20 17:02:24 2022] 116.71.180.194:59165 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59273 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59305 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59138 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59226 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59306 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59273 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59305 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59138 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59167 Accepted
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59226 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59306 Closing
+[Tue Sep 20 17:02:25 2022] 116.71.180.194:59167 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59169 Accepted
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59227 Accepted
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59170 Accepted
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59171 Accepted
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59228 Accepted
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59169 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59227 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59170 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59170 Closing
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59171 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59228 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59171 Closing
+[Tue Sep 20 17:02:26 2022] 116.71.180.194:59167 Closing
+[Tue Sep 20 17:02:27 2022] 116.71.180.194:59227 Closing
+[Tue Sep 20 17:02:27 2022] 116.71.180.194:59169 Closing
+[Tue Sep 20 17:02:27 2022] 116.71.180.194:59328 Accepted
+[Tue Sep 20 17:02:27 2022] 116.71.180.194:59229 Accepted
+[Tue Sep 20 17:02:28 2022] 116.71.180.194:59228 Closing
+[Tue Sep 20 17:02:28 2022] 116.71.180.194:59328 [200]: GET /js/audio_player.js
+[Tue Sep 20 17:02:28 2022] 116.71.180.194:59328 Closing
+[Tue Sep 20 17:02:28 2022] 116.71.180.194:59229 Closing
+[Tue Sep 20 17:02:29 2022] 116.71.180.194:59172 Accepted
+[Tue Sep 20 17:02:29 2022] 116.71.180.194:59172 [200]: GET /favicon.ico
+[Tue Sep 20 17:02:29 2022] 116.71.180.194:59172 Closing
+[Tue Sep 20 17:02:29 2022] 116.71.180.194:59230 Accepted
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59230 Closing
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59174 Accepted
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59174 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59352 Accepted
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59354 Accepted
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59356 Accepted
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59354 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59354 Closing
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59352 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 17:02:30 2022] 116.71.180.194:59174 Closing
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59356 [200]: GET /css/audio_player.css
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59356 Closing
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59231 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59231 Closing
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59232 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59274 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59232 Closing
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59175 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59307 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59233 Accepted
+[Tue Sep 20 17:02:31 2022] 116.71.180.194:59274 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59175 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59233 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59307 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59177 Accepted
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59178 Accepted
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59352 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59177 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59178 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59201 Accepted
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59179 Accepted
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59201 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59201 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59342 Accepted
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59179 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59179 Closing
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59342 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 17:02:32 2022] 116.71.180.194:59278 Accepted
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59345 Accepted
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59358 Accepted
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59278 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59178 Closing
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59177 Closing
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59345 [200]: GET /audio/images/AACHA-KEYA-BABA_27_07_2022_06_52_43.jpg
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59345 Closing
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59358 [200]: GET /audio/images/PARDA-DUNIYA-KO_27_07_2022_06_55_09.jpg
+[Tue Sep 20 17:02:33 2022] 116.71.180.194:59358 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59278 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59159 Accepted
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59264 Accepted
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59342 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59329 Accepted
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59200 Accepted
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59159 [200]: GET /audio/images/akbar-da-wro-wro-joravina_27_07_2022_06_56_25.jpg
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59159 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59264 [200]: GET /audio/images/Abbas-a.s-Utho_27_07_2022_07_02_46.jpg
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59264 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59329 [200]: GET /audio/images/Hura-Dosmal-darta-Tohfa-shwla_27_07_2022_07_02_19.jpg
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59329 Closing
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59200 [200]: GET /js/audio_player.js
+[Tue Sep 20 17:02:34 2022] 116.71.180.194:59200 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59347 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59311 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59359 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59202 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59180 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59309 Accepted
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59347 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59311 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59311 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59359 [200]: GET /audio/images/Baba-sa-Najaf-ta-larh-sha_27_07_2022_07_03_56.jpg
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59359 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59202 [200]: GET /audio/images/Ma-na-Baba-ma-Bayaya_27_07_2022_07_04_23.jpg
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59202 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59309 [200]: GET /audio/images/Ya-rab-e-Hussain-a.s_27_07_2022_07_04_47.jpg
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59309 Closing
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59180 [200]: GET /audio/images/Maqtal-K-sada-k-gi_27_07_2022_07_06_16.jpg
+[Tue Sep 20 17:02:35 2022] 116.71.180.194:59180 Closing
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59312 Accepted
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59181 Accepted
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59344 Accepted
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59312 [200]: GET /audio/images/Shame-da-zalay-gi_27_07_2022_07_06_58.jpg
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59312 Closing
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59181 [200]: GET /audio/images/Meerastergay-ma-da-der_27_07_2022_07_01_28.jpg
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59181 Closing
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59234 Accepted
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59344 [200]: GET /audio/images/Azeem-kam-kar-deya_27_07_2022_07_07_14.jpg
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59344 Closing
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59360 Accepted
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59234 Closing
+[Tue Sep 20 17:02:36 2022] 116.71.180.194:59360 Closing
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59361 Accepted
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59361 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59182 Accepted
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59362 Accepted
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59236 Accepted
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59313 Accepted
+[Tue Sep 20 17:02:37 2022] 116.71.180.194:59363 Accepted
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59313 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59236 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59362 [200]: GET /css/audio_player.css
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59362 Closing
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59182 [200]: GET /favicon.ico
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59182 Closing
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59313 Closing
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59363 Closing
+[Tue Sep 20 17:02:38 2022] 116.71.180.194:59361 Closing
+[Tue Sep 20 17:02:39 2022] 116.71.180.194:59236 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59183 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59237 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59238 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59184 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59315 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59185 Accepted
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59183 [200]: GET /audio/images/AACHA-KEYA-BABA_27_07_2022_06_52_43.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59183 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59237 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59237 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59238 [200]: GET /audio/images/Abbas-a.s-Utho_27_07_2022_07_02_46.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59238 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59315 [200]: GET /audio/images/Azeem-kam-kar-deya_27_07_2022_07_07_14.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59315 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59184 [200]: GET /audio/images/akbar-da-wro-wro-joravina_27_07_2022_06_56_25.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59184 Closing
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59185 [200]: GET /audio/images/Baba-sa-Najaf-ta-larh-sha_27_07_2022_07_03_56.jpg
+[Tue Sep 20 17:02:41 2022] 116.71.180.194:59185 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59239 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59346 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59364 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59316 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59317 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59239 [200]: GET /audio/images/Hura-Dosmal-darta-Tohfa-shwla_27_07_2022_07_02_19.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59239 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59346 [200]: GET /audio/images/Ma-na-Baba-ma-Bayaya_27_07_2022_07_04_23.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59346 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59364 [200]: GET /audio/images/Maqtal-K-sada-k-gi_27_07_2022_07_06_16.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59364 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59365 Accepted
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59316 [200]: GET /audio/images/Meerastergay-ma-da-der_27_07_2022_07_01_28.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59316 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59317 [200]: GET /audio/images/PARDA-DUNIYA-KO_27_07_2022_06_55_09.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59317 Closing
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59365 [200]: GET /audio/images/Shame-da-zalay-gi_27_07_2022_07_06_58.jpg
+[Tue Sep 20 17:02:42 2022] 116.71.180.194:59365 Closing
+[Tue Sep 20 17:02:43 2022] 116.71.180.194:59318 Accepted
+[Tue Sep 20 17:02:44 2022] 116.71.180.194:59318 [200]: GET /audio/images/Ya-rab-e-Hussain-a.s_27_07_2022_07_04_47.jpg
+[Tue Sep 20 17:02:44 2022] 116.71.180.194:59318 Closing
+[Tue Sep 20 17:02:48 2022] 116.71.180.194:59349 Accepted
+[Tue Sep 20 17:02:48 2022] 116.71.180.194:59319 Accepted
+[Tue Sep 20 17:02:48 2022] 116.71.180.194:59349 [200]: GET /audio/images/AACHA-KEYA-BABA_27_07_2022_06_52_43.jpg
+[Tue Sep 20 17:02:48 2022] 116.71.180.194:59349 Closing
+[Tue Sep 20 17:02:48 2022] 116.71.180.194:59319 [200]: GET /audio/mp3/AACHA-KEYA-BABA_27_07_2022_06_52_43.mp3
+[Tue Sep 20 17:02:49 2022] 116.71.180.194:59321 Accepted
+[Tue Sep 20 17:02:50 2022] 116.71.180.194:59321 [200]: GET /favicon.ico
+[Tue Sep 20 17:02:50 2022] 116.71.180.194:59321 Closing
+[Tue Sep 20 17:02:54 2022] 116.71.180.194:59319 Closing
+[Tue Sep 20 17:03:08 2022] 116.71.180.194:59266 Accepted
+[Tue Sep 20 17:03:08 2022] 116.71.180.194:59267 Accepted
+[Tue Sep 20 17:03:08 2022] 116.71.180.194:59267 Closing
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59266 [200]: GET /dashboard/vendor/fontawesome-free/css/all.min.css
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59369 Accepted
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59207 Accepted
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59283 Accepted
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59367 Accepted
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59188 Accepted
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59266 Closing
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59283 [200]: GET /dashboard/css/googleapis_family.css
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59207 [200]: GET /dashboard/css/sb-admin-2.min.css
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59369 [200]: GET /css/audio_player.css
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59369 Closing
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59367 [200]: GET /audio/images/AACHA-KEYA-BABA_27_07_2022_06_52_43.jpg
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59367 Closing
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59188 [200]: GET /audio/images/akbar-da-wro-wro-joravina_27_07_2022_06_56_25.jpg
+[Tue Sep 20 17:03:09 2022] 116.71.180.194:59188 Closing
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59283 Closing
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59190 Accepted
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59285 Accepted
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59370 Accepted
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59192 Accepted
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59190 [200]: GET /audio/images/PARDA-DUNIYA-KO_27_07_2022_06_55_09.jpg
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59190 Closing
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59285 Closing
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59192 [200]: GET /audio/images/Abbas-a.s-Utho_27_07_2022_07_02_46.jpg
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59192 Closing
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59370 [200]: GET /audio/images/Hura-Dosmal-darta-Tohfa-shwla_27_07_2022_07_02_19.jpg
+[Tue Sep 20 17:03:10 2022] 116.71.180.194:59370 Closing
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59157 Accepted
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59194 Accepted
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59291 Accepted
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59373 Accepted
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59242 Accepted
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59207 Closing
+[Tue Sep 20 17:03:11 2022] 116.71.180.194:59157 [200]: GET /dashboard/vendor/fontawesome-free/webfonts/fa-solid-900.woff2
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59291 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59373 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59194 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59242 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59289 Accepted
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59157 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59322 Accepted
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59289 Closing
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59195 Accepted
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59375 Accepted
+[Tue Sep 20 17:03:12 2022] 116.71.180.194:59196 Accepted
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59195 [200]: GET /dashboard/vendor/jquery/jquery.min.js
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59375 [200]: GET /dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59196 [200]: GET /dashboard/vendor/jquery-easing/jquery.easing.min.js
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59196 Closing
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59322 [200]: GET /dashboard/js/sb-admin-2.min.js
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59322 Closing
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59376 Accepted
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59161 Accepted
+[Tue Sep 20 17:03:13 2022] 116.71.180.194:59376 [200]: GET /dashboard/vendor/chart.js/Chart.min.js
+[Tue Sep 20 17:03:14 2022] 116.71.180.194:59195 Closing
+[Tue Sep 20 17:03:14 2022] 116.71.180.194:59375 Closing
+[Tue Sep 20 17:03:14 2022] 116.71.180.194:59161 [200]: GET /js/audio_player.js
+[Tue Sep 20 17:03:14 2022] 116.71.180.194:59161 Closing
+[Tue Sep 20 17:03:14 2022] 116.71.180.194:59379 Accepted
+[Tue Sep 20 17:03:15 2022] 116.71.180.194:59376 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59379 [200]: GET /audio/images/Baba-sa-Najaf-ta-larh-sha_27_07_2022_07_03_56.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59379 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59381 Accepted
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59324 Accepted
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59245 Accepted
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59198 Accepted
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59382 Accepted
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59381 [200]: GET /audio/images/Ma-na-Baba-ma-Bayaya_27_07_2022_07_04_23.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59381 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59324 [200]: GET /audio/images/Ya-rab-e-Hussain-a.s_27_07_2022_07_04_47.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59324 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59245 [200]: GET /audio/images/Maqtal-K-sada-k-gi_27_07_2022_07_06_16.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59245 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59198 [200]: GET /audio/images/Shame-da-zalay-gi_27_07_2022_07_06_58.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59198 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59382 [200]: GET /audio/images/Meerastergay-ma-da-der_27_07_2022_07_01_28.jpg
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59382 Closing
+[Tue Sep 20 17:03:17 2022] 116.71.180.194:59199 Accepted
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59199 [200]: GET /audio/images/Azeem-kam-kar-deya_27_07_2022_07_07_14.jpg
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59199 Closing
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59247 Accepted
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59247 Closing
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59325 Accepted
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59248 Accepted
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59325 [200]: GET /categories/Nohay_19_06_2022_07_41_20.jpg
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59325 Closing
+[Tue Sep 20 17:03:18 2022] 116.71.180.194:59248 Closing
+[Tue Sep 20 17:03:19 2022] 116.71.180.194:59383 Accepted
+[Tue Sep 20 17:03:19 2022] 116.71.180.194:59383 Closing
+[Tue Sep 20 17:03:19 2022] 116.71.180.194:59249 Accepted
+[Tue Sep 20 17:03:19 2022] 116.71.180.194:59249 Closing
+[Tue Sep 20 17:03:20 2022] 116.71.180.194:59163 Accepted
+[Tue Sep 20 17:03:20 2022] 116.71.180.194:59389 Accepted
+[Tue Sep 20 17:03:21 2022] 116.71.180.194:59163 [200]: GET /favicon.ico
+[Tue Sep 20 17:03:21 2022] 116.71.180.194:59163 Closing
+[Tue Sep 20 17:03:24 2022] 116.71.180.194:59146 Accepted
+[Tue Sep 20 17:03:24 2022] 116.71.180.194:59146 Closing
+[Tue Sep 20 17:05:58 2022] 116.71.180.194:59389 Closed without sending a request; it was probably just an unused speculative preconnection
+[Tue Sep 20 17:05:58 2022] 116.71.180.194:59389 Closing

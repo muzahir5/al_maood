@@ -20,6 +20,11 @@
                                     <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
                                      {!! $errors->first('name', '<p class="text-danger">:message</p>') !!}
                                 </div>
+                                <div class="form-group">
+                                    <label for="name">Category type:</label>
+                                    <input type="text" value="{{ $category->category_type }}" name="category_type" id="category_type" class="form-control" placeholder="audio,video,hdform">
+                                     {!! $errors->first('category_type', '<p class="text-danger">:message</p>') !!}
+                                </div>
                                 <div class="form-group" style="display: -webkit-inline-box;">
                                     <label for="status">Status:</label>            
                                     Active<input type="radio" class="form-control" name="status" value="1" {{ ($category->status=="1")? "checked" : "" }}>
@@ -32,7 +37,7 @@
                                             {!! $errors->first('category_img', '<p class="text-danger">:message</p>') !!}
                                         </div>
                                         <div class="form-group col-6" style="text-align: center;border: 1px dashed red;max-width: 200px;padding: 5px;">            
-                                        <img src="{{ asset('public/categories/'.$category->category_img) }} " alt="Product_image_url" style="max-width: 150px;">                
+                                        <img src="{{ asset($category->category_img) }} " alt="Product_image_url" style="max-width: 110px;">
                                         </div>
                                 </div>
                                 <br>

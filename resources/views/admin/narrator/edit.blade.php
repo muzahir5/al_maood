@@ -3,21 +3,17 @@
 @section('title', 'Narrator Edit')
 
 @section('content')
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"> Edit Narrator</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
-
                     <!-- Content Row -->
                     <div class="row">
                     <div class="col-xl-12 col-md-12 mb-4">
-
                     <form method="POST" action="{{ url('/admin/updateNarrator')}} " enctype="multipart/form-data">        
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -40,7 +36,7 @@
                                 {!! $errors->first('profile_pic', '<p class="text-danger">:message</p>') !!}
                             </div>
                             <div class="form-group col-6">            
-                            <img src="{{ asset('public/narrators/'.$narrator->profile_pic) }}" alt="profile_pic" style="max-width: 150px;">
+                            <img src="{{ asset($narrator->profile_pic) }}" alt="profile_pic" style="max-width: 110px;">
                             </div>
                         </div>
                         

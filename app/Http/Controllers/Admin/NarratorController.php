@@ -47,14 +47,16 @@ class NarratorController extends Controller
         $narrator->password = $request->name;
         $narrator->mobile_number = $request->mobile_number;
 
+        $name_r = str_replace(' ', '-', $request->name); //replece ' ' with -
+        
         if($request->hasFile('profile_pic')){
             $originalImage= $request->file('profile_pic');
             $thumbnailImage = Image::make($originalImage);            
             $originalPath = public_path().'/narrators/';
             $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
-            $thumbnailImage->save($originalPath.$request->name.$categ_showto);
+            $thumbnailImage->save($originalPath.$name_r.$categ_showto);
 
-            $narrator->profile_pic = 'narrators/'.$request->name.$categ_showto;
+            $narrator->profile_pic = 'narrators/'.$name_r.$categ_showto;
         }        
 
         $narrator->save();
@@ -84,6 +86,8 @@ class NarratorController extends Controller
         $narrator->email = $request->email;
         $narrator->email = $request->email;
 
+        $name_r = str_replace(' ', '-', $request->name); //replece ' ' with -
+
         if($request->hasFile('profile_pic')){
 
             $profile_image = DB::table('narrators')->where('id',$request->id)->first();
@@ -94,9 +98,9 @@ class NarratorController extends Controller
             $thumbnailImage = Image::make($originalImage);
             $originalPath = public_path().'/narrators/';
             $categ_showto = '_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
-            $thumbnailImage->save($originalPath.$request->name.$categ_showto);
+            $thumbnailImage->save($originalPath.$name_r.$categ_showto);
 
-            $narrator->profile_pic = 'narrators/'.$request->name.$categ_showto;            
+            $narrator->profile_pic = 'narrators/'.$name_r.$categ_showto;            
         }
 
         $narrator->save();

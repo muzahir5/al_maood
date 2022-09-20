@@ -1,16 +1,11 @@
 @extends('user.layouts.default')
-
 @section('title', 'Audio Index')
-
 @section('content')
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">
@@ -23,7 +18,6 @@
                         @endif
                         </h1>
                     </div>
-
                     <!-- Content Row -->
                     <div class="row">
 						@if($categories)
@@ -37,7 +31,8 @@
 													<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 													{{$category->category_type}}</div>
 													<div class="img-box">
-													<img style="max-width: 120px;max-height: 350px;" src="{{ asset('public/categories/'.$category->category_img) }}" alt="Category_image_url">
+														<!-- public/categories/ -->
+													<img style="max-width: 120px;max-height: 350px;" src="{{ asset(''.$category->category_img) }}" alt="Category_image_url">
 												</div>
 													<div class="h5 mb-0 font-weight-bold text-gray-800"> <strike>{{$category->id}} , {{$category->name}}</strike> </div>
 												</div>
@@ -49,7 +44,6 @@
 									</a>
 								</div>
 							</div>
-
 								<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"> -->
 									<!-- <div class="thumb-wrapper col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
 										<a href="">
@@ -66,29 +60,21 @@
 							@endforeach
 						@endif                        
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
-
 @endsection
-
 @section('footer-js-content')
 <script type="text/javascript">
-
-    $(document).ready(function () {		
-        
+    $(document).ready(function () {
         $('#data_tbl').DataTable( {
                 "pagingType": "full_numbers",
                 "pageLength": 50
         } );
-
         setTimeout(function(){
             $('.alert').css('display','none');
         }, 5000);
-
-    }); 
+    });
 </script>
 @endsection

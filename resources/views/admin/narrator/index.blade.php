@@ -3,10 +3,8 @@
 @section('title', 'Narrator Index')
 
 @section('content')
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">
@@ -21,11 +19,9 @@
                         <a href="{{url('admin/addNarrator')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="http://localhost/al-maood/admin/audios text-white-50"></i> Add Narrator</a>
                     </div>
-
                     <!-- Content Row -->
                     <div class="row">
                     <div class="col-xl-12 col-md-12 mb-4">
-                        
                         <table id="narrator_data_tbl" class="display data_tbl_cls" style="width:100%">
                             <thead>
                                 <tr>
@@ -53,7 +49,7 @@
                                             <a href="{{url('admin/updateNarratorStatus' ,$narrator->id)}}" title="Click to Activate status" > InActive </a>
                                             @endif
                                         </td>
-                                        <td><img src="{{ asset('public/narrators/'.$narrator->profile_pic) }}" width="80px" alt="Narrator Pic"></td>
+                                        <td><img src="{{ asset($narrator->profile_pic) }}" width="57px" alt="Narrator Pic"></td>
                                         <td><a href="{{url('admin/editNarrator' ,$narrator->id )}} ">Edit</a> |Delete</td>
                                     </tr>
                                     @endforeach

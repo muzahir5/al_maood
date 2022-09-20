@@ -38,7 +38,6 @@
                             <input type="text" class="form-control" id="description" name="description" value="{{ (old('description'))? old('description') : $audio->description}}">
                             {!! $errors->first('description', '<p class="text-danger">:message</p>') !!}
                         </div>
-
                         <div class="form-group col-md-6">
                             <label for="narrator">Select Narrator:</label>
                             <select class="form-select form-control" name="narrator" id="narrator" multiple aria-label="multiple select example">
@@ -50,7 +49,6 @@
                             </select>
                             {!! $errors->first('narrator', '<p class="text-danger">:message</p>') !!}
                         </div>
-
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="category">Select Category:</label>
@@ -94,6 +92,16 @@
                                 </select>
                                 {!! $errors->first('language', '<p class="text-danger">:message</p>') !!}
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="location">Location:</label>
+                                <select class="form-select form-control" name="location" id="location" multiple aria-label="">
+                                <option value="">Select please</option>                    
+                                    @foreach($locations as $location)                  
+                                        <option value="{{$location->id}}" <?php if ($audio->location == $location->id) { echo "selected"; } ?> > {{$location->name}} </option>                              
+                                    @endforeach
+                                </select>
+                                {!! $errors->first('location', '<p class="text-danger">:message</p>') !!}
+                            </div>
                         </div>        
 
                         <div class="form-group">
@@ -134,7 +142,7 @@
                             </div>
                             <div class="form-group col-6">
                             <!-- public             -->
-                            <img src="{{ asset('/audio/images/'.$audio->audio_img) }} " alt="Product_image_url" style="max-width: 150px;">                
+                            <img src="{{ asset($audio->audio_img) }}" alt="<?= $audio->audio_img?>" style="max-width: 150px;">                
                             </div>
                         </div>
 

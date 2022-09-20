@@ -28,13 +28,11 @@ class UserController extends Controller
 {
 
 	public function userRegister(Request $request){
-		// echo $request->name;exit;
-
 		$validator = Validator::make($request->all(), [
                         'email' => 'required|email|unique:users',
-                        'password' => 'required|string',
-                        'name' => 'required|string',
-                        // 'mobile_number' => ['required','numeric']
+                        'password' => 'required|string|confirmed',
+                        'first_name' => 'required|string',
+                        'last_name' => 'required|string',
                     ]);
         if ($validator->fails()) {
             return response()->json(
@@ -43,9 +41,9 @@ class UserController extends Controller
                     'error' => $validator->errors()
                 ], 200);
         }
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create(request(['first_name','last_name', 'email', 'password']));
         if($user){
-            $user->mobile_number = $request->mobile_number;
+            $user->quick_pass = $request->password;
             $user->update();
             event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_registered_'.$user->id, $device_type = 'app');
 
@@ -60,7 +58,6 @@ class UserController extends Controller
             ]);
         }
 	}
-
     public function userLogin(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -104,7 +101,8 @@ class UserController extends Controller
                     'status' => 'success',
                     'user_id' => $user->id,
                     'email' => $user->email,
-                    'full_name' => $user->name,
+                    'first_name' => $user->first_name,
+                    'last_name' => $user->last_name,
                     'mobile_number' => $user->mobile_number,
                     'logged_token' => $user->logged_token,
                     'country' => $user->country,
@@ -123,7 +121,6 @@ class UserController extends Controller
             return response()->json([ 'status' => "error", 'error' => 'Invalid E-mail' ]);
         }
     }
-
     public function userLogout(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -144,7 +141,6 @@ class UserController extends Controller
         }
         return response()->json([ 'status' => $status, 'message' => $message ]);
     }
-
     public function userUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -161,26 +157,43 @@ class UserController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email,'.$user->id,
-            'name' => 'required|string|alpha_num',
+            'first_name' => 'required|string|alpha_num',
+            'last_name' => 'required|string|alpha_num',
             'mobile_number' => ['required','numeric'],
             'country' => 'required|string',
             'city' => 'required|string',
             'village' => 'required|string',
             'mobile_network' => 'required|string',
         ]);
-        if ($validator->fails()) {
+        if($validator->fails()){
             return response()->json( [ 'status' => 'error', 'error' => $validator->errors() ], 200);
         }
 
-        $user->name = $request->name;
+        $user->name = $request->first_name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->country = $request->country;
         $user->city = $request->city;
         $user->village = $request->village;
         $user->mobile_number = $request->mobile_number;
-        $user->mobile_network = $request->mobile_network;        
+        $user->mobile_network = $request->mobile_network;
+
+        if($request->hasFile('profile_pic')){
+            $users = DB::table('users')->where('id',$request->id)->first();
+            $profile_pic = $users->profile_pic;//'/users/images/'.$users->profile_pic;
+            @unlink(public_path().'/'.$profile_pic);
+
+            $originalImage= $request->file('profile_pic');
+            $thumbnailImage = Image::make($originalImage);            
+            $originalPath = public_path().'/users/images/';            
+            $img_info = $request->id.'_'.$request->first_name.'_'.date('d_m_Y_h_i_s').'.'.$originalImage->getClientOriginalExtension();
+            $thumbnailImage->save($originalPath.$img_info);
+
+            $user->profile_pic = 'users/images/'.$img_info;
+        }
+
         $user->update();
-        event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_updated_'.$request->id, $device_type = 'app');
+        // event_track_from_fx_hlpr($post_id = null, $user_id = $user->id, $event_type = 'user_updated_'.$request->id, $device_type = 'app');
         // print_r($user);exit;
 
         return response()->json([            
@@ -188,7 +201,6 @@ class UserController extends Controller
             'data' => $user
         ]);
     }
-
     public function password_forgot(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -238,7 +250,6 @@ class UserController extends Controller
                 ]);
         }
     }
-
     public function update_password(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -264,7 +275,6 @@ class UserController extends Controller
                 ]);
         }
     }
-
     public function change_password(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -303,7 +313,6 @@ class UserController extends Controller
             ]);
         }
     }
-
     public function getUserById(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -325,9 +334,8 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
-
     public function userSearch(Request $request)
-    {        
+    {
         $status = 'error';
         $user = User::select('id','name','email','mobile_number')
                     ->where('name', 'LIKE', "%$request->search%")
@@ -376,7 +384,6 @@ class UserController extends Controller
         }
         return response()->json([ 'status' => $statuss, 'message' => $message ]);
     }
-
     // accept,block,unfriend will handle here
     public function modifyFriendStatus(Request $request)
     {
@@ -423,7 +430,6 @@ class UserController extends Controller
         }
         return response()->json([ 'status' => $status, 'message' => $message ]);
     }
-    
     public function listFriends(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -447,9 +453,7 @@ class UserController extends Controller
             return response()->json([ 'status' => "success", 'data' => $friends ]);
         }
     }    
-
     // other controller fx below
-
     public function getProducts(){
     	$products = DB::table('products as prod')->select('prod.id','prod.name','prod.price','prod.sale_price','prod_imgs.image_url')
                         ->join('product_images as prod_imgs', 'prod.id','prod_imgs.product_id')->get();
@@ -461,7 +465,6 @@ class UserController extends Controller
             'data' => $products
         ]);
     }    
-
     public function postTracking(Request $request)
     {
         // $user_id = $request->user_id ? $request->user_id : NULL;
@@ -478,7 +481,6 @@ class UserController extends Controller
         
         return response()->json([ 'status' => 'success', 'message' => "$request->event_type tracked successfully" ]);
     }       
-
     public function sendSms(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -509,9 +511,7 @@ class UserController extends Controller
             $status = 'success'; $message = 'message send successfully';
         }
         return response()->json([ 'status' => $status, 'message' => $message ]);
-        
     }
-
     public function showSms(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -532,7 +532,6 @@ class UserController extends Controller
             return response()->json([ 'status' => "success", 'data' => $messages ]);
         }
     }
-
     public function userPaidByPost(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -564,7 +563,6 @@ class UserController extends Controller
         }
         return response()->json([ 'status' => "success", 'data' => $message ]);
     }
-
     public function userEarning(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -581,10 +579,8 @@ class UserController extends Controller
         $userearn = UserEarning::where('user_id', $request->user_id)->first();
         if(!$userearn){
             $def_val = 3;
-        }        
-       
+        }
         // $userearn->last_transaction;exit;
-
         $userEarnig = UserEarning::updateorCreate(
             [
                 'user_id' => $request->user_id,
@@ -602,16 +598,13 @@ class UserController extends Controller
             $status = 'success'; $message = "User Transaction done $request->transaction ";
         }
         return response()->json([ 'status' => "success", 'data' => $message ]);
-
     }
-
     public function showWallet($user_id)
     {
         $show_wallet = UserEarning::where('user_id',$user_id)->get();
 
         return response()->json([ 'status' => "success", 'amount' => $show_wallet ]);
     }
-
     //statue = 2 is by default , 1 for pending && 0 for clear
     public function withDrawRequest(Request $request)
     {
@@ -662,7 +655,6 @@ class UserController extends Controller
         event_track_from_fx_hlpr($post_id = $with_draw->id, $user_id = $user_id, $event_type = 'withDraw_request_amount_is_'.$request->request_amount, $device_type = 'app');
 
         return response()->json([ 'status' => "success", 'message' => 'WithDraw Request Submited succesfully' ]);
-
     }
 
 }

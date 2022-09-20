@@ -33,44 +33,40 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Audio & Categories</span>
+            <span>Audio & Videos</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pages Links</h6>
-                
                 <?php if(! auth()->check() ){ ?>
                 <a class="collapse-item" href="{{ url('admin/register') }}">Register</a>
                 <?php }?>
-
                 <?php if( auth()->check() ){ ?>
-
                 <!-- <a class="collapse-item" href="{{ url('/admin/product')}}">Products</a> -->
-                <a class="collapse-item" href="{{ url('/admin/audio')}}">Audio</a>
-                <a class="collapse-item" href="{{ url('admin/categories') }}">Categories</a>
+                <a class="collapse-item" href="{{ url('/admin/audio')}}">Audios</a>
+                <a class="collapse-item" href="{{ url('/admin/video')}}">Videos</a>
                 <a class="collapse-item" href="{{ url('admin/users') }}">Users</a>
-
                 <?php }else{ ?>
                 <a href="{{ url('admin/login') }}">Login</a>
                 <?php }?>
-            
             </div>
         </div>
     </li>
-
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNarrators"
             aria-expanded="true" aria-controls="collapseNarrators">
             <i class="fas fa-fw fa-list"></i>
-            <span>Narrators</span>
+            <span>Sources</span>
         </a>
         <div id="collapseNarrators" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">collapseNarrators:</h6>
                 <a class="collapse-item" href="{{ url('admin/narrators') }}">Narrators</a>
-                <a class="collapse-item" href="{{ url('admin/addNarrator') }}">Add Narrator</a>
+                <a class="collapse-item" href="{{ url('admin/categories') }}">Categories</a>
+                <a class="collapse-item" href="{{ url('admin/languages') }}">Languages</a>
+                <a class="collapse-item" href="{{ url('admin/locations') }}">Locations</a>
             </div>
         </div>
     </li>
